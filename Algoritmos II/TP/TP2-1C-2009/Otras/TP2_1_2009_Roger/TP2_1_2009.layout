@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="TDA_Cola.c" open="1" top="0" tabpos="5">
+		<Cursor position="1447" topLine="63" />
+	</File>
+	<File name="TDA_GestorIncidencias.c" open="1" top="1" tabpos="1">
+		<Cursor position="725" topLine="94" />
+	</File>
+	<File name="TDA_GestorIncidencias.h" open="1" top="0" tabpos="2">
+		<Cursor position="115" topLine="0" />
+	</File>
+	<File name="TDA_Incidencia.h" open="1" top="0" tabpos="4">
+		<Cursor position="2226" topLine="81" />
+	</File>
+	<File name="TDA_ListaSimple.c" open="1" top="0" tabpos="3">
+		<Cursor position="2246" topLine="46" />
+	</File>
+	<File name="TDA_Pila.c" open="0" top="0" tabpos="3">
+		<Cursor position="555" topLine="0" />
+	</File>
+	<File name="main.c" open="0" top="0" tabpos="5">
+		<Cursor position="107" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

@@ -1,0 +1,103 @@
+2) a)
+
+typedef struct TNodo
+{
+	void *elem;
+	struct TNodo *izq, *der, *her;
+}TNodoAB;
+
+typedef struct
+{
+	TNodoAB *corr, *raiz;
+	int tamaniodato;
+} TDA_ABH;
+
+int buscarPadre (padre, aux, aux2)
+{
+
+	if (padre->izq == aux) 
+	{
+		aux2 = padre;
+		return -1;
+	}
+	if (padre->der == aux)
+	{
+		aux2 = padre;
+		return 1;
+	}
+	buscarPadre (padre->izq,aux);
+	buscarPadre (padre->der,aux);
+}
+
+
+
+void insertar (TDA_ABH *ab, int M, void* elem)
+{
+	TNodoAB *nodoAux;
+	TNodoAB *padre;
+	int lugar;
+	int error=0;
+	
+	nodoAux = (TNodoAB*)malloc(sizeof(TNodoAB));
+	if (nodoAux)
+	{
+		nodoAux->elem = malloc(ab->tamaniodato);
+		if (nodoAux->elem)
+		{
+			memcpy(nodoAux->elem,elem,ab->tamaniodato);
+
+			switch (M)
+			{
+				case RAIZ	:	ab->raiz = nodoAux;
+								break;
+				
+				case IZQ	:	ab->corr->izq = nodoAux;
+								break;
+
+				case DER	:	ab->corr->der = nodoAux;
+								break;
+								
+				case HER	:	lugar = buscarPadre(ab->raiz,ab->cte, padre);
+								if (lugar == -1)
+								{
+									padre->der = nodoAux;
+									ab->corr->her = nodoAux;
+								}
+								if (lugar == 1)
+								{
+									padre->izq = nodoAux;
+									ab->corr->her = nodoAux;
+								}
+								break;								
+			}
+		}
+		
+		ab->cte = nodoAux;
+		else
+		{
+			free (nodoAux);
+		}
+	}
+}
+
+
+void ABH_Insertar (TDA_ABH *ab, int M, void* elem)
+{
+	if (ab->cte != NULL)
+	{
+		switch (M)
+		{
+			case RAIZ	: 	if (ab->raiz == NULL) insertar(ab, M, elem);
+							break;
+					
+			case IZQ	:	if (ab->cte->izq != NULL) insertar (ab,M,elem);
+							break;
+			
+			case DER	:	if (ab->cte->der != NULL) insertar (ab,M,elem);
+							break;
+
+			case HER	: 	if ((ab->cte-her != NULL) && (ab->cte != ab->raiz)) insertar (ab,M,elem);
+							break;
+		}
+	}
+}

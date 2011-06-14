@@ -1,0 +1,167 @@
+
+--- funcion ---
+	nombre: RemoveLeadingSpaces
+	Descripcion de varias palabras: Recibe una palabra a la que si tiene espacios iniciales se los quita y la devuelve
+	devuelve: char*
+	parametro: palabra:char*
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: wordLen
+	Descripcion de varias palabras: recibe un string y una posición dentro de ese string, y devuelve la cant de letras desde ahi hasta un espacio si es palabra o hasta fin de línea si es una oración
+	devuelve: int
+	parametro: stg:char*
+	parametro: comiezo:int
+	parametro: esPalabra:int
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: getPrimeraPalabra
+	Descripcion de varias palabras: Dado un string, devuelve en la variable "palabra", la primera palabra que encuentra
+	devuelve: int
+	parametro: linea:char*
+	parametro: palabra:char**
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: getDesc
+	Descripcion de varias palabras: Dada una linea, devuelve todas las palabras despues de la primer palabra en la variable "desc" si es que existen
+	devuelve: int
+	parametro: linea:char*
+	parametro: desc:char**
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: sacarCaracter
+	Descripcion de varias palabras: busca el caracter 'c' en la variable palabra, si lo encuentra devuelve 1, si no 0
+	devuelve: int
+	parametro: palabra:char*
+	parametro: c:char
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: armarSubTags
+	Descripcion de varias palabras: recibe una tag a la que le arma el V_Array con sus subtags completo
+	devuelve: int
+	parametro: fd:FILE*
+	parametro: auxTag:TAG*
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: armarConfig
+	Descripcion de varias palabras: Vuelca el archivo de configuración en un V_Array. Devuelve -1 si hubo algún error, 1 en otro caso
+	devuelve: int
+	parametro: tdc:TDC*
+	parametro: archConfig:char*
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: tieneTagApertura
+	Descripcion de varias palabras: Lee la linea y se fija si tiene un tag de apertura y no es comentario AUTO monolínea
+	devuelve: int
+	parametro: linea:char*
+	parametro: numLinea:int*
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: buscarLineaAuto
+	Descripcion de varias palabras: Lee el archivo fdo hasta obtener el primer comentario AUTO. Devuelve 1 si lo encontró, y 0 si es EOF
+	devuelve: int
+	parametro: fdo:FILE*
+	parametro: numLinea:int*
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: esTag
+	Descripcion de varias palabras: Devuelve 0 si NO es tag.En el parámetro elemTag devuelve el TAG completo si es TAG
+	devuelve: int
+	parametro: tdc:TDC*
+	parametro: fdo:FILE*
+	parametro: numLinea:int*
+	parametro: elemTag:TAG*
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: descartarAuto
+	Descripcion de varias palabras: evita intentar documentar un comentario AUTO con mala sintaxis
+	devuelve: int
+	parametro: fdo:FILE*
+	parametro: numLinea:int*
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: escribirArchivo
+	Descripcion de varias palabras: Escribe en el archivo, el subtag, y de ser necesario, el nombre del tag
+	devuelve: int
+	parametro: fdd:FILE*
+	parametro: elemTag:TAG
+	parametro: linea:char*
+	parametro: posicion:int
+	parametro: escribirTTag:int
+	author: Ribotta-Zignego
+	see: Vamos a escribir algo en un see
+
+--- funcion ---
+	nombre: obtenerSubTags
+	Descripcion de varias palabras: Dado un tag, obtiene los subtags, y tras validarlos los pasa a una funcion para escribir
+	devuelve: int
+	parametro: fdo:FILE*
+	parametro: fdd:FILE*
+	parametro: numLinea:int*
+	parametro: elemTag:TAG
+	author: Ribotta-Zignego
+	see: Ver funcion escribirArchivo
+
+--- funcion ---
+	nombre: TDC_Crear
+	Descripcion de varias palabras: Crea un TDA DocumentoDeCodigo asociado a un archivo de código fuente C para su documentación automática
+	devuelve: int
+	parametro: tdc:TDC*
+	parametro: archPrograma:char*
+	parametro: archConfig:char*
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: destruirVSubtags
+	Descripcion de varias palabras: recibe una TAG a la cual le libera cada uno de sus elementos del TAG.subTags que es un V_Array
+	devuelve: int
+	parametro: elemTags:TAG*
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: TDC_Cerrar
+	Descripcion de varias palabras: Cierra el tdc
+	devuelve: int
+	parametro: tdc:TDC*
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: TDC_Documentar
+	Descripcion de varias palabras: recibe el tdc y la ruta a donde estará el archivo resultante de la documentación. Realiza la documentación del archivo fuente.
+	devuelve: int
+	parametro: tdc:TDC*
+	parametro: archDoc:char*
+	author: Ribotta-Zignego
+	see: -
+
+--- funcion ---
+	nombre: TDC_Borrar
+	Descripcion de varias palabras: función interna de prueba. No debería existir
+	devuelve: int
+	parametro: tdc:TDC*
+	author: Ribotta-Zignego
+	see: -

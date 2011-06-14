@@ -1,0 +1,237 @@
+
+--- funcion ---
+	Nombre: posIncidencia
+	Descripcion: Posiciona el corriente en la incidencia buscada
+	Devuelve: int
+	Parametro: ptroLista:TListaSimple*
+	Parametro: inci_id:int
+	Parametro: tinAux:TIN*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: obtenerIncidencia
+	Descripcion: Dado un ID de incidencia devuelve un TIN armado. Si no lo pudo encontrar devuelve RES_ERR
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: inci_id:int
+	Parametro: tinAux:TIN*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: validarIncidencia
+	Descripcion: Devuelve RES_OK si la incidencia buscada existe, RES_ERR en otro caso
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: inci_id:int
+	Parametro: tin:TIN*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: validarUsuario
+	Descripcion: Valida la existencia en el TGI del usuario pasado por parámetro
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: stat_user_id:int
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: validarProyecto
+	Descripcion: Valida la existencia en el TGI del proyecto pasado por parámetro
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: project_id:int
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: esBisiesto
+	Descripcion: Dado un año pasado por parámetro devuelve RES_OK si es bisiesto, RES_ERR si no
+	Devuelve: int
+	Parametro: anio:int
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: validarFecha
+	Descripcion: Validar que la fecha pasada por parámetro sea del formato YYYY-MM-DD HH:MM:SS
+	Devuelve: int
+	Parametro: stat_date:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: validarEstado
+	Descripcion: Recibe un estado y le asigna el valor correspondiente en el enumerado. Si no es ninguno, devuelve RES_ERR
+	Devuelve: int
+	Parametro: estado:char*
+	Parametro: tin:TIN*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: guardarArchIncidencias
+	Descripcion: Dada una incidencia la copia en el archivo
+	Devuelve: int
+	Parametro: fdi:FILE*
+	Parametro: auxTin:TIN*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: armarTin
+	Descripcion: Levanta de un archivo todos los datos de una incidencia y los guarda en un TIN
+	Devuelve: int
+	Parametro: fd:FILE*
+	Parametro: tin:TIN*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: archivoVacio
+	Descripcion: Devuelve el tamaño del archivo pasado por parámetro. Si es 0, está vacío.
+	Devuelve: int
+	Parametro: fd:FILE*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_AgregarComentario
+	Descripcion: Agrega un comentario a la incidencia indicada
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: inci_id:const int
+	Parametro: comm_user_id:const int
+	Parametro: comm_date:const char*
+	Parametro: comm_desc:const char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_CambiarEstadoIn
+	Descripcion: Modifica el estado actual de una incidencia por el pasado por parámetro. Valida que el estado anterior sea compatible
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: inci_id:const int
+	Parametro: stat_user_id:const int
+	Parametro: stat_date:const char*
+	Parametro: stat_desc:const char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_GetIncidencia
+	Descripcion: Dado un ID de incidencia la devuelve completa en el TIN pasado como parámetro y devuelve RES_OK. Si no lo puede hacer devuelve RES_ERR
+	Devuelve: int
+	Parametro: tgi:const TGI*
+	Parametro: inci_id:int
+	Parametro: tin:TIN*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_GetHistorialEstadoIn
+	Descripcion: Dado un ID de incidencia devuelve una cola con los estados de la misma. Si no existe, devuelve ERR_INCIDENCIA.
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: inci_id:int
+	Parametro: estados:TCola*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_GetComentariosIn
+	Descripcion: Dado un ID de incidencia devuelve una cola con los comentarios de la misma. Si no existe, devuelve ERR_INCIDENCIA.
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: inci_id:int
+	Parametro: comentarios:TCola*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_GetIncidenciasUsuario
+	Descripcion: Dado un ID de usuario devuelve una cola con las incidencias del mismo. Si no existe el usuario, devuelve ERR_USUARIO.
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: inci_user:int
+	Parametro: incidencias:TCola*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_GetIncidenciasProyecto
+	Descripcion: Dado el ID de un proyecto devuelve una cola con las incidencias del mismo. Si no existe el proyecto, devuelve ERR_PROJECT.
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: project_id:int
+	Parametro: incidencias:TCola*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_AgregarUsuario
+	Descripcion: Agrega el nombre de usuario pasado por parámetro, al TGI
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: user_name:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_AgregarProyecto
+	Descripcion: Agrega un proyecto, cuyo nombre se recibe por parámetro, al TGI
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: project_name:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_AgregarIncidencia
+	Descripcion: Agrega una incidencia al TGI. Valida que exista el usuario y el proyecto indicado.
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: inci_type:tipo_inci_t
+	Parametro: inci_priority:prior_inci_t
+	Parametro: inci_user:int
+	Parametro: inci_assigned_user:int
+	Parametro: inci_date_created:char*
+	Parametro: inci_project_id:int
+	Parametro: inci_summary:char*
+	Parametro: inci_description:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_ArmarArchivos
+	Descripcion: Obtiene todos los elementos del TGI para pasarlos a los archivos de datos.
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: archProyectos:const char*
+	Parametro: archUsuarios:const char*
+	Parametro: archIncidencias:const char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_Crear
+	Descripcion: A partir de los datos encontrados en los archivos de datos, rearma el TGI para comenzar a utilizar Gestor.
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: archProyectos:const char*
+	Parametro: archUsuarios:const char*
+	Parametro: archIncidencias:const char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TGI_Cerrar
+	Descripcion: Elimina todas las estructuras que forman parte del Gestor de Incidencias.
+	Devuelve: int
+	Parametro: tgi:TGI*
+	author: Batman
+	see: -

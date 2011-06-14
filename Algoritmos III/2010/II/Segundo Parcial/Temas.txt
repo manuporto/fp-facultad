@@ -1,0 +1,13 @@
+- Código de calidad (Clase 7)
+- Buenas prácticas ágiles (Clase 7)
+- Principios de diseño (Clase 9)
+- MVC (Clase 9)
+- RTTI y reflexión (Clase 10)
+- Modelos de datos (Clase 10)
+
+- Metaprogramación en Smalltalk
+- Patrones (vimos State, Singleton, Composite y Double Dispatch) como ejemplos de soluciones de problemas de diseño
+
+- Usabilidad (diapositivas de la cátedra) (Lectura)
+
+- Capítulo 5 de "Code Complete" de McConnell (Lectura) (Páginas 90 a 143)

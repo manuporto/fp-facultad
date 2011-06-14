@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="main.c" open="1" top="1">
+		<Cursor position="109" topLine="0"/>
+	</File>
+	<File name="prueba.c" open="1" top="0">
+		<Cursor position="38" topLine="0"/>
+	</File>
+	<File name="prueba.h" open="1" top="0">
+		<Cursor position="79" topLine="0"/>
+	</File>
+	<Expand folder="/Sources"/>
+	<Expand folder="/Headers"/>
+</CodeBlocks_layout_file>

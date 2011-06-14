@@ -1,0 +1,35 @@
+ Bogus-cwp.18 => BogusInfo-lr.18
+ BogusExt-cwp.4 => ConfigurationOfAutomaticMethodCategorizer-MarianoMartinezPeck.
+ BogusInfo-cwp.17 => ConfigurationOfMetacello-DaleHenrichs.137
+ ConfigurationOfAutomaticMethodCategorizer-MarianoMartinezPeck. <
+ ConfigurationOfMetacello-dkh.102                               <
+ ConfigurationOfOCompletion-MarianoMartinezPeck.11 => ConfigurationOfNile-MarianoMartinezPeck.9
+ ConfigurationOfOmniBrowser-MarianoMartinezPeck.14 => ConfigurationOfOCompletion-MarianoMartinezPeck.15
+ ConfigurationOfPharo-MarianoMartinezPeck.26 => ConfigurationOfOmniBrowser-MarianoMartinezPeck.29
+                                                                >   ConfigurationOfPharo-MarianoMartinezPeck.48
+ ConfigurationOfRefactoringBrowser-MarianoMartinezPeck.8 => ConfigurationOfProfStef-LaurentLaffont.5
+ ConfigurationOfShout-MarianoMartinezPeck.10 => ConfigurationOfRefactoringBrowser-MarianoMartinezPeck.13
+ ImageForDevelopers-pharo-MarianoMartinezPeck.198 => ConfigurationOfShout-DaleHenrichs.11
+ Metacello-Core-dkh.319 => Gofer-Core-lr.115
+ Metacello-MC-dkh.292 => ImageForDevelopers-pharo-MarianoMartinezPeck.218
+ Metacello-Platform.pharo-dkh.11 => Metacello-Core-DaleHenrichs.321
+                                                                >   Metacello-MC-DaleHenrichs.302
+                                                                >   Metacello-Platform.pharo-DaleHenrichs.12
+                                                                >   Metacello-Tutorial-tbn.19
+ Nile-All-cyrille_delaunay.154 => Nile-Base-DamienCassou.81
+ Nile-Base-cyrille_delaunay.80                                  <
+ Nile-Tests-DamienCassou.74 => Nile-Tests-DamienCassou.75
+ OB-Morphic-lr.110 => OB-Fake-lr.12
+ OB-Refactory-lr.180 => OB-Morphic-lr.112
+                                                                >   OB-Refactory-lr.194
+ OB-SUnitIntegration-lr.16 => OB-SUnitIntegration-lr.22
+ OB-Standard-DamienCassou.438 => OB-Standard-lr.442
+ OB-Tests-Core-cwp.72 => OB-Tests-Core-lr.77
+ OB-Tests-Morphic-cwp.19 => OB-Tests-Morphic-lr.23
+ OB-Tests-Standard-cwp.95 => OB-Tests-Standard-lr.100
+ Ocompletion-Tests-MarianoMartinezPeck.3 => OcompletionTests-MarianoMartinezPeck.3
+ OmniBrowser-DamienCassou.462 => OmniBrowser-lr.458
+ Refactoring-Core-lr.94 => ProfStef-LaurentLaffont.14
+ Refactoring-Tests-TestRunner.29 => Refactoring-Core-lr.101
+                                                                >   Refactoring-Spelling-lr.18
+                                                                >   Refactoring-Tests-lr.31

@@ -1,0 +1,25 @@
+
+
+"7507 - 2C2010 - TP0 - Enunciado 1"
+
+Transcript cr.
+
+unaSecuencia := Secuencia new.
+
+(unaSecuencia estaVacia) ifTrue: [Transcript show: 'Prueba 1 OK'].
+Transcript cr.
+
+unaSecuencia agregar: 1.
+unaSecuencia agregar: 10.
+unaSecuencia agregar: 100.
+
+(unaSecuencia estaOrdenadaAscendente = True) ifTrue: [Transcript show: 'Prueba 2 OK'].
+Transcript cr.
+
+(unaSecuencia obtenerUltimo = 100) ifTrue: [Transcript show: 'Prueba 3 OK'].
+Transcript cr.
+
+unaSecuencia vaciar.
+(unaSecuencia estaVacia) ifTrue: [Transcript show: 'Prueba 4 OK'].
+Transcript cr.
+

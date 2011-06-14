@@ -1,0 +1,87 @@
+
+<!-- NOTA: porque tengo que definir includeantruntime="false" para todo javac? -->
+
+<project name="fiormula3" default="default" basedir=".">
+
+  <!-- set global properties for this build -->
+	<property name="src" location="src"/>
+	<property name="package-name" value="fiormula3"/>
+	<property name="test-package-name" value="fiormula3test"/>
+
+  <property name="src-code" location="${src}/${package-name}"/>
+  <property name="test-src" location="${src}/${test-package-name}/unittest"/>
+  <property name="build" location="build"/>
+  <property name="test-build" location="${build}"/>
+  <property name="dist"  location="dist"/>
+  <property name="junit-dir" location="lib"/>
+
+	<!-- Define classpath.test relative to CLASSPATH. -->
+	<path id="classpath.base">
+		<pathelement path="${classpath}"/>
+	</path>
+	<path id="classpath.test">
+		<path refid="classpath.base"/>
+		<pathelement location="${test-build}"/>
+		<fileset dir="lib">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+
+	<!-- INITIALIZATION -->
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile and compile-test -->
+    <mkdir dir="${build}"/>
+		<mkdir dir="${test-build}"/>
+  </target>
+
+	<!-- COMPILATION -->
+  <target name="compile" depends="init" description="compile the source." >
+    <javac srcdir="${src-code}" destdir="${build}" includeantruntime="false"/>
+  </target>
+  <target name="compile-test" depends="compile" description="compile the test code.">
+    <javac srcdir="${test-src}" destdir="${test-build}" debug="true" includeantruntime="false">
+ 			<classpath refid="classpath.test"/>
+		</javac>
+	</target>
+
+	<!-- CLEAN UP -->
+  <target name="clean" description="clean up after.">
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+		<delete dir="${test-build}"/>
+  </target>
+
+	<!-- UNIT TESTING -->
+	<target name="test" depends="compile-test">
+		<junit failureProperty="test.failure" printsummary="yes">
+
+			<!-- Use classpath.test to link JUnit. -->
+			<classpath refid="classpath.test"/>
+
+			<!-- brief formatter. -->
+			<formatter type="brief" usefile="false"/>
+
+			<!-- fire the suite. -->
+			<batchtest>
+				<fileset dir="${test-build}" includes="**/Test*.class"/>
+			</batchtest>
+		</junit>
+
+		<!-- Make the build fail if the tests fail. -->
+		<fail message="Test failed." if="test.failure"/>
+	</target>
+
+	<!-- DISTRIBUTION -->
+  <target name="dist" depends="compile" description="generate the distribution" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}/lib"/>
+    <!-- Put everything in ${build} into the TP2-${DSTAMP}.jar file -->
+    <jar jarfile="${dist}/lib/fiormula3-grupo1-${DSTAMP}.jar" basedir="${build}"/>
+  </target>
+
+	<!-- DEFAULT STUB -->
+  <target name="default" depends="dist"/>
+
+</project>

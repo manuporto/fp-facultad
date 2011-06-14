@@ -1,0 +1,131 @@
+/* Wedit generated resource file */
+#ifdef __LCC__
+#include <windows.h>
+#endif
+#ifdef __MINGW32__
+     #include <windows.h>
+#endif
+#include "ord_winres.h"
+
+IDICONOPRINC ICON "C:/DevProgs/Ord_Win/Codigo/ord_win.ico"
+IDMAINMENU MENU
+BEGIN
+    POPUP "&Archivo"
+        BEGIN
+        MENUITEM "&Salir", IDM_EXIT
+        END
+    POPUP "A&lgoritmo"
+        BEGIN
+        MENUITEM "Ordenamiento &Burbuja", IDM_BURBUJ
+        MENUITEM "Ordenamiento por &Selección", IDM_SELEC
+        MENUITEM "Ordenamiento por &Inserción", IDM_INSERC
+        MENUITEM "Ordenamiento &Rápido", IDM_QUICKSORT
+        END
+    POPUP "&Rendimiento"
+        BEGIN
+        MENUITEM "&Prueba de Rendimiento", IDM_PREND
+        END
+    POPUP "&Opciones"
+        BEGIN
+        MENUITEM "&Desordenar", IDM_DESORD
+        MENUITEM "&Pausa...", IDM_PAUSA
+        MENUITEM "&Estadísticas...", IDM_ESTAD
+        END
+    POPUP "Ay&uda"
+        BEGIN
+        MENUITEM "&Ayuda del Programa", IDM_AYUDA
+        POPUP "A&lgoritmos de Ordenamiento"
+            BEGIN
+            MENUITEM "&Principal", IDM_ALGORD
+            MENUITEM "Ordenamiento B&urbuja (Bubblesort)", IDM_A_BURB
+            MENUITEM "Ordenamiento por &Selección", IDM_A_SELEC
+            MENUITEM "Ordenamiento por &Inserción", IDM_A_INSER
+            MENUITEM "Ordenamiento &Rápido (Quicksort)", IDM_A_QUICK
+            END
+        MENUITEM "A&cerca de...", IDM_ACERCA_DE
+        END
+END
+IDACCEL ACCELERATORS
+BEGIN
+    81, IDM_EXIT, VIRTKEY, CONTROL 
+END
+
+DLG_ACERCA_DE DIALOG 60, 20, 134, 112
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Acerca de..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Aceptar", IDOK, 46, 82, 40, 17
+    GROUPBOX        " OrdWin versión 1.0 ", 201, 7, 6, 121, 100
+    CTEXT           "Programa de demostración de algoritmos de ordenamiento. Creado como parte de un artículo del mismo tema en http://www.conclase.net", 202, 18, 18, 101, 43
+    CTEXT           "© 2001 Julián Hidalgo", 203, 19, 67, 95, 12
+END
+
+DLG_PAUSA DIALOG 44, 38, 173, 70
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Pausa"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDE_PAUSA, 71, 35, 30, 12, ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Aceptar", IDOK, 107, 27, 54, 14
+    PUSHBUTTON      "Cancelar", IDCANCEL, 107, 43, 54, 14
+    PUSHBUTTON      "Más Rápido (-)", IDB_RAPIDO, 12, 27, 54, 14
+    PUSHBUTTON      "Más Lento (+)", IDB_LENTO, 12, 43, 54, 14
+    CTEXT           "Ingresa el intervalo de pausa", 401, 35, 12, 109, 12
+    GROUPBOX        "", 403, 6, 2, 162, 63
+END
+
+DLG_PREND DIALOG 35, 31, 330, 198
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Prueba de Rendimiento"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Comenzar", IDB_COMENZAR, 161, 26, 40, 14
+    PUSHBUTTON      "Generar", IDB_GENERAR, 161, 44, 40, 14
+    PUSHBUTTON      "Cerrar", IDCANCEL, 161, 63, 40, 14
+    EDITTEXT        IDE_CANTIDAD, 246, 46, 40, 12, ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Cambiar", IDB_CAMBIAR, 246, 63, 40, 14
+    CONTROL         "", IDL_RES_PREND, "SysListView32", 0x241 | WS_BORDER, 16, 93, 299, 89
+    GROUPBOX        "", 704, 6, 6, 318, 187
+    LTEXT           "En esta parte del programa puedes evaluar los algoritmos con la cantidad de números que desees. Presiona Comenzar para realizar la prueba, Cerrar para volver y Generar para inicializar nuevamente la lista con valores aleatorios.", 
+                    705, 21, 26, 133, 48
+    GROUPBOX        " Cambiar Tamaño ", 711, 215, 14, 100, 69
+    CTEXT           "Aquí puedes cambiar el tamaño de la lista.", 712, 225, 26, 81, 17
+    GROUPBOX        " Realizar Prueba ", 713, 16, 14, 192, 69
+END
+
+DLG_ESTAD DIALOG 33, 42, 300, 140
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Estadísticas de la Demostración Gráfica"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cerrar", IDOK, 126, 116, 40, 14
+    CONTROL         "", IDL_ESTAD, "SysListView32", 0x241 | WS_BORDER, 14, 10, 273, 102
+END
+STRINGTABLE
+BEGIN
+    903, "Quicksort"
+    902, "Inserción"
+    901, "Selección"
+    900, "Burbuja"
+    803, "Intercambios"
+    802, "Comparaciones"
+    801, "Tiempo"
+    800, "Algoritmo"
+    502, "Abre el tutorial de Ordenamiento Burbuja (Bubblesort)"
+    501, "Ayuda en la utilización del programa"
+    500, "Acerca de OrdWin"
+    323, "Abre el tutorial de Ordenamiento Rápido (Quicksort)"
+    322, "Abre el tutorial de Ordenamiento por Inserción"
+    321, "Abre el tutorial de Ordenamiento por Selección"
+    320, "Abre el tutorial principal"
+    319, "Muestra estadísticas sobre los algoritmos utilizados hasta el momento"
+    318, "Aumentar o disminuir el intervalo de pausa"
+    317, "Distribuye las barras en forma aleatoria"
+    316, "Inicia el demo de Ordenamiento por Inserción"
+    315, "Inicia el demo de Ordenamiento Rápido (Quicksort)"
+    313, "Inicia el demo de Ordenamiento por Selección"
+    312, "Inicia el demo de Ordenamiento Burbuja (Bubblesort)"
+    311, "Realiza una prueba con la cantidad de elementos que desees"
+    300, "Salir de esta aplicación"
+END

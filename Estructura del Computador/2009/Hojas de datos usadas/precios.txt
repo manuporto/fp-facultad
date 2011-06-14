@@ -1,0 +1,4 @@
+FF-JK:			$ 1.708 x 2
+Quad 2 Input OR:	$ 1.817
+
+TOTAL:			$ 5.233

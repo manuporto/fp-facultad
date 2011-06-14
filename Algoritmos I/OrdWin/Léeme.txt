@@ -1,0 +1,120 @@
+======================================================================
+                       Léeme.txt de OrdWin 1.0
+======================================================================
+
+Contenidos:
+
+1.- Introducción.
+2.- Configuración del código.
+3.- Cómo compilar.
+4.- Por hacer.
+5.- Contacto.
+
+
+----------------------------------------------------------------------
+1.- Introducción.
+----------------------------------------------------------------------
+
+OrdWin es un programa de demostración de varios algoritmos de
+ordenamiento creado como parte de un artículo sobre el tema en
+http://www.conclase.net. Se distribuye junto a éste con el nombre
+Ord_Win10.zip. En el fichero zip se incluye:
+
+- Léeme.txt : Este documento.
+- OrdWin.exe: El ejecutable. Incluido para las personas que no quieran o
+              sepan compilar el código.
+- En la carpeta Articulo:
+  * alg_ord.htm   (Página principal del artículo)
+  * burbuja.htm
+  * seleccion.htm
+  * insercion.htm
+  * quicksort.htm
+- En la carpeta Ayuda:
+  * ayuda.htm: Ayuda del programa.
+  * ord_win.css: Hoja de estilo.
+  * Varias imágenes (8 en total).
+- En la carpeta Codigo: El código fuente (11 archivos).
+- En la carpeta Consola:
+  * ordenar.c: Programa de consola con implementación de los
+               algoritmos.	
+
+
+----------------------------------------------------------------------
+2.- Configuración del código.
+----------------------------------------------------------------------
+
+El directorio recomendado para descomprimir el fichero es: 
+C:\DevProgs\Ord_Win\
+porque de esa manera se puede compilar sin cambios el proyecto.
+Si utilizas otro directorio deberás configurar el fichero OrdWin.dev
+y el fichero de recursos, reemplazando los paths donde corresponda.
+Los pasos son:
+
+- Abrir OrdWin.dev con un editor de texto plano (como el Notepad de
+Windows). Entre otras cosas verás esto:
+
+[Project]
+FileName=C:\DevProgs\Ord_Win\Codigo\OrdWin.dev
+ResFiles=C:\DevProgs\Ord_Win\Codigo\ord_winres.rc
+Icon=C:\DEV-C++\Bin\Mainicon.ico
+
+[Unit1]
+FileName=C:\DevProgs\Ord_Win\Codigo\Ord_Win.c
+
+[Unit2]
+FileName=C:\DevProgs\Ord_Win\Codigo\Demo.c
+
+[Unit3]
+FileName=C:\DevProgs\Ord_Win\Codigo\p_rend.c
+
+- Reemplazar cada referencia a C:\DevProgs\Ord_Win\
+por el nombre del directorio donde pusiste el proyecto.
+
+- Reemplazar cada referencia a C:\DEV-C++\Bin\ por el nombre del
+directorio en que instalaste el compilador.
+
+- Abrir ord_winres.rc. En la siguiente línea:
+IDICONOPRINC ICON "C:/DevProgs/Ord_Win/Codigo/ord_win.ico"
+Cambiar C:/DevProgs/Ord_Win por el nombre del directorio
+en que descomprimiste el archivo.
+
+
+----------------------------------------------------------------------
+3.- Cómo compilar.
+----------------------------------------------------------------------
+
+Si tienes Dev-C++ puedes abrir y compilar el proyecto OrdWin.dev
+incluido.
+Si no lo tienes o deseas utilizar otro compilador tendrás que crear
+un proyecto tú mismo y agregar los correspondientes ficheros
+(*.c y *.rc).
+Además debes enlazar las siguientes librerías:
+
+-winmm.lib 
+-shell32.lib
+-comctl32.lib
+
+La forma de hacerlo varía de acuerdo al compilador. Además es posible
+que algunas sean incluidas automáticamente.
+
+
+----------------------------------------------------------------------
+4.- Por hacer.
+----------------------------------------------------------------------
+
+* Agregar más algoritmos.
+* Eliminar el flickering. Hay que trabajar con bitmaps, y no dibujar
+directamente a la ventana como ahora.
+* Opción de cambiar la cantidad de barras en la demostración gráfica.
+* Posibilidad de generar listas semiordenadas en la prueba de
+rendimiento, para evaluar comportamiento en casos extremos.
+* Posibilidad de trabajar con más de una lista en la demostración
+gráfica.
+
+
+----------------------------------------------------------------------
+5.- Contacto.
+----------------------------------------------------------------------
+
+Página principal de C con Clase: http://www.conclase.net
+Mi dirección de e-mail         : jhida003@pinhue.ufro.cl

@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1239069419 source:d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tp con dbgr\getstring.c
+	"getString.h"
+	"memdbg.h"
+
+1219842168 d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tp con dbgr\getstring.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1239070358 source:d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tp con dbgr\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"TDA_DocumentoDeCodigo.h"
+
+1239052754 d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tp con dbgr\tda_documentodecodigo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"var_array.h"
+	"getString.h"
+
+1238867287 d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tp con dbgr\var_array.h
+	<string.h>
+	<stdlib.h>
+
+1239056902 source:d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tp con dbgr\memdbg.c
+	<stdlib.h>
+	<stdio.h>
+	<malloc.h>
+
+1239069380 source:d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tp con dbgr\var_array.c
+	"var_array.h"
+	"memdbg.h"
+
+1239056894 d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tp con dbgr\memdbg.h
+	<stdlib.h>
+
+1239072402 source:d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tp con dbgr\tda_documentodecodigo.c
+	"memdbg.h"
+	"TDA_DocumentoDeCodigo.h"
+
+1239051595 source:d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tp con dbgr\auxiliar.c
+	"auxiliar.h"
+
+1239052654 d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tp con dbgr\auxiliar.h
+	<string.h>
+	<stdlib.h>
+	"var_array.h"
+	"getString.h"
+	"TDA_DocumentoDeCodigo.h"
+

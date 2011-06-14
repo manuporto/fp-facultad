@@ -1,0 +1,152 @@
+typedef struct {
+	int cod_mat;
+	int anio;
+	TDA_AB *aprobados;
+} telem1;
+
+typedef struct {
+	int padron;
+	int fecha;
+	int nota;
+} telem2;
+
+typedef struct {
+	int cod_materia;
+	int anio;
+	int padron;
+	int nota;
+	int fecha;
+
+} telemCola;
+
+typedef struct {
+	int cod_materia;
+	int anio;
+	int padron;
+	int nota;
+	int fecha;
+	int error; /* 1 o 2 */
+} telemError;
+
+typedef struct {
+	TDA_AB *materias;
+} TDA_Materias;
+
+
+1º) Obtengo elemento de la cola (while)
+2º) Buscar si existe el código de materia Y el año de curso
+3º) Obtengo el árbol de alumnos de esa materia y año
+4º) Buscar que no exista el padrón
+5º) Insertarlo
+
+void armarColaError (telemCola elemCola, telemError elemError, int error)
+{
+	igualar todo
+	elemError.error = error;
+}
+
+void insertar_padron(TDA_AB *ab, telemCola elemCola)
+{
+	int error;
+	telem2 elem2;
+	telem2 elemAux;
+	
+	elem2.padron = elemCola.padron;
+	elem2.fecha = elemCola.fecha;
+	elem2.nota = elemCola.nota;
+	/* Armo el elemento a ingresar */
+	
+	if (AB_Vacio(*ab)) AB_Insertar (ab,&elem2,RAIZ,&error);
+	else
+	{
+		AB_Obtener_Cte (ab,&elemAux,&error);
+		if (elemAux.padron > elem2.padron) AB_Insertar(ab,&elem2,IZQ,&error);
+		if (elemAux.padron < elem2.padron) AB_Insertar(ab,&elem2,DER,&error);
+	}
+}
+	
+void cargar_aprobados (TDA_Materias *tda, TDA_Cola *cola, TDA_Cola *resultado)
+{
+	telem1 elem1;
+	telem2 elem2;
+	telemCola elemCola;
+	telemError elemError;
+
+	
+	while (C_Sacar(*cola,&elemCola))
+	{
+		if (buscar_materia (TDA_Materias->materias, elemCola.cod_materia, elemCola.anio,RAIZ) == -1) 
+		/*Me devuelve error -1 si no existe el cod+anio o me devuelve el elemento entero */
+		{
+			armarColaError (elemCola,elemError,1);
+			C_Insertar (resultado,&elemError);
+		}
+		else
+		{
+			if (buscar_padron (elem1->aprobados,-----,elemCola.padron, RAIZ) == -1)
+			/*Devuelve -1 si lo encontró 0 si no*/
+			{
+				armarColaError(elemCola,elemError,2);
+				C_Insertar (resultado,&elemError);
+			}
+			else /*si el padron no existe, lo agrego al arbol, sabiendo que el corriente queda bla*/
+				insertar_padron (elem1->aprobados,elemCola);
+		}
+	}
+}
+	
+/*
+elem1.cod_mat ---> cod;
+elem1.anio ---> anio;	
+*/
+/*Me devuelve error -1 si no existe el cod+anio o me devuelve el elemento entero */
+int buscar_materia (TDA_AB *ab, int cod, int anio, int mov)
+{
+	int error, aux;
+	telem1 elemAux;
+
+	AB_Mover_Cte (ab,mov,&error);
+	if (!error)
+	{
+		AB_Obtener_Cte (*ab,&elemAux,&error);
+		
+		if ((elemAux.cod_mat == elem1.cod_mat) && (elemAux.anio == elem1.anio)) return 0;
+
+		if ((elemAux.cod_mat > elem1.cod_mat) || ((elemAux.cod_mat == elem1.cod_mat) && (elemAux.anio > elem1.anio)))
+			aux = buscar_materia (ab,cod,anio,elem1,IZQ);
+		if ((elemAux.cod_mat < elem1.cod_mat) || ((elemAux.cod_mat == elem1.cod_mat) && (elemAux.anio < elem1.anio)))
+			aux = buscar_materia (ab,cod,anio,elem1,DER);
+	}
+	else return -1;
+
+	return aux;
+}
+
+/*Devuelve -1 si lo encontró 0 si no*/
+int buscar_padron (TDA_AB *ab, int padron, int mov)
+{
+
+	int error;
+	telem2 elemAux;
+
+	AB_Mover_Cte (ab,mov,&error);
+	if (!error)
+	{
+		AB_Obtener_Cte (*ab,&elemAux,&error);
+		
+		if (elemAux.padron == padron) return -1;
+		
+		if (padron < elemAux.padron) aux = buscar_padron (ab,padron,IZQ);
+		if (padron > elemAux.padron) aux = buscar_padron (ab,padron,DER);
+	}
+	else
+		return 0;
+	
+	return aux;
+}
+
+
+
+
+			
+

@@ -1,0 +1,70 @@
+# depslib dependency file v1.0
+1240510548 source:c:\documents and settings\administrador\escritorio\tp2_1_2009\tda_listasimple.c
+	"TDA_ListaSimple.h"
+	<malloc.h>
+	<memory.h>
+
+1240510550 c:\documents and settings\administrador\escritorio\tp2_1_2009\tda_listasimple.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1240510546 source:c:\documents and settings\administrador\escritorio\tp2_1_2009\tda_cola.c
+	"TDA_Cola.h"
+	<malloc.h>
+	<memory.h>
+
+1240510548 c:\documents and settings\administrador\escritorio\tp2_1_2009\tda_cola.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1241103063 source:c:\documents and settings\administrador\escritorio\tp2_1_2009\tda_gestorincidencias.c
+	"TDA_GestorIncidencias.h"
+	"TDA_Incidencia.h"
+	<malloc.h>
+	<memory.h>
+
+1241060235 c:\documents and settings\administrador\escritorio\tp2_1_2009\tda_gestorincidencias.h
+	<stdio.h>
+	<stdlib.h>
+	"TDA_Incidencia.h"
+
+1241057206 c:\documents and settings\administrador\escritorio\tp2_1_2009\tin_incidencia.h
+	<stdio.h>
+	<stdlib.h>
+	"TDA_Cola.h"
+	"TDA_Pila.h"
+	"TDA_ListaSimple.h"
+
+1240510550 c:\documents and settings\administrador\escritorio\tp2_1_2009\tda_pila.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1240510546 c:\documents and settings\administrador\escritorio\tp2_1_2009\tda_cola.c
+	"TDA_Cola.h"
+	<malloc.h>
+	<memory.h>
+
+1240510548 c:\documents and settings\administrador\escritorio\tp2_1_2009\tda_listasimple.c
+	"TDA_ListaSimple.h"
+	<malloc.h>
+	<memory.h>
+
+1240510550 source:c:\documents and settings\administrador\escritorio\tp2_1_2009\tda_pila.c
+	"TDA_Pila.h"
+	<malloc.h>
+	<memory.h>
+
+1193991326 source:c:\documents and settings\administrador\escritorio\tp2_1_2009\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1241057206 c:\documents and settings\administrador\escritorio\tp2_1_2009\tda_incidencia.h
+	<stdio.h>
+	<stdlib.h>
+	"TDA_Cola.h"
+	"TDA_Pila.h"
+	"TDA_ListaSimple.h"
+

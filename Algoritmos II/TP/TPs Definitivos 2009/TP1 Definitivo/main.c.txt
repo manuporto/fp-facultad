@@ -1,0 +1,9 @@
+
+--- funcion ---
+	Nombre: main
+	Descripcion: Función main del programa
+	Devuelve: int
+	Parametro: argc:int
+	Parametro: argv:char**
+	author: Batman
+	see: -

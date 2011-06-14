@@ -1,0 +1,17 @@
+body {color: black; background-color: white; padding: 4px; 
+      font-family:Verdana,Arial,Helvetica,sans-serif;}
+
+h1 {color: white; background-color: maroon;
+   font-family:Verdana,Arial,Helvetica,sans-serif; font-size: x-large;
+   text-align: center; padding: 4px;}
+   
+h2 {background-color: navy; color: white;
+   font-family:"Comic Sans MS",Arial,Helvetica,sans-serif; font-size:large;
+   padding: 2px;}
+
+ol {font-family: "Comic Sans MS",Arial,Helvetica,sans-serif;}
+
+div.imagen {text-align: center; margin: 3%;}   
+   
+a {text-decoration: none}
+a:hover {color:maroon; background-color: transparent; text-decoration:none;} 

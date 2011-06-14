@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="es">
+<head>
+<title>3 Ordenamiento por Inserción</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="alg_ord.css" media="screen" type="text/css">
+</head>
+
+<body>
+ <h1>3 Ordenamiento por Inserción</h1>
+
+ <div>
+  <p class="barra">
+    [<a title="Anterior: Ordenamiento por Selección"
+        href="seleccion.htm">2 Selección</a>]   
+    [<a title="Volver a la Página Principal de Algoritmos"
+        href="alg_ord.htm">Volver a Algoritmos</a>]
+    [<a title="Siguiente: Ordenamiento Rápido (Quicksort)"
+        href="quicksort.htm">4 QuickSort</a>]
+  </p>
+ </div>
+ 
+ <!-- Descripción -->
+ <a id="descripcion"></a>
+ <h2>1. Descripción.</h2>
+ <p>Este algoritmo también es bastante sencillo. ¿Has jugado cartas?. ¿Cómo las vas
+   ordenando cuando las recibes? Yo lo hago de esta manera: tomo la primera y la coloco en
+   mi mano. Luego tomo la segunda y la comparo con la que tengo: si es mayor, la pongo a
+   la derecha, y si es menor a la izquierda (también me fijo en el color, pero omitiré esa
+   parte para concentrarme en la idea principal). Después tomo la tercera y la comparo con
+   las que tengo en la mano, desplazándola hasta que quede en su posición final. Continúo
+   haciendo esto, <i>insertando</i> cada carta en la posición que le corresponde, hasta
+   que las tengo todas en orden. ¿Lo haces así tu también? Bueno, pues si es así entonces
+   comprenderás fácilmente este algoritmo, porque es el mismo concepto.
+ </p>
+ <p>Para simular esto en un programa necesitamos tener en cuenta algo: no podemos
+   desplazar los elementos así como así o se perderá un elemento. Lo que hacemos es
+   guardar una copia del elemento actual (que sería como la carta que tomamos) y desplazar
+   todos los elementos mayores hacia la derecha. Luego copiamos el elemento guardado en
+   la posición del último elemento que se desplazó.
+ </p> 
+
+ <!-- Pseudocódigo en C -->
+ <a id="pseudocodigo"></a>
+ <h2>2. Pseudocódigo en C.</h2>
+
+ <!-- Tabla de variables -->
+ <table border=1 align=center
+  summary="Tabla de Variables: Nombre, tipo y uso de cada varaiable en el algoritmo">
+  <caption>Tabla de variables</caption>       
+  <thead>
+   <tr>
+    <th>Nombre</th>
+    <th>Tipo</th>
+    <th>Uso</th>
+   </tr>     
+  </thead>
+
+  <tbody>
+   <tr>
+    <td>lista</td>
+    <td>Cualquiera</td>
+    <td>Lista a ordenar</td>
+   </tr>
+   <tr>
+    <td>TAM</td>
+    <td>Constante Entera</td>
+    <td>Tamaño de la lista</td>
+   </tr>
+   <tr>
+    <td>i</td>
+    <td>Entero</td>
+    <td>Contador</td>
+   </tr>
+   <tr>
+    <td>j</td>
+    <td>Entero</td>
+    <td>Contador</td>
+   </tr>
+   <tr>
+    <td>temp
+    <td>El mismo que los elementos de la lista</td>
+    <td>Para realizar los intercambios</td>
+   </tr>
+  </tbody>
+ </table>
+
+ <!-- Listado -->
+ <pre class="pseudo"> 
+    1. for (i=1; i&lt;TAM; i++)
+    2.      temp = lista[i];
+    3.      j = i - 1;
+    4.      while ( (lista[j] > temp) &amp;&amp; (j >= 0) )
+    5.           lista[j+1] = lista[j];
+    6.           j--;
+    7.      lista[j+1] = temp;
+ </pre>
+
+ <p class="nota">Nota:</p>
+ <ul>
+  <li>Observa que en cada iteración del ciclo externo los elementos 0 a i forman una
+    lista ordenada.
+  </li>
+ </ul>
+    
+ <!-- Ejemplo de ejecución del algoritmo -->
+ <a id="ejemplo"></a>            
+ <h2>3. Un ejemplo</h2>
+ <p>¿Te acuerdas de nuestra famosa lista?
+ </p>
+ <p class=ejemp>4 - 3 - 5 - 2 - 1
+ </p>
+ <p>temp toma el valor del segundo elemento, 3. La <i>primera carta</i> es el 4. Ahora
+   comparamos: 3 es menor que 4. Luego desplazamos el 4 una posición a la derecha y
+   después copiamos el 3 en su lugar.
+ </p>
+ <p class=ejemp>4 - <b>4</b> - 5 - 2 - 1
+ </p>
+ <p class=ejemp><b>3</b> - 4 - 5 - 2 - 1
+ </p>
+ <p>El siguiente elemento es 5. Comparamos con 4. Es mayor que 4, así que no ocurren
+   intercambios.
+ </p>
+ <p>Continuamos con el 2. Es menor que cinco: desplazamos el 5 una posición a la derecha:
+ </p>
+ <p class="ejemp">3 - 4 - 5 - <b>5</b> - 1
+ </p>
+ <p>Comparamos con 4: es menor, así que desplazamos el 4 una posición a la derecha: 
+ </p>
+ <p class="ejemp">3 - 4 - <b>4</b> - 5 - 1
+ </p>
+ <p>Comparamos con 3. Desplazamos el 3 una posición a la derecha:
+ </p>
+ <p class="ejemp">3 - <b>3</b> - 4 - 5 - 1
+ </p>
+ <p>Finalmente copiamos el 2 en su posición final:
+ </p>
+ <p class="ejemp"><b>2</b> - 3 - 4 - 5 - 1  
+ </p>
+ <p>El último elemento a ordenar es el 1. Cinco es menor que 1, así que lo desplazamos una
+   posición a la derecha:
+ </p>
+ <p class="ejemp">2 - 3 - 4 - 5 - <b>5</b>
+ </p>
+ <p>Continuando con el procedimiento la lista va quedando así:
+ </p>
+ <p class="ejemp">2 - 3 - 4 - <b>4</b> - 5
+ </p>
+ <p class="ejemp">2 - 3 - <b>3</b> - 4 - 5
+ </p>
+ <p class="ejemp">2 - <b>2</b> - 3 - 4 - 5
+ </p>
+ <p class="ejemp"><b>1</b> - 2 - 3 - 4 - 5
+ </p>
+ <p>Espero que te haya quedado claro.
+ </p>
+ 
+ <!-- Análisis del algoritmo -->
+ <a id="analisis"></a>
+ <h2>4. Análisis del algoritmo.</h2> 
+ <ul>  
+  <li><a href="alg_ord.htm#estabilidad">Estabilidad</a>: Este algoritmo nunca intercambia
+    <a href="alg_ord.htm#registro">registros</a> con <a href="alg_ord.htm#clave">claves</a> 
+    iguales. Por lo tanto es <i>estable</i>.
+  </li>
+  <li><a href="alg_ord.htm#requerimientos">Requerimientos de Memoria</a>: Una variable
+    adicional para realizar los intercambios.
+  </li>
+  <li><a href="alg_ord.htm#tiempo_ejecucion">Tiempo de Ejecución</a>: Para una lista de
+    <b>n</b> elementos el ciclo externo se ejecuta <b>n-1</b> veces. El ciclo interno se
+    ejecuta como máximo una vez en la primera iteración, 2 veces en la segunda, 3 veces en
+    la tercera, etc. Esto produce una complejidad O(n<sup>2</sup>). 
+  </li>
+ </ul>
+ 
+ <p><b>Ventajas:</b>
+ </p>
+ <ul>
+  <li>Fácil implementación.
+  </li>
+  <li>Requerimientos mínimos de memoria.
+  </li>  
+ </ul>
+ <p><b>Desventajas:</b>
+ </p>
+ <ul>
+  <li>Lento.
+  </li>
+  <li>Realiza numerosas comparaciones.
+  </li>
+ </ul>
+ <p>Este también es un algoritmo lento, pero puede ser de utilidad para listas que están
+   ordenadas o semiordenadas, porque en ese caso realiza muy pocos desplazamientos.
+ </p>
+ <p>
+ </p>
+ 
+ <div>
+  <p class="barra">
+    [<a title="Anterior: Ordenamiento por Selección"
+        href="seleccion.htm">2 Selección</a>]   
+    [<a title="Volver a la Página Principal de Algoritmos"
+        href="alg_ord.htm">Volver a Algoritmos</a>]
+    [<a title="Siguiente: Ordenamiento Rápido (Quicksort)"
+        href="quicksort.htm">4 QuickSort</a>]
+  </p>
+ </div>
+ 
+ <hr>
+ <p class="copyr">©2001 - <a href="mailto:jhida003@pinhue.ufro.cl">Julián
+   Hidalgo</a>
+ </p>
+ 
+</body>
+</html>

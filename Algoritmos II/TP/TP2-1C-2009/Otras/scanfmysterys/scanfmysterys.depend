@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1241132329 source:c:\documents and settings\bright eyes\escritorio\scanfmysterys\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1241198742 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\otras\scanfmysterys\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,40 @@
+unaCte := Constante new.
+unaCte valor: 3.
+
+x := X new.
+
+unaResta := Resta new.
+unaResta parametro1: unaCte parametro2: x.
+
+resultado := unaResta evaluarEn: 1.
+
+(resultado = 2) ifTrue: [Transcript show: 'Prueba 1 OK' ].
+Transcript cr.
+
+otraCte := Constante new.
+otraCte valor: 7.
+
+unaResta parametro1: otraCte parametro2: x.
+
+resultado := unaResta evaluarEn: 3.
+
+(resultado = 4) ifTrue: [Transcript show: 'Prueba 2 OK' ].
+Transcript cr.
+
+	
+unLogaritmo := Logaritmo new.
+unLogaritmo parametro1: unaCte parametro2: x.
+
+resultado := unLogaritmo evaluarEn: 9.
+
+(resultado = 2) ifTrue: [Transcript show: 'Prueba 3 OK' ].
+Transcript cr.
+
+unLogaritmo parametro1: otraCte parametro2: unaCte.
+
+unaCte valor: 49.
+
+resultado := unLogaritmo evaluarEn: 49.
+
+(resultado = 2) ifTrue: [Transcript show: 'Prueba 4 OK' ].
+Transcript cr.

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="TDA_DocumentoDeCodigo.c" open="1" top="1" tabpos="2">
+		<Cursor position="12643" topLine="498" />
+	</File>
+	<File name="TDA_DocumentoDeCodigo.h" open="1" top="0" tabpos="4">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="main.c" open="1" top="0" tabpos="1">
+		<Cursor position="100" topLine="0" />
+	</File>
+	<File name="memdbg.c" open="0" top="0" tabpos="0">
+		<Cursor position="129" topLine="0" />
+	</File>
+	<File name="var_array.c" open="1" top="0" tabpos="3">
+		<Cursor position="433" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

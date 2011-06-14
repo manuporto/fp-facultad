@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link type="text/css" rel="stylesheet" href="blackshift.css">
+<title>BlackShift - Editor</title>
+<style type="text/css">
+<!--
+
+/* IE Hover Fix */
+body {behavior:url("csshover.htc"); }
+
+.green { color: #CCFF00;}
+
+.style1 {font-size: smaller}
+.style3 {
+	font-size: larger;
+	font-weight: bold;
+}
+table.kb, tr {
+	padding: 0px;
+	border: 0px;
+	width: 900px;
+}
+table.kb,tr,td {
+	border-collapse: collapse;
+	}
+	
+/* Keys */
+td
+{
+	background-position: center;
+	background-repeat: no-repeat;	
+	width: 60px;
+	height: 60px;
+	margin: 0px;
+	border-collapse: collapse;
+	border: 1px solid #DDDDDD;
+	padding: 0px;
+	background-color: #333333;
+	font-size: 0px;
+	color: #000000;
+	text-align: left;
+	vertical-align: bottom;	
+	cursor: default;
+}
+
+/* Key Widths */
+td 			{ width: 60px; }
+td.kg150 	{ width: 80px; }
+td.kg125 	{ width: 75px; }
+td.kg175 	{ width: 105px; }
+td.kg200-b,
+td.kg200 	{ width: 120px; }
+td.kg275 	{ width: 165px; }
+td.kw625-b,
+td.kw625 	{ width: 375px; }
+
+/* Control Keys */
+td.kg125, td.kg150, td.kg175, td.kg200, td.kg200-b, td.kg275
+{
+	background-color: #222222;
+}
+
+/* Display letter */
+td.kg125, td.kg150, td.kg175, td.kg200, td.kg275,
+td.b,
+td.kw625-b,
+td:hover
+{
+	text-align: center;
+	color: #CCFF00;
+	font-size: 12pt;
+	background-image: none;
+	vertical-align: middle;
+}
+
+-->
+</style>
+</head>
+<body>
+<div align="center">
+ 
+
+  <p class="subBar">Keyboard</p>
+  <div>
+  <table class="kb" cellspacing="0" cellpadding="0">
+
+  	<tr>
+  		<td background="tiles/_copy.png
+  		<td background="tiles/p-key.png
+  		<td background="tiles/p-fs.png
+  		<td background="tiles/p-bs.png
+
+  		<td background="tiles/p-bomb.png
+  		<td background="tiles/p-missile.png
+  		<td background="tiles/p-missile-u.png
+  		<td background="tiles/p-missile-l.png
+  		<td background="tiles/p-missile-r.png
+
+  		<td background="tiles/p-missile-d.png
+  		<td background="tiles/_null.png
+  		<td background="tiles/p-manip.png
+  		<td background="tiles/emc.png
+  		<td background="tiles/ranjack-0.png
+
+  	</tr>
+  	</table>
+	<table class="kb"  cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="kg150">Tab</td>
+  		<td background="tiles/seed.png
+  		<td background="tiles/switcher.png
+
+  		<td background="tiles/peg-up.png
+  		<td background="tiles/peg-down.png
+  		<td background="tiles/twall.png
+  		<td background="tiles/swiss.png
+  		<td background="tiles/target.png
+  		<td background="tiles/gun-u.png
+
+  		<td background="tiles/craft.png
+  		<td background="tiles/tbomb-0.png
+  		<td background="tiles/cont-up.png
+  		<td background="tiles/raiser.png
+  		<td class="kg150" style="border-bottom: 0px">Ret</td>
+
+  		</tr>
+  	</table>
+	<table class="kb"  cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="kg175" id="caps">Caps</td>
+  		<td background="tiles/mirror-fs.png
+  		<td background="tiles/mirror-bs.png
+
+  		<td background="tiles/mirror-0.png
+  		<td background="tiles/frame.png
+  		<td background="tiles/block.png
+  		<td background="tiles/restart-2.png
+  		<td background="tiles/gun-l.png
+  		<td background="tiles/gun-d.png
+
+  		<td background="tiles/gun-r.png
+  		<td background="tiles/e-tr-0.png
+  		<td class="b"><sup>@</sup>'</td>
+  		<td class="b"><sup>~</sup>#</td>
+  		<td class="kg125" id="lret" style="border-top: 0px;">&nbsp;</td>
+
+  		</tr>
+  	</table>
+	<table class="kb"  cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="kg125" >Shift</td>
+  		<td class="b"><sup>¦</sup>\</td>
+  		<td background="tiles/wall.png
+
+  		<td background="tiles/lock.png
+  		<td background="tiles/door.png
+  		<td background="tiles/customs-r.png
+  		<td background="tiles/bomb.png
+  		<td background="tiles/floor.png
+  		<td background="tiles/mirror-o.png
+
+  		<td background="tiles/_del.png
+  		<td background="tiles/e-ud.png
+  		<td background="tiles/e-frw.png
+  		<td class="kg275" >Shift</td>
+  		</tr>
+  	</table>
+
+	<table class="kb"  cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="kg125" >Ctrl</td>
+  		<td class="kg125" >Win</td>
+  		<td class="kg125" >Alt</td>
+  		<td class="kw625" background="tiles/bang-block.png
+  		<td class="kg125" >Alt</td>
+
+  		<td class="kg125" >Win</td>
+  		<td class="kg125" >Mnu</td>
+  		<td class="kg125" >Ctrl</td>
+  	</tr>
+  	</table>
+	</div>
+	
+<p class="subBar">Keyboard with SHIFT </p>
+
+  <div>
+  <table class="kb" cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="b"><sup>¬</sup>`</td>
+  		<td background="tiles/button-red.png
+  		<td background="tiles/button-green.png
+
+  		<td background="tiles/button-blue.png
+  		<td background="tiles/button-yellow.png
+  		<td background="tiles/door-red.png
+  		<td background="tiles/door-green.png
+  		<td background="tiles/door-blue.png
+
+  		<td background="tiles/door-yellow.png
+  		<td class="b"><sup>(</sup>9</td>
+  		<td class="b"><sup>)</sup>0</td>
+  		<td class="b"><sup>_</sup>-</td>
+  		<td class="b"><sup>+</sup>=</td>
+
+  		<td style="width: 90px" class="kg200" id="bs">Bksp</td>
+  	</tr>
+  	</table>
+	<table class="kb"  cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="kg150">Tab</td>
+  		<td background="tiles/floorseed.png
+
+  		<td background="tiles/dbomb.png
+  		<td background="tiles/grs-1.png
+  		<td background="tiles/floor-recess.png
+  		<td background="tiles/ofloor.png
+  		<td background="tiles/fwall.png
+  		<td background="tiles/doors-up.png
+
+  		<td background="tiles/gun-u-1.png
+  		<td background="tiles/floor-opendoor.png
+  		<td background="tiles/pit.png
+  		<td background="tiles/ff-r.png
+  		<td background="tiles/ff-b.png
+
+  		<td class="kg150" style="border-bottom: 0px">Ret</td>
+  		</tr>
+  	</table>
+	<table class="kb"  cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="kg175" id="caps">Caps</td>
+  		<td background="tiles/floor-once.png
+
+  		<td background="tiles/safe-2.png
+  		<td background="tiles/diamond-up.png
+  		<td background="tiles/diamond-lock.png
+  		<td background="tiles/grill-2.png
+  		<td background="tiles/purple.png
+  		<td background="tiles/gun-l-1.png
+
+  		<td background="tiles/gun-d-1.png
+  		<td background="tiles/gun-r-1.png
+  		<td class="b"><sup>:</sup>;</td>
+  		<td class="b"><sup>@</sup>'</td>
+  		<td class="b"><sup>~</sup>#</td>
+
+  		<td class="kg125" id="lret" style="border-top: 0px;">&nbsp;</td>
+  		</tr>
+  	</table>
+	<table class="kb"  cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="kg125" >Shift</td>
+  		<td class="b"><sup>¦</sup>\</td>
+
+  		<td background="tiles/receiver.png
+  		<td background="tiles/button.png
+  		<td background="tiles/clone.png
+  		<td background="tiles/hwall-1.png
+  		<td background="tiles/floor.png
+  		<td background="tiles/slow.png
+
+  		<td background="tiles/mud.png
+  		<td background="tiles/shift-r-1.png
+  		<td background="tiles/shift-b-1.png
+  		<td class="b"><sup>?</sup>/</td>
+  		<td class="kg275" >Shift</td>
+  		</tr>
+
+  	</table>
+	<table class="kb"  cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="kg125" >Ctrl</td>
+  		<td class="kg125" >Win</td>
+  		<td class="kg125" >Alt</td>
+  		<td class="kw625-b">Space</td>
+
+  		<td class="kg125" >Alt</td>
+  		<td class="kg125" >Win</td>
+  		<td class="kg125" >Mnu</td>
+  		<td class="kg125" >Ctrl</td>
+  	</tr>
+  	</table>
+	</div>	
+	
+
+<p class="subBar">Keyboard with ALT </p>
+  <div>
+  <table class="kb" cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="b"><sup>¬</sup>`</td>
+  		<td background="tiles/p-sw.png
+  		<td class="b"><sup>&quot;</sup>2</td>
+
+  		<td class="b"><sup>£</sup>3</td>
+  		<td class="b"><sup>
+  		<td class="b"><sup>%</sup>5</td>
+  		<td class="b"><sup>^</sup>6</td>
+  		<td class="b"><sup>&amp;</sup>7</td>
+
+  		<td class="b"><sup>*</sup>8</td>
+  		<td class="b"><sup>(</sup>9</td>
+  		<td class="b"><sup>)</sup>0</td>
+  		<td class="b"><sup>_</sup>-</td>
+  		<td class="b"><sup>+</sup>=</td>
+
+  		<td style="width: 90px" class="kg200" id="bs">Bksp</td>
+  	</tr>
+  	</table>
+	<table class="kb"  cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="kg150">Tab</td>
+  		<td background="tiles/teleport-blue-in.png
+
+  		<td background="tiles/teleport-blue-out.png
+  		<td background="tiles/teleport-white.png
+  		<td background="tiles/go-1.png
+  		<td background="tiles/bwall.png
+  		<td background="tiles/bosslock.png
+  		<td background="tiles/sup.png
+
+  		<td background="tiles/1way-0.png
+  		<td background="tiles/rad.png
+  		<td background="tiles/floor.png
+  		<td class="b"><sup>{</sup>[</td>
+  		<td class="b"><sup>}</sup>]</td>
+
+  		<td class="kg150" style="border-bottom: 0px">Ret</td>
+  		</tr>
+  	</table>
+	<table class="kb"  cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="kg175" id="caps">Caps</td>
+  		<td background="tiles/teleport-green-in.png
+
+  		<td background="tiles/teleport-green-out.png
+  		<td background="tiles/go-2.png
+  		<td background="tiles/go-4.png
+  		<td background="tiles/go-3.png
+  		<td class="b">H</td>
+  		<td background="tiles/1way-1.png
+
+  		<td background="tiles/1way-3.png
+  		<td background="tiles/1way-2.png
+  		<td class="b"><sup>:</sup>;</td>
+  		<td class="b"><sup>@</sup>'</td>
+  		<td class="b"><sup>~</sup>#</td>
+
+  		<td class="kg125" id="lret" style="border-top: 0px;">&nbsp;</td>
+  		</tr>
+  	</table>
+	<table class="kb"  cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="kg125" >Shift</td>
+  		<td class="b"><sup>¦</sup>\</td>
+
+  		<td background="tiles/teleport-orange-in.png
+  		<td background="tiles/teleport-orange-out.png
+  		<td background="tiles/twall-r.png
+  		<td background="tiles/twall-b.png
+  		<td background="tiles/customs-br.png
+  		<td background="tiles/crazy.png
+
+  		<td background="tiles/mine-1.png
+  		<td background="tiles/mirror-fs-b.png
+  		<td background="tiles/mirror-bs-b.png
+  		<td class="b"><sup>?</sup>/</td>
+  		<td class="kg275" >Shift</td>
+  		</tr>
+
+  	</table>
+	<table class="kb"  cellspacing="0" cellpadding="0">
+  	<tr>
+  		<td class="kg125" >Ctrl</td>
+  		<td class="kg125" >Win</td>
+  		<td class="kg125" >Alt</td>
+  		<td class="kw625-b">Space</td>
+
+  		<td class="kg125" >Alt</td>
+  		<td class="kg125" >Win</td>
+  		<td class="kg125" >Mnu</td>
+  		<td class="kg125" >Ctrl</td>
+  	</tr>
+  	</table>
+	</div>		
+  <p class="style1"><a href="editor">Back</a></p>
+
+</div>
+</body>

@@ -1,0 +1,76 @@
+pristine:0000000366-f95df5681fb87029f67799fc9be81e8025b853a1e8a012fe5d219dce9f2959ea
+[Inicio del repo
+etoccalino@fi.uba.ar**20101108154135
+ Ignore-this: 4df41a472219547c876912f168b972de
+] 
+hash: 0000103239-3225f700317b6d3b083988b3ee67db7252806f34bfbf53e45d7f7f537a96b048
+[mejor indentado
+etoccalino@fi.uba.ar**20101108160726
+ Ignore-this: 99122715bcaf7e4e4e53970df1388fbe
+] 
+hash: 0000002513-6683221824aa74947ecb8f4cde4e59086a6fe24bc3448f271a357e6b02ec4089
+[First build through ant.
+etoccalino@fi.uba.ar**20101108184147
+ Ignore-this: 20b8ded580fcfccaf4cc25cde9e14e57
+] 
+hash: 0000141503-fb1c7097f6ee0314f82a0f217fc463d7135f83f50d0709f2cf4857172775f0e8
+[Trabajando para que ant y junit jueguen juntas.
+etoccalino@fi.uba.ar**20101109000108
+ Ignore-this: b292a70ccc31bc7e558c4891231c3995
+] 
+hash: 0000015646-960a6d309a5796cf068b34aed34f7cb5f8171ca90a50b2e430cba77fc1bca245
+[dos paquetes: uno de programa y uno de pruebas.
+etoccalino@fi.uba.ar**20101109000210
+ Ignore-this: 5781393cc269745f22a8eaad61f142b3
+] 
+hash: 0000001074-3fe0a7d3ae4e2572f6564bbb5f3112c879a1bd28133cfb0599140374072bf822
+[Changes to the build.xml file
+etoccalino@fi.uba.ar**20101109001652
+ Ignore-this: 1ad955c6944b08720f86826e206a9c82
+] 
+hash: 0000001206-5a963ad63a5952f02e151c862b2f3eaa42757f36a518010f68a9b883e0e3bb67
+[Funcionando, pero eo.
+etoccalino@fi.uba.ar**20101109003154
+ Ignore-this: 8d98049fee2bb309e7ade9908779ff27
+] 
+hash: 0000001113-ec856f16455ae773e6644bedc5c7098ce9e0dd3ba9e3d0f77f28d225b224f38a
+[Lost factory methods for simplicity.
+etoccalino@fi.uba.ar**20101109011618
+ Ignore-this: 6d92386e5e3a6696a77738a1730787a
+] 
+hash: 0000005836-b23982bda75c41212608bccd0a0b067d33a85a8625f0b59dcc6d25a7d213f9e5
+[added the junit.jar library
+etoccalino@fi.uba.ar**20101109011814
+ Ignore-this: a963004f90795fc10cfa22841a24cb87
+] 
+hash: 0000446653-c9f7fadccd5808b24b13f169501f638a3b67ef927c9b4e7109a41ce4bc2f19d0
+[JUnit running from Ant build file.
+etoccalino@fi.uba.ar**20101109012816
+ Ignore-this: 8b11b727c543e60e8a25c72d172342eb
+] 
+hash: 0000000456-eba06f0740e1a22473c4b0dae60c9639f2e44ba7e8c4a670a7fb013375c3385a
+[Limpié el build.xml y el repo
+etoccalino@fi.uba.ar**20101109013011
+ Ignore-this: 43f25005f9d97e77a299a70894c8f85a
+] 
+hash: 0000000637-ec0aaa96974591a3c04608a72b8062327d2e2044e9aaa59082882fdc2c35bfe2
+[Mejoras en distribucion y testeos
+etoccalino@fi.uba.ar**20101109013812
+ Ignore-this: 11b23793ade64c17e09918750dfe9c61
+] 
+hash: 0000223476-1b58b6a05a3bc7a3cc00ff68f45be2ff6e730507508fe5fea03669b2e0149593
+[mejore la documentación
+etoccalino@fi.uba.ar**20101109021348
+ Ignore-this: 42fdccf5e94cec40ed605b9c25bbed0f
+] 
+hash: 0000237449-308c6fb9a0d0b4151e0a2c150aa74674068359dabcd0b1dff219057134323fda
+[mejora en la documentacion
+etoccalino@fi.uba.ar**20101109021555
+ Ignore-this: 6a5a0e3d66807afbcfad1b1232beac91
+] 
+hash: 0000262000-cdb83db21fba12faa01f3864a3e98b98829e4933af0d0a0570139b83eeb3a335
+[Empiezo el trabajo en las pruebas.
+etoccalino@fi.uba.ar**20101109031648
+ Ignore-this: 3724a79b5fa1db137a3c5e0d54bb2ef1
+] 
+hash: 0000001558-20489f9b1ef1754e915ae41db8b80ff1f0d506fd97cfb3a082a4bb62b03126e4

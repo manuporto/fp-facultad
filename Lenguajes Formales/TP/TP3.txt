@@ -1,0 +1,35 @@
+Ejemplos
+
+> (setq grafo '(
+	(Chile_y_Peru (Peru_y_Mexico Chile_y_Bolivar))
+	(Chile_y_Bolivar (Chile_y_Peru Chile_y_Defensa Bolivar_y_Mexico))
+	(Chile_y_Defensa (Chile_y_Bolivar Defensa_y_Mexico))
+	(Peru_y_Mexico (Bolivar_y_Mexico Chile_y_Peru))
+	(Bolivar_y_Mexico (Peru_y_Mexico Chile_y_Bolivar Defensa_y_Mexico))
+	(Defensa_y_Mexico (Chile_y_Defensa Bolivar_y_Mexico))
+))
+> (gps 'bolivar_y_mexico 'chile_y_peru)                                         
+
+(
+MAS CORTO (BOLIVAR_Y_MEXICO PERU_Y_MEXICO CHILE_Y_PERU)
+MAS LARGO (BOLIVAR_Y_MEXICO DEFENSA_Y_MEXICO CHILE_Y_DEFENSA CHILE_Y_BOLIVAR CHILE_Y_PERU)
+TODOS (BOLIVAR_Y_MEXICO PERU_Y_MEXICO CHILE_Y_PERU) (BOLIVAR_Y_MEXICO CHILE_Y_BOLIVAR CHILE_Y_PERU) (BOLIVAR_Y_MEXICO DEFENSA_Y_MEXICO CHILE_Y_DEFENSA CHILE_Y_BOLIVAR CHILE_Y_PERU)
+)
+
+> (setq grafo '( (a (b c)) (b (a d e)) (c (a d e)) (d (b c e)) (e (c b d)) ) )
+> (gps 'a 'b)
+
+(
+MAS CORTO (A B)
+MAS LARGO (A C D E B)
+TODOS (A B) (A C D B) (A C D E B) (A C E B) (A C E D B)
+)
+ 
+> (setq grafo '( (a (b c)) (b (a d e)) (c (a d e)) (d (b)) (e (c b d)) ) )
+> (gps 'c 'e)
+
+(
+MAS CORTO (C E) 
+MAS LARGO (C A B E) 
+TODOS (C A B E) (C D B E) (C E)
+)

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="AB.h" open="1" top="0" tabpos="4">
+		<Cursor position="801" topLine="0" />
+	</File>
+	<File name="AB_AUX.c" open="1" top="0" tabpos="10">
+		<Cursor position="3504" topLine="0" />
+	</File>
+	<File name="Pila.h" open="1" top="0" tabpos="5">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="TDA_Expresion.c" open="1" top="0" tabpos="3">
+		<Cursor position="362" topLine="0" />
+	</File>
+	<File name="TDA_Expresion.h" open="1" top="0" tabpos="2">
+		<Cursor position="115" topLine="0" />
+	</File>
+	<File name="cmemdbg.c" open="1" top="0" tabpos="12">
+		<Cursor position="1529" topLine="28" />
+	</File>
+	<File name="cmemdbg.h" open="0" top="0" tabpos="13">
+		<Cursor position="1338" topLine="11" />
+	</File>
+	<File name="constantes.h" open="1" top="0" tabpos="11">
+		<Cursor position="655" topLine="0" />
+	</File>
+	<File name="derivadores.c" open="1" top="0" tabpos="9">
+		<Cursor position="785" topLine="0" />
+	</File>
+	<File name="derivadores.h" open="1" top="0" tabpos="8">
+		<Cursor position="113" topLine="0" />
+	</File>
+	<File name="literal.h" open="1" top="0" tabpos="1">
+		<Cursor position="103" topLine="0" />
+	</File>
+	<File name="main.c" open="1" top="1" tabpos="13">
+		<Cursor position="471" topLine="0" />
+	</File>
+	<File name="opciones.c" open="1" top="0" tabpos="14">
+		<Cursor position="4033" topLine="123" />
+	</File>
+	<File name="opciones.h" open="1" top="0" tabpos="15">
+		<Cursor position="92" topLine="0" />
+	</File>
+	<File name="simplificadores.c" open="1" top="0" tabpos="7">
+		<Cursor position="8485" topLine="0" />
+	</File>
+	<File name="simplificadores.h" open="1" top="0" tabpos="6">
+		<Cursor position="75" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

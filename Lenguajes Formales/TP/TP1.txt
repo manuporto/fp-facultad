@@ -1,0 +1,26 @@
+Ejemplos
+
+> (eval
+	'(cond 
+		((> a b) (- a b))
+		((< a b) (- b a))
+		(T '0)
+	)
+	'(a 8 b 9 > > < < - - T T)
+)
+Devuelve 1
+
+> (eval '(fact x) '(fact (lambda (n)
+					(if (= n 0) 1
+						(if (= n 1) 1
+							(* n (fact (- n 1)))
+						)
+					)
+				)
+		x 5
+		* *
+		- -
+		= =
+	)
+)
+Devuelve 120
