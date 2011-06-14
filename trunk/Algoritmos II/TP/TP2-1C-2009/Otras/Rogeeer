@@ -1,0 +1,95 @@
+Gente:
+
+Con Ramiro vamos a hacer todo el TDA TIN y el main. Ustedes hagan el TDA TGI.
+
+A continuación les dejamos las primitivas definitivas para el TDA TGI. Son las que mandaron ellos CORREGIDAS, más las que son necesarias via el main.
+
+Elijan cómo quieren separárselo, pero eso sí, vayan avisando por el grupo.
+
+Todas estas TIENEN que estar hechas para el martes. La mayoría son nada más que validar y llamar a una función del TIN. Las complicadas creo que son TGI_Crear, TGI_Cerrar, TGI_ArmarArchivos.
+
+Cualquier duda pregúntennos por acá por el grupo. La idea básica del manejo de los archivos es así:
+En el crear, reciben tres rutas a archivos y guarda esa información en la estructura (son tres listas).
+Al momento de armar los archivos, tienen que hacer lo opuesto. Recuperar toda la información de la estructura, y mandarla a los archivos. Siempre respetando el mismo formato.
+
+Decidan algún formato que les sea fácil para las dos primitivas.
+En el caso de archUsuarios y archProyectos son fáciles:
+
+id nombre
+id nombre
+id nombre
+
+
+
+int TGI_CambiarEstadoIn (const TGI *tgi, int inci_id, int stat_user_id, char* stat_date, stat_inci_t stat_desc) 
+PRE: Dígannos ustedes cuales creen que serían las PRE necesarias y las vemos nosotros en el main. Creo que no hay ninguna. Agreguen las obvias (hay suficiente memoria, etc).
+POST: Devuelve 0 si lo pudo agregar, -1 si no pudo.
+DESC: Validar que la incidencia exista. Validar que la descripción se corresponda con uno de los datos del enum stat_inci_t. Llama a TIN_CambiarEstado.
+
+int TGI_ResolverIn (const TGI *tgi, int inci_id, resol_inci_t resolv)
+PRE: Dígannos ustedes cuales creen que serían las PRE necesarias y las vemos nosotros en el main. Creo que no hay ninguna. Agreguen las obvias (hay suficiente memoria, etc).
+POST: Devuelve 0 si cambió el estado a resuelto, -1 si no pudo.
+DESC: Validar que la variable resolv se corresponda con uno de los datos del enum stat_inci_t
+
+int TGI_GetIncidencia (const TGI *tgi, int inci_id) [La modificamos un poco respecto a la del enunciado]
+PRE: Estan en el enunciado.
+POST: Están en el enunciado. Sacando la parte de que lo devuelve, sino que nosotros decidimos imprimirlo ahí.
+DESC: Lo mismo que dice en el enunciado, pero además que lo imprima (via stdout) ahí mismo.
+
+int TGI_GetHistorialEstadoIn (const TGI *tgi, int inci_id)
+PRE: Lo mismo que en las primeras dos.
+POST: Devuelve 0 si lo pudo obtener, -1 en caso contrario.
+DESC: Que obtenga el historial del estado de la incidencia solicitada y que lo imprima (via stdout).
+
+int TGI_GetComentariosIn (const TGI *tgi, int inci_id)
+PRE: Igual al anterior
+POST: Igual al anterior.
+DESC: Igual al anterior, pero con los comentarios de la incidencia.
+
+int TGI_GetIncidenciasUsuario (const TGI *tgi, int inci_user) [Le modificamos el nombre y una variable]
+PRE: Las mismas del enunciado sin tener en cuenta la cola.
+POST: 0 si la imprimió bien, -1 si el usuario no tiene incidencias, -2 en otro error (no existe el usuario o no existe la incidencia por ejemplo).
+DESC: Lo mismo que dice el enunciado, pero en vez de devolver la cola, que la use para imprimirlo ahí mismo. PERO USEN UNA COLA sí o sí.
+
+int TGI_GetIncidenciasProyecto (const TGI *tgi, int project_id) [Le modificamos el nombre y una variable]
+PRE: Las mismas del enunciado, sin tener en cuenta la cola/lista
+POST: Devuelve 0 si lo pudo imprimir. -1 si no existen incidencias para el proyecto, -2 otro error.
+DESC: Imprime por pantalla (usando cola o lista, ustedes elijan) las incidencias pertenecientes a un proyecto.
+
+int TGI_AgregarUsuario(const TGI *tgi, char* user_name);
+PRE: Dígannos ustedes cuales creen que serían las PRE necesarias y las vemos nosotros en el main. Creo que no hay ninguna. Agreguen las obvias (hay suficiente memoria, etc).
+POST: Devuelve 0 si pudo agregar al usuario exitosamente, -1 si no pudo agregarlo con éxito (creo que no podría pasar nunca).
+DESC: Agrega un usuario a la lista de la estructura. Para el campo del ID, autogenérenlo sumándole uno al último ID agregado.
+
+int TGI_AgregarProyecto(const TGI *tgi, char* project_name);
+PRE: Dígannos ustedes cuales creen que serían las PRE necesarias y las vemos nosotros en el main. Creo que no hay ninguna. Agreguen las obvias (hay suficiente memoria, etc).
+POST: Devuelve 0 si pudo agregar el proyecto exitosamente, -1 si no pudo agregarlo con éxito (creo que no podría pasar nunca).
+DESC: Agrega un proyecto a la lista de la estructura. Para el campo del ID, autogenérenlo sumándole uno al último ID agregado.
+
+int TGI_AgregarIncidencia (const TGI* tgi, tipo_inci_t inci_type, prior_inci_t inci_priority, int inci_user, int inci_assigned_user, char* inci_date_created, int inci_project_id, char* inci_summary, char* inci_description)
+PRE: Dígannos ustedes cuales creen que serían las PRE necesarias y las vemos nosotros en el main. Creo que no hay ninguna. Agreguen las obvias (hay suficiente memoria, etc).
+POST: Devuelve el ID de la incidencia creada si lo pudo hacer. -1 si no existe el ID del proyecto, -2 si no existe el ID del usuario, -3 en caso de otro error.
+DESC: Agregar una incidencia llamando a la función TIN_Crear, la que te lo devuelve en un TIN que deben agregar a la lista de la estructura. Para el campo del ID, autogenérenlo sumándole uno al último ID agregado. Validen todos los enumerados.
+
+int TGI_ArmarArchivos (TGI *tgi, const char* archProyectos, const char* archUsuarios, const char* archIncidencias, int i);
+PRE: Los archivos existen, y el tgi existe y está cargado.
+POST: Devuelve 0 si estuvo todo bien, -1 en otro caso.
+DESC: Va lista por lista, y vuelca los datos de cada una, en un archivo temporal. Al finalizar, renombre los archivos temporales, para pisar los archivos pasados. La variable "i" puede ser 0, 1 o 2. Si es 0, sólo se hace esto para el archivo de incidencias, si es 1, sólo para el de proyectos, y si es 2, sólo para el de usuarios. Nunca se va a tener que hacer para más de uno a la vez (usen un switch).
+
+int TGI_Crear (TGI *tgi, const char* archProyectos, const char* archUsuarios, const char* archIncidencias) [Le cambiamos el nombre a las variables de los archivos]
+PRE: La del enunciado.
+POST: La del enunciado.
+DESC: Levanta los tres archivos (archProyectos, archUsuarios y archIncidencias) y los guarda en las listas correspondientes del TGI.
+
+int TGI_Cerrar (TGI *tgi)
+PRE: Enunciado
+POST: Enunciado
+DESC: Va lista por lista, obtiene cada uno de los nodos, y los libera. En el caso de las incidencias, llamando a TIN_Liberar, en los otros casos, es un free por cada nodo. Al final, liberar las tres listas.
+
+
+Recuerden que en todas las funciones tienen que llamar a funciones de TIN, salvo TGI_AgregarUsuario y TGI_AgregarProyecto.
+Cualquier duda manden mail al grupo y lo vemos.
+
+Esto DEBE estar para el martes así nos queda tiempo suficiente para unir las dos partes y hacer todas las pruebas necesarias. Nosotros hacemos el TIN, también para el martes. Si lo tienen antes, mejor. Lo suben al grupo y listo.
+
+Saludos.

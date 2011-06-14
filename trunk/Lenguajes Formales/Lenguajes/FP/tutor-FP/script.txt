@@ -1,0 +1,13 @@
+def fac = (eq o [id, ~0] -> ~1 ; * o [id, fac o - o [id, ~1]])
+fac : 10
+def concat  = (eq o [~<>, 2] -> 1 ; concat o [appendr o [1, 1 o 2], tl o 2])
+def flatten = / concat <> o alpha (atom -> (null -> id ; [id]) ; flatten)
+flatten : <1, <2>, <<3>, 4>>
+def maxhelp = (null o 1 -> 2 ; great o [hd o 1, 2] -> maxhelp o [tl o 1, hd o 1] ; maxhelp o [tl o 1, 2])
+def maxlist = (null -> hd ; maxhelp o [tl, hd])
+maxlist : <5, 1, 3, 0, 9, 6, 7, 2, 4, 8>
+def concat = (eq o [~<>, 2] -> 1 ; concat o [appendr o [1, 1 o 2], tl o 2])
+concat : <<1, 2, 3, 4>, <5, 6, 7, 8>>
+def seqhelp = (eq o [1, ~0] -> 2 ; seqhelp o [- o [1, ~1], appendl o [1, 2]])
+def seq     = seqhelp o [id, []]
+seq : 10

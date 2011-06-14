@@ -1,0 +1,48 @@
+       Installation instructions for FreeAPL for Windows
+
+       The FreeAPL for Windows diskette should contain the following files:
+           INSTALL.BAT
+           FREEAPL.EXE
+           FREEAPL.HLP
+           AUXFNS.C
+           AUXFNS.DLL
+           CHART.DLL
+           APLFIX.FON
+           APL2741.TTF
+           APL2741.FOT
+           FREEAPL.INI
+           INSTALL.TXT (This file)
+
+       The installation takes place as follows:
+
+       1. Put the FreeAPL diskette in drive A:
+
+       2. Change drive A: to current drive.
+
+       3. Type INSTALL and press <Enter>.
+
+       INSTALL 1) makes directory C:\FREEAPL, and its subdirectories WS
+       and FUN, 2) copies files FREEAPL.EXE, FREEAPL.HLP, APLFIX.FON,
+       AUXFNS.*, CHART.DLL and INSTALL.TXT to it, 3) copies utility
+       and demo workspaces from the directory A:\WS to C:\FREEAPL\WS,
+       and 4) copies file FREEAPL.INI to C:\WINDOWS.
+
+       If you want to install FreeAPL to another drive/directory, files
+       INSTALL.BAT and FREEAPL.INI must be changed accordingly.
+
+       The default screen font is "APLfix" and the default printer font is
+       "Courier". You can change the defaults by adding to the FREEAPL.INI
+       file the lines
+       		screenfont=fontname
+       		screenfontsize=<fontsize>
+       		printerfont=fontname
+       		printerfontsize=<fontsize>
+       where fontnames and fontsizes may be different.
+
+       If you have Windows 3.1 (or later), then you can use Adrian Smith's
+       APL2741, and copy files APL2741.TTF and APL2741.FOT to your Windows
+       directory. This enables printing of APL characters, if you have a
+       printer that supports TrueType.
+
+       Lastly, you should install the beautiful red apple of FreeAPL to
+       your Program Manager!

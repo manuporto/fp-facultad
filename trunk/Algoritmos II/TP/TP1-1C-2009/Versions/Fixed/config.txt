@@ -1,0 +1,27 @@
+
+
+
+title{
+name nombre
+	description
+}
+
+function funcion{
+name
+	description Descripcion de varias palabras
+return devuelve
+param parametros
+author
+see
+}
+
+
+
+footer
+{
+name nombre
+	author autor
+copyright derechos
+}
+
+

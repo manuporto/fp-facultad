@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="es">
+<head>
+<title>2 Ordenamiento por Selección</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="alg_ord.css" media="screen" type="text/css">
+</head>
+
+<body>
+ <h1>2 Ordenamiento por Selección.</h1>
+
+ <div>
+  <p class="barra">
+    [<a title="Anterior: Ordenamiento Burbuja (Bubblesort)"
+        href="burbuja.htm">1 Burbuja</a>]   
+    [<a title="Volver a la Página Principal de Algoritmos" 
+        href="alg_ord.htm">Volver a Algoritmos</a>]
+    [<a title="Siguiente: Ordenamiento por Inserción"
+        href="insercion.htm">3 Inserción</a>]
+  </p>
+ </div>
+
+ <!-- Descripción -->
+ <a id="descripcion"></a>
+ <h2>1. Descripción.</h2>
+ <p>Este algoritmo también es sencillo. Consiste en lo siguiente:
+ </p>
+ <ul>
+  <li>Buscas el elemento más pequeño de la lista.
+  </li>
+  <li>Lo intercambias con el elemento ubicado en la primera posición de la lista.
+  </li>
+  <li>Buscas el segundo elemento más pequeño de la lista.
+  </li>
+  <li>Lo intercambias con el elemento que ocupa la segunda posición en la lista.
+  </li>
+  <li>Repites este proceso hasta que hayas ordenado toda la lista.
+  </li>
+ </ul>
+
+ <!-- Pseudocódigo en C -->
+ <a id="pseudocodigo"></a>
+ <h2>2. Pseudocódigo en C.</h2>
+
+ <!-- Tabla de variables -->
+ <table border=1 align=center
+  summary="Tabla de Variables: Nombre, tipo y uso de cada varaiable en el algoritmo">
+  <caption>Tabla de variables</caption>
+  <thead>
+   <tr>
+    <th>Nombre</th>
+    <th>Tipo</th>
+    <th>Uso</th>
+   </tr>   
+  </thead>
+
+  <tbody>
+   <tr>
+    <td>lista</td>
+    <td>Cualquiera</td>
+    <td>Lista a ordenar</td>
+   </tr>
+   <tr>
+    <td>TAM</td>
+    <td>Constante entera</td>
+    <td>Tamaño de la lista</td>
+   </tr>
+   <tr>
+    <td>i</td>
+    <td>Entero</td>
+    <td>Contador</td>
+   </tr>
+   <tr>
+    <td>pos_men</td>
+    <td>Entero</td>
+    <td>Posición del menor elemento de la lista</td>
+   <tr>
+    <td>temp</td>
+    <td>El mismo que los elementos de la lista</td>
+    <td>Para realizar los intercambios</td>
+   </tr>   
+  </tbody> 
+ </table>
+
+ <!-- Listado -->
+ <pre class="pseudo"> 
+    1. for (i=0; i&lt;TAM - 1; i++)  
+    2.      pos_men = Menor(lista, TAM, i);
+    3.      temp = lista[i];
+    4.      lista[i] = lista [pos_men];
+    5.      lista [pos_men] = temp;
+ </pre>
+ <p class="nota">Nota:
+ </p>
+ <ul>
+  <li> Menor(lista, TAM, i) es una función que busca el menor elemento entre las
+    posiciones i y TAM-1. La búsqueda es lineal (elemento por elemento). No lo incluyo en
+    el pseudocódigo porque es bastante simple.
+  </li>
+ </ul>
+
+ <!-- Ejemplo -->
+ <a id="ejemplo"></a>
+ <h2>3. Un ejemplo.</h2>
+ <p>Vamos a ordenar la siguiente lista (la misma del ejemplo anterior <b>:-)</b> ):
+ </p>
+ <p class=ejemp>4 - 3 - 5 - 2 - 1
+ </p>
+ <p>Comenzamos buscando el elemento menor entre la primera y última posición.
+   Es el 1. Lo intercambiamos con el 4 y la lista queda así:
+ </p>
+ <p class=ejemp><b>1</b> - 3 - 5 - 2 - <b>4</b>
+ </p>
+ <p>Ahora buscamos el menor elemento entre la segunda y la última posición.
+   Es el 2. Lo intercambiamos con el elemento en la segunda posición, es decir el 
+   3. La lista queda así:
+ </p>
+ <p class=ejemp>1 - <b>2</b> - 5 - <b>3</b> - 4
+ </p>
+ <p>Buscamos el menor elemento entre la tercera posición (sí, adivinaste 
+   <b>:-D</b>) y la última. Es el 3, que intercambiamos con el 5:
+ </p>
+ <p class=ejemp>1 - 2 - <b>3</b> - <b>5</b> - 4
+ </p>
+ <p>El menor elemento entre la cuarta y quinta posición es el 4, que intercambiamos
+   con el 5:
+ </p>
+ <p class=ejemp>1 - 2 - 3 - <b>4</b> - <b>5</b>
+ <p>¡Y terminamos! Ya tenemos nuestra lista ordenada. ¿Fue fácil no?
+ </p>
+
+ <!-- Análisis de algoritmo -->
+ <a id="analisis"> </a>
+ <h2>4. Análisis del algoritmo.</h2>
+ <ul>
+  <li><a href="alg_ord.htm#estabilidad">Estabilidad</a>: Aquí discrepo con un 
+    libro de la <a href="alg_ord.htm#bibliografia">bibliografía</a> que dice que no
+    es estable. Yo lo veo así: si tengo dos registros con claves iguales, el que 
+    ocupe la posición más baja será el primero que sea identificado 
+    como <i>menor</i>. Es decir que será el primero en ser desplazado. El segundo
+    registro será el menor en el siguiente ciclo y quedará en la
+    posición adyacente. Por lo tanto se mantendrá el <i>orden relativo</i>.
+    Lo que podría hacerlo inestable sería que el ciclo que busca el elemento
+    menor revisara la lista desde la última posición hacia atrás.
+    ¿Qué opinas tú? Yo digo que es <i>estable</i>, pero para hacerle caso al
+    libro (el autor debe sabe más que yo ¿cierto?<b>:-)</b>) vamos a decir que
+    <i>no es estable</i>. 
+  </li>
+  <li><a href="alg_ord.htm#requerimientos">Requerimientos de Memoria</a>: Al igual que
+    el <a href="burbuja.htm#analisis">ordenamiento burbuja</a>, este algoritmo sólo
+    necesita una variable adicional para realizar los intercambios.
+  </li>
+  <li><a href="alg_ord.htm#tiempo_ejecucion">Tiempo de Ejecución</a>: El ciclo externo
+    se ejecuta <b>n</b> veces para una lista de n elementos. Cada búsqueda requiere
+    comparar todos los elementos no clasificados. Luego la complejidad es 
+    <b>O(n<sup>2</sup>)</b>. Este algoritmo presenta un comportamiento constante 
+    independiente del orden de los datos. Luego la complejidad promedio es también
+    <b>O(n<sup>2</sup>)</b>.
+  </li>
+ </ul>
+ <p><b>Ventajas:</b>
+ </p>
+ <ul>
+  <li>Fácil implementación.
+  </li>
+  <li>No requiere memoria adicional.
+  </li>
+  <li>Realiza pocos intercambios.
+  </li>
+  <li>Rendimiento constante: poca diferencia entre el peor y el mejor caso.
+  </li>
+ </ul>
+ <p><b>Desventajas:</b>
+ </p>
+ <ul>
+  <li>Lento.
+  </li>
+  <li>Realiza numerosas comparaciones.
+  </li>
+ </ul>
+ <p>Este es un algoritmo lento. No obstante, ya que sólo realiza un intercambio en
+   cada ejecución del ciclo externo, puede ser una buena opción para listas
+   con <a href="alg_ord.htm#registro">registros</a> grandes y <a href="alg_ord.htm#clave">
+   claves</a> pequeñas. Si miras el <a href="alg_ord.htm#codigo">programa de
+   demostración</a> notarás que es el más rápido en la parte gráfica (por lo menos en un
+   PC lento y con una tarjeta gráfica mala como el mío x-|). La razón es que es mucho más
+   lento dibujar las barras que comparar sus largos (el desplazamiento es más costoso que
+   la comparación), por lo que en este caso especial puede vencer a algoritmos como
+   Quicksort.
+ </p>
+ <p>Bien, ya terminamos con éste. Otra vez te recomiendo que hagas un programa y 
+   trates de implementar este algoritmo, de preferencia sin mirar el 
+   <a href="alg_ord.htm#codigo">código</a> ni el 
+   <a href="#pseudocodigo">pseudocódigo</a> otra vez.
+ </p>
+
+ <div>
+  <p class="barra">
+    [<a title="Anterior: Ordenamiento Burbuja (Bubblesort)"
+        href="burbuja.htm">1 Burbuja</a>]   
+    [<a title="Volver a la Página Principal de Algoritmos" 
+        href="alg_ord.htm">Volver a Algoritmos</a>]
+    [<a title="Siguiente: Ordenamiento por Inserción"
+        href="insercion.htm">3 Inserción</a>]
+  </p>
+ </div>
+
+ <hr>
+ <p class="copyr">©2001 - <a href="mailto:jhida003@pinhue.ufro.cl">Julián
+   Hidalgo</a>
+ </p>
+</body>
+</html>

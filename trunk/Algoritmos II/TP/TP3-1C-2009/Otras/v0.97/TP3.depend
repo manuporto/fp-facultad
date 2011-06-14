@@ -1,0 +1,180 @@
+# depslib dependency file v1.0
+1244927054 source:c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_Expresion.h"
+	"opciones.h"
+	"cmemdbg.h"
+
+1244923903 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\literal.h
+	"AB.h"
+	"Pila.h"
+	"constantes.h"
+
+1244917268 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\ab.h
+	<stdlib.h>
+	<string.h>
+	"cmemdbg.h"
+
+1231350602 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\pila.h
+	<stdlib.h>
+	<string.h>
+
+1244923598 source:c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\simplificadores.c
+	"simplificadores.h"
+
+1244844780 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\simplificadores.h
+	"AB.h"
+	"literal.h"
+	"cmemdbg.h"
+
+1244923598 source:c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\derivadores.c
+	"derivadores.h"
+
+1244844781 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\derivadores.h
+	"AB.h"
+	"literal.h"
+	"cmemdbg.h"
+
+1244917268 source:c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\ab_aux.c
+	"AB.h"
+	<memory.h>
+
+1244930823 source:c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\tda_expresion.c
+	"TDA_Expresion.h"
+
+1244923875 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\tda_expresion.h
+	"literal.h"
+	"AB.h"
+	"cmemdbg.h"
+
+1244929732 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\constantes.h
+	<stdio.h>
+	<stdlib.h>
+
+1244762029 source:c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\current\tda_expresion.c
+	"TDA_Expresion.h"
+
+1244759284 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\current\tda_expresion.h
+	"literal.h"
+	"AB.h"
+	"constantes.h"
+
+1244130350 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\current\literal.h
+	"AB.h"
+	"Pila.h"
+
+1244413970 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\current\ab.h
+	<stdlib.h>
+	<string.h>
+
+1231350602 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\current\pila.h
+	<stdlib.h>
+	<string.h>
+
+1244757757 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\current\constantes.h
+
+1244761957 source:c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\current\derivadores.c
+	"derivadores.h"
+
+1244755204 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\current\derivadores.h
+	"AB.h"
+	"literal.h"
+
+1244837417 source:c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\current\main.c
+	<stdio.h>
+	<stdlib.h>
+	"literal.h"
+	"TDA_Expresion.h"
+
+1244754149 source:c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\current\simplificadores.c
+	"simplificadores.h"
+
+1244755204 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\current\simplificadores.h
+	"AB.h"
+	"literal.h"
+
+1244741795 source:c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\current\ab_aux.c
+	"AB.h"
+	<memory.h>
+
+1241458303 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\cmemdbg.h
+	<stdlib.h>
+
+1244917137 source:c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\cmemdbg.c
+	<stdlib.h>
+	<stdio.h>
+	<malloc.h>
+
+1244930572 source:c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\opciones.c
+	"opciones.h"
+
+1244926946 c:\fepe\facultad\algoritmos ii\tp\tp3-1c-2009\tp3\opciones.h
+	"TDA_Expresion.h"
+	<stdio.h>
+	<stdlib.h>
+	"constantes.h"
+
+1245081432 source:c:\c\v0.95.9yo\tda_expresion.c
+	"TDA_Expresion.h"
+
+1245076296 c:\c\v0.95.9yo\tda_expresion.h
+	"literal.h"
+	"AB.h"
+
+1244923903 c:\c\v0.95.9yo\literal.h
+	"AB.h"
+	"Pila.h"
+	"constantes.h"
+
+1245076296 c:\c\v0.95.9yo\ab.h
+	<stdlib.h>
+	<string.h>
+
+1231350602 c:\c\v0.95.9yo\pila.h
+	<stdlib.h>
+	<string.h>
+
+1244929732 c:\c\v0.95.9yo\constantes.h
+	<stdio.h>
+	<stdlib.h>
+
+1244917137 source:c:\c\v0.95.9yo\cmemdbg.c
+	<stdlib.h>
+	<stdio.h>
+	<malloc.h>
+
+1245017832 source:c:\c\v0.95.9yo\derivadores.c
+	"derivadores.h"
+
+1245076296 c:\c\v0.95.9yo\derivadores.h
+	"AB.h"
+	"literal.h"
+
+1245076235 source:c:\c\v0.95.9yo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"TDA_Expresion.h"
+	"opciones.h"
+	"cmemdbg.h"
+
+1244926946 c:\c\v0.95.9yo\opciones.h
+	"TDA_Expresion.h"
+	<stdio.h>
+	<stdlib.h>
+	"constantes.h"
+
+1241458303 c:\c\v0.95.9yo\cmemdbg.h
+	<stdlib.h>
+
+1245017778 source:c:\c\v0.95.9yo\simplificadores.c
+	"simplificadores.h"
+
+1245076296 c:\c\v0.95.9yo\simplificadores.h
+	"AB.h"
+	"literal.h"
+
+1245017855 source:c:\c\v0.95.9yo\ab_aux.c
+	"AB.h"
+	<memory.h>
+

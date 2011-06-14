@@ -1,0 +1,70 @@
+•	Listados (Título, Autor y Género).  +
+•	Baja de Título y Autor.   					+
+•	Listado de Libros adeudados					-
+•	Listado de datos de un socio.				+
+•	Guardar y Cargar datos.							-
+* Limpieza nuevos vectores						-
+
+Listado de libros adeudados: Emitir un listado de ejemplares (número ejemplar-nombre del título-número de socio-nombre del socio-fecha de devolución-días de atraso) cuya fecha de devolución haya vencido. El listado debe estar ordenado de mayor a menor, en cantidad de días de atraso.
+
+número ejemplar			-Directo-
+nombre del título		-Función-
+número de socio			-Directo-
+nombre del socio		-Función-
+fecha de devolución	-Directo-
+días de atraso			-Función-
+
+
+
+ordenar_libro_prestado  = Ordena el vector de libros prestados, por id_socio
+
+Voy a buscar el primero, una vez que lo encuentra, empiezo a avanzar hasta que el id_socio cambie
+
+
+Line 1410
+
+
+toma_posicion_ejemplar
+pos_ejemplar
+
+
+
+
+857
+{function suma_siete_dias (fecha);
+var dia,mes,anio : integer;
+
+Begin
+
+	anio:= fecha div 10000;
+
+	mes:= fecha - anio*10000;
+	mes:= mes div 100;
+
+	dia:= fecha - anio*10000 - mes*100;
+
+	
+!!!FALTA!!!
+End;
+}
+
+878
+{	limite_devolucion := suma_siete_dias (fecha_pres);}
+
+
+1115
+{		dias_atraso:= }
+
+1124
+{					dias_atraso :=}
+
+1127
+						nombre_titulo:=0;
+						nombre_socio:=0;
+						fecha_devolucion:=0;
+						dia:=0;
+						mes:=0;
+						anio:=0;
+
+2490
+{		pos_ejemplar_prestado := posicion_ejemplar_prestado;}

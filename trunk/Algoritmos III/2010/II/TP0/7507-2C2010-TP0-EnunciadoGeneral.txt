@@ -1,0 +1,30 @@
+
+*****************************************
+Algorítmos y Programación 3, Cuatrimestre 2, 2010, TP0
+*****************************************
+
+Asignación de enunciados
+------------------------
+La asignación será de la siguiente manera:
+Alumnos con padrones termindados en 0, 1 y 2: 7507-2C2010-TP0-Enunciado1.txt
+Alumnos con padrones termindados en 3, 4 y 5: 7507-2C2010-TP0-Enunciado2.txt
+Alumnos con padrones termindados en 6, 7, 8 y 9: 7507-2C2010-TP0-Enunciado3.txt
+
+Enunciado
+---------
+Escriba las clases necesarias de manera tal que el siguiente código Smalltalk funcione correctamente.
+(Ver archivo con código según nro de enunciado asignado)
+
+Condiciones generales
+---------------------
+La aplicación se deberá poder ejecutarse desde un Workspace.
+Debe haber una carátula indicando Nombre, Apellido, turno, y padrón que se descargará de la web de la materia.
+El código fuente no debe exceder las 3 carillas y debe estar en letra courier new tamaño 8.
+No se aceptarán carpetas, solo folios.
+Cada método debe estar correctamente comentado dentro del código (no en exceso)
+El código debe ser claro y sencillo
+Solo se entregarán archivos fuente .st (no imágenes)
+Deben estar correctamente identificadas las clases creadas
+El / los diskettes o CD que se entreguen deben estar en perfecto estado.
+El tp será calificado con nota.
+Los tps que se consideren idénticos o "muy similares" serán rechazados y sus integrantes serán calificados negativamente quedando la cátedra en condiciones de tomar las acciones pertinentes.

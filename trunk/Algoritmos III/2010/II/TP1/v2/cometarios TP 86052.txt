@@ -1,0 +1,78 @@
+﻿86052
+
+Pruebas completas
+
+
+
+/* Primero - Sort Of Fixed */
+
+Por que ColorAux y no Color?
+
+
+
+crear:colorDeLaPieza.
+
+	color:= colorDeLaPieza class.
+
+
+
+Seria mejor si al atributo color le asignaramos algo de tipo Color, y no solo un nombre de clase
+
+
+Ademas esto va en contra de lo que dijimos de preguntar el nombre a una clase.
+
+/* /Primero */
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/* Segundo */
+
+
+getTipo
+	
+^(self class)
+
+
+
+Es una manera encubierta de hacer Pieza class -> No acorde al polimorfismo
+
+
+/* /Segundo */
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/* Tercero */
+
+
+
+En Tablero los métodos son muy grandes.
+Cuando programamos usando objetos es mejor que los metodos sean mas pequeños. Para esto es util crear mas metodos y que cada uno tenga menos responsabilidades.
+
+
+
+/* /Tercero */
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+/* Cuarto */
+
+Pocos diagramas de secuencia
+
+
+/* /Cuarto */
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/* Quinto */
+
+No hay diagrama de estado
+
+
+/* /Quinto */
+
+
+Reentregar

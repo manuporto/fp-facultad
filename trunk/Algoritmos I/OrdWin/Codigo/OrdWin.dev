@@ -1,0 +1,24 @@
+[Project]
+FileName=C:\DevProgs\Ord_Win\Codigo\OrdWin.dev
+Name=OrdWin
+Use_gpp=0
+UnitCount=3
+ResFiles=C:\DevProgs\Ord_Win\Codigo\ord_winres.rc
+NoConsole=1
+IsDll=0
+Icon=C:\DEV-C++\Bin\Mainicon.ico
+CompilerOptions=
+IncludeDirs=
+ObjFile=-lwinmm -lshell32 -lcomctl32
+
+[Unit1]
+FileName=C:\DevProgs\Ord_Win\Codigo\Ord_Win.c
+FileTime=729679434
+
+[Unit2]
+FileName=C:\DevProgs\Ord_Win\Codigo\Demo.c
+
+[Unit3]
+FileName=C:\DevProgs\Ord_Win\Codigo\p_rend.c
+FileTime=729653925
+

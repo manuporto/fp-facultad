@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1238956029 d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\getstring.c
+	"getString.h"
+
+1219842168 d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\getstring.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1238961500 d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"TDA_DocumentoDeCodigo.h"
+
+1238954158 d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tda_documentodecodigo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"var_array.h"
+	"getString.h"
+
+1238867287 d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\var_array.h
+	<string.h>
+	<stdlib.h>
+
+1238871404 d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\var_array.c
+	"var_array.h"
+
+1238961549 d:\fepe\facultad\algoritmos ii\tp\tp1-1c-2009\tda_documentodecodigo.c
+	"TDA_DocumentoDeCodigo.h"
+

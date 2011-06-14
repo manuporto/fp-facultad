@@ -1,0 +1,77 @@
+(sitanxis agregar inci:
+-addi 1 1 2 3 "2008-03-07 22:40:35" 1 "esto es un summary generico" "esto es un descrip generico"
+
+-addi 1 1 1 1 "2008-05-12 22:14:34" 1 "otro summary generico" "otro descrip generico"
+
+-addi 1 1 2 7 "2008-05-12 22:14:34" 1 "otro summary3" "descrip generico3"
+
+
+-addi 1 1 4 3 "2008-05-12 22:14:34" 2 "otgh3" "descrip generico3"
+
+)
+
+IMPORTANTE! NO HAY FUNCIÓN QUE AGREGE UN COMENTARIO EN EL TGI WTF!
+
+
+*en tgi_cerrar se arreglo un problema de poderMover, que no cambiaba nunca
+adentro de los while!
+
+*tgi_armar archivo se arregló un tema de los remove y rename!
+
+*en tgi_crear:
+- agrege conDatos.
+- en los strings de usuarios, agrege un malloc(teoricamente se libera en TGI_cerrar)
+- lo mismo de arriba para proyectos.
+
+*en TGI_agregar usuario(exactamente lo mismo en TGI_agregarProyectos!):
+- en la suma del id del usuario en vez de (auxUser.user_id)++ , ponemos ++(auxUser.user_id).
+- (ver lo del borro del nombre del user!) ARREGLADO (ver tgi_crear)!
+
+*Recuerda bien las rutas de los archivos WRYYYYYYYYYYYYYYYYYYYYYYYYYY!
+
+*GuardarArchIncidencias:
+- no tenia ninguna pila y cola creada y parece qeu le falta destruir las 
+pilas y colas también.SOLUCIONADO
+
+*en las constantes.h se le agrego un "\n" es las dos primeras
+constantes de FIN comentario y estado.
+
+*en armarTIN se agregaron malloc porque si no cuando los levanta en tgi_crear,
+borra datos.
+
+*no esta guardando el 1er estado que se crea cuando se crea una incidencia.
+ya lo guarda, pero ahora se tilda en TIN_liberar dps de agregarlo bien.
+si se ejecuta de nuevo entra en un loop eterno, ckekearlo.SOLUCIONADO
+
+
+IMPORTANTE VER TIN_LIBERAR ESTA COMENTADO UNA LIBERACIÓN DE MEMORIA,
+SI SE DESCOMENTA EXPLOTA TODO, SI NO NO! VER DPS!
+
+TIN_CREAR SIEMPRE ME AGREGA UN SESTADO Y LO LLAMAMOS EN ARMARTIN
+OSEA QUE CADA VEZ QUE ARMAMOS LA TIN PARA PONERLA EN EL TGI LE 
+AGREGAMOS UN ESTADO FFFFFFFFFFFFFFF
+(para arreglarlo podriamos hacer que no agrege el 1er 
+estado en tin_crear, si no que usemos la funcion de tin que
+agrega el 1er estado)SOLUCIONADO
+
+(ARMARTIN ES UN CASTIGO AHHHHHHHHHHHHHHH)
+
+
+*en TIN_GetEstados se le agrego crear una cola que faltaba.
+
+*en AUX_GetINCIUser YET AGAIN FALTABA AGREGAR CREAR COLA.
+
+*en AUX_GetINCIPROJECT YET AGAIN FALTABA AGREGAR CREAR COLA.
+
+
+*TIN_GETESTADOS TIENE ALGO MAL, NO DEVUELVE BIEN EN LA PILA ESTADOS LAS COSAS
+me queden en validarestados en el TGI. SOLUCIONADO ESO, PERO AL FINAL NO AGREGA
+EL COMENTARIO NUEVO WTF CHECKEANDO.
+
+
+
+FALTA  LO DE HACER LAS FUNCIONES DE ADDCOMENTARIO Y REVISAR GETCOMENTARIO, MEMLEAKS, SACAR LOS PRINTF Y CREO
+QUE NADA MAS DE CÓDIGO.
+
+
+

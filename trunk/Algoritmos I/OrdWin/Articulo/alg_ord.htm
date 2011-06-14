@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="es">
+<head>
+ <title>Algoritmos de Ordenamiento</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+ <link rel="stylesheet" href="alg_ord.css" media="screen" type="text/css">
+</head>
+  
+<body>
+ <h1>Algoritmos de Ordenamiento</h1>
+ 
+ <div>
+  <p class="barra">
+    [<a title="Pagina Principal de C con Clase" href="..">C con Clase</a>]  
+    [<a title="Página Principal de Articulos" href="..">Artículos</a>]
+    [<a title="Ir al Artículo de Ordenamiento Burbuja (Bubblesort)"
+        href="burbuja.htm">1 Burbuja</a>]
+  </p>
+ </div>
+  
+ <!-- Introducción -->
+ <a id="intro"></a>
+ <h2>1. Introducción.</h2>
+ <p>El ordenamiento es una labor común que realizamos continuamente. ¿Pero te has
+   preguntado qué es ordenar? ¿No? Es que es algo tan corriente en nuestras vidas que no
+   nos detenemos a pensar en ello. Ordenar es simplemente colocar información de una
+   manera especial basándonos en un <a href="#criterio">criterio de ordenamiento</a>.
+ </p>
+ <p>En la computación el ordenamiento de datos también cumple un rol muy importante, ya
+   sea como un fin en sí o como parte de otros procedimientos más complejos. Se han
+   desarrollado muchas técnicas en este ámbito, cada una con características específicas,
+   y con ventajas y desventajas sobre las demás. Aquí voy a mostrarte algunas de las más
+   comunes, tratando de hacerlo de una manera sencilla y comprensible.
+ </p>
+  
+ <!-- Conceptos básicos -->
+ <a id="conceptos"></a>
+ <h2>2. Conceptos Preliminares.</h2>
+ <p>Antes de comenzar a ver cada algoritmo vamos a ponernos de acuerdo en algunos
+    conceptos, para que no haya confusiones:
+ </p>
+ <ul>
+  <li><a id="clave"></a>
+      <b><u>Clave</u>:</b>
+      La parte de un <a href="#registro">registro</a> por la cual se ordena la lista. Por
+      ejemplo, una lista de registros con campos <b>nombre</b>, <b>direccion</b> y
+      <b>telefono</b> se puede ordenar alfabéticamente de acuerdo a la clave
+      <b>nombre</b>. En este caso los campos <b>direccion</b> y <b>telefono</b> no se
+      toman en cuenta en el ordenamiento.
+  </li>
+  <li><a id="criterio"></a>
+      <b><u>Criterio de ordenamiento</u> (o de comparación):</b> EL criterio que
+      utilizamos para asignar valores a los registros con base en una o más
+      <a href="#clave">claves</a>. De esta manera decidimos si un registro es
+      <b><i>mayor</i></b> o <b><i>menor</i></b> que otro. En el pseudocódigo presentado
+      más adelante simplemente se utilizarán los símbolos <b>&lt;</b>
+      y <b>></b>, para mayor simplicidad.
+  </li>
+  <li><a id="registro"></a>
+    <b><u>Registro</u>:</b>
+    Un grupo de datos que forman la lista. Pueden ser datos atómicos (enteros,
+    caracteres, reales, etc.) o grupos de ellos, que en C equivalen a las estructuras.
+  </li>
+ </ul>
+  
+ <p>Cuando se estudian algoritmos de todo tipo, no sólo de ordenamiento, es bueno
+   tener una forma de evaluarlos antes de pasarlos a código, que se base en aspectos
+   independientes de la plataforma o el lenguaje. De esta manera podremos decidir cuál se
+   adapta mejor a los  requerimientos de nuestro programa. Así que veamos estos aspectos:
+ </p>
+ <ul>
+  <li><a id="estabilidad"></a>
+    <b><u>Estabilidad</u>:</b> Cómo se comporta con registros que tienen
+    <a href="#clave">claves</a> iguales. Algunos algoritmos mantienen el orden relativo
+    entre éstos y otros no. Veamos un ejemplo. Si tenemos la siguiente lista de datos
+    (nombre, edad): <b>"Pedro 19, Juan 23, Felipe 15, Marcela 20, Juan 18, Marcela 17",
+    </b> y la ordenamos alfabéticamente por el <i>nombre</i> con un algoritmo estable
+    quedaría así: <b>"Felipe 15, Marcela 20, Marcela 17, Juan 23, Juan 18, Pedro 19"</b>.
+    Un algoritmo no estable podría dejar a <b>Juan 18</b> antes de <b>Juan 23</b>, o a
+    <b>Marcela 20</b> después de <b>Marcela 17</b>.
+  </li>
+  <li><a id="tiempo_ejecucion"></a>
+    <b><u>Tiempo de ejecución</u>:</b> La complejidad del algoritmo, que no tiene que ver
+    con dificultad, sino con rendimiento. Es una función independiente de la
+    implementación. Te la voy a explicar brevemente: tenemos que identificar una
+    operación fundamental que realice nuestro algoritmo, que en este caso es comparar.
+    Ahora contamos cuántas veces el algoritmo necesita comparar. Si en una lista de
+    <b>n</b> términos realiza <b>n</b> comparaciones la complejidad es O(n). (En realidad
+    es un poco más complicado que eso, pero lo vamos a hacer así: recuerda que dije que te
+    iba a explicar brevemente). Algunos ejemplos de complejidades comunes son:
+    <ul>
+     <li><b>O(1)</b> : Complejidad constante.
+     </li>
+     <li><b>O(n<sup>2</sup>)</b> : Complejidad cuadrática.
+     </li>
+     <li><b>O(n log(n))</b> : Complejidad logarítmica.
+     </li>
+    </ul>
+    Ahora podemos decir que un algoritmo de complejidad O(n) es más rápido que uno de
+    complejidad O(n<sup>2</sup>). Otro aspecto a considerar es la diferencia entre el peor
+    y el mejor caso. Cada algoritmo se comporta de modo diferente de acuerdo a cómo se le
+    entregue la información; por eso es conveniente estudiar su comportamiento en casos
+    extremos, como cuando los datos están prácticamente ordenados o muy desordenados.
+  </li>
+  <li><a id="requerimientos"></a>
+    <b><u>Requerimientos de memoria</u>:</b> El algoritmo puede necesitar memoria
+    adicional para realizar su labor. En general es preferible que no sea así, pero es
+    común en la programación tener que sacrificar memoria por rendimiento.
+  </li>
+ </ul>
+ 
+ <p>Hay bastantes otros aspectos que se pueden tener en cuenta, pero nosotros nos vamos a
+    quedar con ésos.
+ </p>
+ <p>Por último estableceremos algunas convenciones sobre el pseudocódigo: 
+ </p>
+ <ul>
+  <li>Vamos a ordenar la lista en forma ascendiente, es decir, de menor a mayor.
+    Obviamente es esencialmente lo mismo que hacerlo en forma inversa.
+  </li>
+  <li>La forma de intercambiar los elementos depende de la estructura de datos: si es un
+    arreglo (dinámico o estático) es necesario guardar una copia del primer elemento,
+    asignarle el segundo al primero y el temporal al segundo. La variable temporal es
+    necesaria, porque de lo contrario se perdería uno de los elementos. Si la estructura
+    es una lista dinámica el procedimiento es parecido, pero se utilizan las direcciones
+    de los elementos. En el pseudocódigo se utilizará el primer método.
+  </li>
+  <li>La lista se manejará como un arreglo de C: si tiene TAM elementos, el primer
+    elemento es lista[0] y el último es lista[TAM-1]. Esto será así para todo el
+    pseudocódigo presentado en este artículo. 
+  </li>
+ </ul>
+ <p>Bien, ahora que ya tenemos todo claro vamos a lo que nos interesa...
+ </p>
+  
+ <!-- Algoritmos más comunes -->
+ <a id="tabla"></a>
+ <h2>3. Algoritmos más comunes.</h2>
+ <p>La siguiente es una tabla comparativa de algunos algoritmos de ordenamiento. Si
+    quieres saber más sobre alguno en particular haz un click sobre su nombre. En cada
+    página encontrarás una descripción, pseudocódigo y un análisis sobre su rendimiento,
+    ventajas y desventajas.
+ </p>
+ <p>(Quizás quieras bajar ahora la <a href="#codigo">demostración</a> para ir observándola
+   a medida que vayas leyendo)
+ </p>
+  
+ <table border=1 align=center summary="Tabla comparativa de algoritmos" >
+  <caption>Tabla comparativa de algoritmos</caption>
+  <thead>
+   <tr>
+    <th>Nombre</th>
+    <th>Complejidad</th>
+    <th>Estabilidad</th>
+    <th>Memoria adicional</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td><a title="Ir al Artículo de Ordenamiento Burbuja (Bubblesort)"
+           href="burbuja.htm">Ordenamiento Burbuja (Bubblesort)</a></td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>Estable</td>
+    <td>No</td>
+   </tr>
+   <tr>
+    <td><a title="Ir al Artículo de Ordenamiento por Selección"
+           href="seleccion.htm">Ordenamiento por Selección</a></td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>No Estable</td>
+    <td>No</td>
+   </tr>
+   <tr>
+    <td><a title="Ir al Artículo de Ordenamiento por Inserción" 
+           href="insercion.htm">Ordenamiento por Inserción</a></td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>Estable</td>
+    <td>No</td>
+   </tr>
+   <tr>
+    <td><a title="Ir al Artículo de Ordenamiento Rápido (Quicksort)"
+           href="quicksort.htm">Ordenamiento Rápido (Quicksort)</a></td>
+    <td>O(n * log<sub>2</sub>(n))</td>
+    <td>No Estable</td>
+    <td>No</td>
+   </tr>
+  </tbody>
+ </table>
+  
+ <!-- Eligiendo el más adecuado -->
+ <a id="elegir"></a>
+ <h2>4. Eligiendo el más adecuado.</h2>
+ <p>Ahora ya conoces una buena cantidad de algoritmos, pero... ¿cómo saber cuál es el que
+   necesitas? ¿cuál es <b>EL</b> algoritmo?
+ </p>
+ <p>Cada algoritmo se comporta de modo diferente de acuerdo a la cantidad y la forma en
+   que se le presenten los datos, entre otras cosas. No existe EL algoritmo de
+   ordenamiento. Sólo existe el mejor para cada caso particular. Debes conocer a fondo el
+   problema que quieres resolver, y aplicar el más adecuado. Aunque hay algunas preguntas
+   que te pueden ayudar a elegir:
+ </p>
+  
+ <ul>
+  <li><b><i>¿Qué grado de orden tendrá la información que vas a manejar?</i></b> Si la
+    información va a estar casi ordenada y no quieres complicarte, un algoritmo sencillo
+    como el ordenamiento burbuja será suficiente. Si por el contrario los datos van a
+    estar muy desordenados, un algoritmo poderoso como Quicksort puede ser el más indicado.
+    Y si no puedes hacer una presunción sobre el grado de orden de la información, lo
+    mejor será elegir un algoritmo que se comporte de manera similar en cualquiera de
+    estos dos casos extremos.
+  </li>
+  <li><b><i>¿Qué cantidad de datos vas a manipular?</i></b> Si la cantidad es pequeña, no
+    es necesario utilizar un algoritmo complejo, y es preferible uno de fácil
+    implementación. Una cantidad muy grande puede hacer prohibitivo utilizar un algoritmo
+    que requiera de mucha memoria adicional.
+  </li>
+  <li><b><i>¿Qué tipo de datos quieres ordenar?</i></b> Algunos algoritmos sólo funcionan
+    con un tipo específico de datos (enteros, enteros positivos, etc.) y otros son
+    generales, es decir, aplicables a cualquier tipo de dato.
+  </li>
+  <li><b><i>¿Qué tamaño tienen los registros de tu lista?</i></b> Algunos algoritmos
+    realizan múltiples intercambios (burbuja, inserción). Si los registros son de gran
+    tamaño estos intercambios son más lentos.
+  </li>
+ </ul>
+  
+ <!--Código Fuente-->
+ <a id="codigo"></a>
+ <h2>5. Demostración y Código Fuente.</h2>
+ <p>Puedes descargar dos programas de demostración con los algoritmos presentados en este
+   artículo:
+ </p>
+ <p><a title="Descargar comprimido: Ord_Win10.zip" href="Ord_Win10.zip">OrdWin</a>: En
+   este programa puedes ver una demostración gráfica de cada algoritmo. También puedes
+   experimentar ordenando listas de la longitud que quieras, observando el tiempo que
+   demoran, la cantidad de comparaciones y de intercambios que realizan. Fue creado
+   utilizando el compilador <a href="http://www.cs.virginia.edu/~lcc-win32">LccWin32</a>
+   de Jacob Navia, pero el fichero descargable es un proyecto para 
+   <a href="http://www.bloodshed.net/dev/">Dev-C++</a>. Incluye el ejecutable, el código
+   fuente y este artículo completo.
+ </p>
+  
+ <p><a title="Descargar comprimido: Ordenar.zip" href="Ordenar.zip">Ordenar</a>: Este
+   programa es más indicado si lo que quieres es mirar código. No hay funciones gráficas
+   ni nada del API de Windows. Debería funcionar en cualquier otro compilador sin mayores
+   cambios, pues está hecho en ANSI C. Fue probado con éxito en Turbo C++, DJGPP,
+   LccWin32, y Dev-C++. Quedó bastante feo, pero es el precio que hay que pagar por la
+   portabilidad ;-). Sólo incluye el código.
+ </p>
+  
+ <!-- Para terminar -->
+ <h2>6. Algunas palabras para terminar.</h2>
+ <p>No sabía si escribir este artículo o no. Probablemente no sea yo el indicado para
+   hacerlo. Después de todo no soy ningún experto ni mucho menos, pero creo que puede
+   ayudar a alguien que sepa menos que yo (no deben ser muchos :-)). Por eso pido tu
+   colaboración para mejorar este documento y hacerlo algo útil. Si tienes sugerencias,
+   comentarios o correcciones por favor házmelo <a href="mailto:jhida003@pinhue.ufro.cl">
+   saber</a>.
+ </p>
+  
+ <!--Bibliografía-->
+ <a id="bibliografia"></a>
+ <h2>7. Bibliografía.</h2>
+ <ul>
+  <li>H.M. Deitel, P.J. Deitel: <b><i>"Cómo programar en C/C++"</i></b>. Editorial
+      Prentice Hall.
+  </li>
+  <li>Charles Bowman: <b><i>"Algoritmos y estructuras de datos: Aproximación en C"</i></b>.
+      Oxford University Press, 1999.
+  </li>
+  <li><a title="Diccionario de Algoritmos, Estructuras de Datos y Problemas"
+         href="http://hissa.nist.gov/dads/"><b><i>"Dictionary of Algorithms, Data
+              Structures, and Problems"</i></b></a>
+  </li>
+ </ul>
+  
+ <div>
+  <p class="barra">
+    [<a title="Pagina Principal de C con Clase" href="..">C con Clase</a>]  
+    [<a title="Página Principal de Articulos" href="..">Artículos</a>]
+    [<a title="Ir al Artículo de Ordenamiento Burbuja (Bubblesort)"
+        href="burbuja.htm">1 Burbuja</a>]
+  </p>
+ </div>
+ 
+ <hr>
+ <p class="copyr">©2001 - <a href="mailto:jhida003@pinhue.ufro.cl">Julián
+   Hidalgo</a>
+ </p>
+</body>
+</html>

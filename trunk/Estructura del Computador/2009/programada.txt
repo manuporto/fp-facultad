@@ -1,0 +1,58 @@
+PORT:   (MSB)...,A,C,FIN DE CARRERA,BOTON (LSB)
+
+	.begin
+	.org 2048
+
+lectura:
+	ld	PORT,%r1	; en %r1 guardo lo que leo del puerto
+	andcc	%r1,1,%r2	; %r2<---%r1 AND 1, enmascaro el bit de BOTON, si da 1 esta apretado el boton
+	be	SIGO_COMPARANDO	; si el boton no estaba apretado, sigo comparando...
+	ba	BOTON
+SIGO_COMPARANDO:
+	andcc	%r1,2,%r2	; %r2<---%r1 AND 2, enmascaro el bit de FDC, si da 1 esta activo el fin de carrera
+	be	lectura		; si estaba en cero, no habia nada apretado, espero a que alguien apriete algo.
+	ba	FIN_DE_CARRERA	; el fin de carrera estaba activado
+
+
+BOTON:
+	ld	PORT,%r1	; en %r1 guardo lo que leo del puerto (vuelvo a leer del puerto para saber si soltaron o no el boton)
+	andcc	%r1,%r1,%r2	; me fijo si el boton sigue apretado
+	be	SOLTARON_BOTON
+	ba	BOTON		; si no lo soltaron, espero a que lo suelten	
+SOLTARON_BOTON:
+	andcc	%r1,2,%r2	; %r2<---%r1 AND 2, enmascaro el bit de FDC, si da 1 esta activo el fin de carrera
+	be	NO_FDC		; si estaba en cero, no estaba activado el fin de carrera
+				; el fin de carrera estaba activado (el porton estaba abierto o cerrado)		
+	and	%r1,4,%r3	; guardo el estado de C en %r3
+	and	%r1,8,%r4	; guardo el estado de A en %r4 para que no cambie
+	not	%r3,%r5		; niego el estado de C y lo guarda en %r5
+	or	%r4,%r5,PORT	; saco por el puerto el estado de C negado y el de A sin negar
+	ba	lectura
+NO_FDC:		
+	and	%r1,12,%r3	; el fin de carrera no estaba activado (se estaba abriendo o cerrando el porton)
+	not	%r3,PORT	; niega los estados de A y C, y los saca por el puerto
+	ba	lectura	
+
+FIN_DE_CARRERA:
+	andcc	%r1,8,%r2	; me fijo si A esta en 1 o en 0
+	be	SIGO_COMPARANDO_2	; si A estaba en 0 sigo comparando...
+				; A estaba en 1...
+	andcc	%r1,4,%r2	; me fijo si C esta en 1 o en 0
+	be	FRENAR_APERTURA	; si A=1 y C=0 freno apertura del porton	
+	ba	lectura		: si A=1 y C=1 no hago nada... 
+
+SIGO_COMPARANDO_2:
+				; A estaba en 0...
+	andcc	%r1,4,%r2	; me fijo si C esta en 1 o en 0
+	be	FRENAR_CIERRE	; si A=0 y C=0 no hago nada...	
+	ba	lectura		: si A=0 y C=1 freno cierre del porton
+
+FRENAR_APERTURA:
+	st	12,PORT		; saco A=1 y C=1 por el puerto
+	ba	lectura	
+
+FRENAR_CIERRE:
+	st	0,PORT		; saco A=0 y C=0 por el puerto
+	ba	lectura	
+
+	.end

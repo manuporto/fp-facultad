@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="TDA_DocumentoDeCodigo.c" open="1" top="0" tabpos="2">
+		<Cursor position="5584" topLine="202" />
+	</File>
+	<File name="TDA_DocumentoDeCodigo.h" open="1" top="0" tabpos="3">
+		<Cursor position="2876" topLine="60" />
+	</File>
+	<File name="getString.c" open="1" top="0" tabpos="7">
+		<Cursor position="915" topLine="11" />
+	</File>
+	<File name="getString.h" open="1" top="0" tabpos="6">
+		<Cursor position="23" topLine="0" />
+	</File>
+	<File name="main.c" open="1" top="1" tabpos="1">
+		<Cursor position="774" topLine="9" />
+	</File>
+	<File name="memdbg.c" open="1" top="0" tabpos="8">
+		<Cursor position="2879" topLine="101" />
+	</File>
+	<File name="var_array.c" open="1" top="0" tabpos="4">
+		<Cursor position="47" topLine="0" />
+	</File>
+	<File name="var_array.h" open="1" top="0" tabpos="5">
+		<Cursor position="0" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

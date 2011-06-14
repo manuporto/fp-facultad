@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="TDA_DocumentoDeCodigo.c" open="1" top="1">
+		<Cursor position="11182" topLine="412"/>
+	</File>
+	<File name="TDA_DocumentoDeCodigo.h" open="1" top="0">
+		<Cursor position="904" topLine="1"/>
+	</File>
+	<File name="getString.c" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="getString.h" open="1" top="0">
+		<Cursor position="248" topLine="0"/>
+	</File>
+	<File name="main.c" open="1" top="0">
+		<Cursor position="626" topLine="0"/>
+	</File>
+	<File name="var_array.c" open="1" top="0">
+		<Cursor position="2528" topLine="55"/>
+	</File>
+	<File name="var_array.h" open="1" top="0">
+		<Cursor position="1135" topLine="3"/>
+	</File>
+</CodeBlocks_layout_file>

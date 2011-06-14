@@ -1,0 +1,104 @@
+
+--- funcion ---
+	Nombre: TIN_CrearVacio
+	Descripcion: Crea la pila y la cola necesarias para almacenar los estados y los comentarios de una incidencia.
+	Devuelve: void
+	Parametro: tin:TIN*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TIN_Crear
+	Descripcion: Recibe todos los elementos de una incidencia y arma un elemento del tipo TIN que recibe por parámetro.
+	Devuelve: int
+	Parametro: tin:TIN*
+	Parametro: inci_id:int
+	Parametro: inci_type:tipo_inci_t
+	Parametro: inci_priority:prior_inci_t
+	Parametro: inci_user:int
+	Parametro: inci_assigned_user:int
+	Parametro: inci_date_created:char*
+	Parametro: inci_project_id:int
+	Parametro: inci_summary:char*
+	Parametro: inci_description:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TIN_Liberar
+	Descripcion: Elimina y libera todas las estructuras que forman parte del TIN.
+	Devuelve: int
+	Parametro: tin:TIN*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TIN_Comentar
+	Descripcion: Ingresa un comentario a la cola de comentarios del TIN
+	Devuelve: int
+	Parametro: tin:TIN*
+	Parametro: fecha:char*
+	Parametro: usuario:int
+	Parametro: comentario:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TIN_CambiarEstado
+	Descripcion: Agrega un estado a la pila de estados, determinándolo como el estado actual de la incidencia.
+	Devuelve: int
+	Parametro: tin:TIN*
+	Parametro: fecha:char*
+	Parametro: usuario:int
+	Parametro: estado:stat_inci_t
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TIN_Resolver
+	Descripcion: Cambia el estado de resolución de una incidencia y agrega dicho estado a la pila correspondiente.
+	Devuelve: int
+	Parametro: tin:TIN*
+	Parametro: fecha:char*
+	Parametro: usuario:int
+	Parametro: resolucion:resol_inci_t
+	Parametro: cargaManual:int
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TIN_GetDatos
+	Descripcion: Obtiene los datos de una incidencia y los devuelve en variables separadas.
+	Devuelve: int
+	Parametro: tin:TIN*
+	Parametro: inci_id:int*
+	Parametro: inci_type:tipo_inci_t*
+	Parametro: inci_priority:prior_inci_t*
+	Parametro: inci_user:int*
+	Parametro: inci_assigned_user:int*
+	Parametro: inci_date_created:char**
+	Parametro: inci_project_id:int*
+	Parametro: inci_summary:char**
+	Parametro: inci_description:char**
+	Parametro: inci_resolved:resol_inci_t*
+	Parametro: inci_date_solved:char**
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TIN_GetComentarios
+	Descripcion: Obtiene todos los comentarios de una incidencia y los devuelve en una cola
+	Devuelve: int
+	Parametro: tin:TIN*
+	Parametro: comentarios:TCola*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: TIN_GetEstados
+	Descripcion: Obtiene todos los estados que tuvo una incidencia y los devuelve en una pila
+	Devuelve: int
+	Parametro: tin:TIN*
+	Parametro: estados:TPila*
+	author: Batman
+	see: -

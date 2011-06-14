@@ -1,0 +1,46 @@
+Algorítmos y Programación 3, Cuatrimestre 2, 2009, TP0
+
+
+
+Asignación de enunciados
+La asignación será de la siguiente manera:
+
+
+Alumnos con padrones termindados en 0 y 1: tp20092
+a
+Alumnos con padrones termindados en 2 y 3: tp20092b
+
+Alumnos con padrones termindados en 4,5 y 6: tp20092c
+
+Alumnos con padrones termindados en 7,8 y 9: tp20092d
+
+
+
+Enunciado
+
+
+Escriba las clases necesarias de manera tal que el siguiente programa asignado funcione correctamente.
+
+Condiciones generales
+La aplicación se deberá poder ejecutar desde la consola con el siguiente comando java tp20092x (donde x es a,b,c o d, dependiendo de la asignación)
+En caso de no estar seteada correctamente la variable de entorno CLASSPATH se deberá poder ejecutar con el agregado del parámetro -cp=.
+java -cp=. tp20092x.
+Para las aplicaciones desarrolladas en .net se deberá poder ejecutar como tp20092x
+Debe haber una carátula indicando Nombre, Apellido, turno, y padrón que se descargará de la web de la materia
+El código fuente no debe exceder las 4 carillas y debe estar en letra courier new tamaño 8.
+No se aceptarán carpetas, solo folios.
+Cada método debe estar correctamente comentado dentro del código (no en exceso)
+El código debe ser claro y sencillo
+Debe haber una hoja indicando los pasos a seguir para probar exitosamente el trabajo
+Solo se entregarán archivos fuente .java o .cs (no compilados)
+La aplicación debe poder compilarse desde la linea de comandos utilizando "javac *.java"
+Respetar los estandares de codificación de cada lenguaje
+Los atributos deben ser privados
+Deben estar correctamente identificadas las clases del modelo
+Las pruebas se realizarán en las computadoras del laboratorio de computación del 4to piso o en el aula
+El / los diskettes o CD que se entreguen deben estar en perfecto estado.
+Es obligatorio usar los conceptos de POO vistos en las clases de la materia.
+No está permitido el uso de paquetes.
+No está permitido el uso de colecciones de la libreria de clasea nativa, solo pueden utilizarse arrays primitivos. 
+Los integrantes cuyos tps no cumplan los requerimientos o que no funcionen adecuadamente no podrán formar grupo con integrantes que hayan aprobado el tp. El tp será calificado con nota.
+Los tps que se consideren idénticos o "muy similares" serán rechazados y sus integrantes serán calificados negativamente quedando la cátedra en condiciones de tomar las acciones pertinentes.

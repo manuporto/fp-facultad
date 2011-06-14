@@ -1,0 +1,1031 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	   FreeAPL for Windows
+
+
+       User's Guide ver. 0.91
+
+
+       1. Introduction
+
+       2. Legal Stuff
+
+       3. Installation
+
+       4. Reference
+       4. 1. APL font and keyboard
+       4. 2. Primitives
+       4. 3. System Commands
+       4. 4. System Functions
+       4. 5. Systen Variables
+       4. 6. Windows Stuff
+       4. 6. 1. Menu
+       4. 6. 2. Special keys
+
+       Appendix A The original APL\11 license
+       Appendix B Corrected bugs log
+
+
+
+       1. Introduction
+
+       The purpose of FreeAPL for Windows is threefold:
+       - to offer people interested in APL, but not having access to a good
+       commercial APL interpreter, an opportunity to test its capabilities as
+       a language,
+       - to offer people interested in developing APL (and other APL-like
+       languages) a good starting-point for their efforts (please note that
+       FreeAPL is in the public domain!), and
+       - to serve as a starting point of a common development effort, to
+       achieve a really good public domain APL interpreter.
+
+       FreeAPL for Windows is based on APL/11 and has already a long
+       line of ancestors. To quote Michael Cain:
+
+       "UNIX APL/11 was originally written by Ken Thompson at Bell Labs.
+       It spent some time at Yale and finally arrived at Purdue
+       University.  Since 1976 it has been modified by Jim Besemer
+       and John Bruner at the School of Electrical Engineering, Purdue,
+       under the direction of Dr. Anthony P. Reeves.  Mike Cain got a
+       copy from John and used it extensively.  Many years later, Mike
+       was motivated to clean the source up to be more or less portable.
+       Mike currently maintains UNIX APL\11."
+
+       The youngest link in the genealogy is FreeAPL for Windows, which is
+       based on the public domain version of Unix APL/11 by Michael Cain.
+       FreeAPL has been adapted and partly rewritten for Windows 3.x by
+       Tauno Ylinen (Helsinki, Finland) using the Windows++ object-oriented
+       C++ building-blocks (both the book and the software) by Paul DiLascia
+       as a useful development tool. It offered a logical framework in the
+       less logical world of Windows, and saved a lot of coding effort.
+
+       The original C code of APL/11 has been largely modernized according
+       to the present syntax. The APL itself is so far mainly intact; the
+       most important change being the addition of system variables. Due to
+       the port to Windows, extensive changes have been made to memory
+       management and user interface.
+
+       Some Windows-type features (dialogs run from APL, presentation
+       graphics, calls for user-supplied DLLs) have been added as system
+       functions.
+
+       _______________________
+       Windows is a trademark of the Microsoft Corporation.
+
+
+       2  Legal Stuff
+
+       In accordance with para. 3. of the original APL\11 license presented
+       as appendix A, FreeAPL for Windows is a modification of APL\11, which
+       may be sublicensed. The conditions of the original license are extended
+       to apply this sublicense with following exceptions:
+
+       "Licensor" is Tauno Ylinen, Helsinki, Finland (Internet:
+       tylinen@mits.mdata.fi).  "Software" means the source code computer
+       programs known as FreeAPL for Windows and all related materials,
+       documentation, and information received by Licensee from Licensor.
+
+       This license shall be governed by the laws of the State of Finland.
+
+
+       3. Installation
+
+       The FreeAPL for Windows diskette should contain the following files:
+           INSTALL.BAT
+           FREEAPL.EXE
+           AUXFNS.DLL
+           CHART.DLL
+           APLFIX.FON
+           APL2741.TTF
+           APL2741.FOT
+           FREEAPL.INI
+           USERSGDE.TXT (This file)
+
+       The installation takes place as follows:
+
+       1. Put the FreeAPL diskette in drive A:
+
+       2. Change drive A: to current drive.
+
+       3. Type INSTALL and press <Enter>.
+
+       INSTALL 1) makes directory C:\FREEAPL, and its subdirectories WS
+       and FUN, 2) copies files FREEAPL.EXE, APLFIX.FON, AUXFNS.DLL,
+       CHART.DLL and USERSGDE.TXT to it, and 3) copies file FREEAPL.INI
+       to C:\WINDOWS.
+
+       If you want to install FreeAPL to another drive/directory, files
+       INSTALL.BAT and FREEAPL.INI must be changed accordingly.
+
+       The default screen font is "APLfix" and the default printer font is
+       "Courier". You can change the defaults by adding to the FREEAPL.INI
+       file the lines
+       		screenfont=fontname
+       		screenfontsize=<fontsize>
+       		printerfont=fontname
+       		printerfontsize=<fontsize>
+       where fontnames and fontsizes may be different.
+
+       If you have Windows 3.1 (or later), then you can use Adrian Smith's
+       APL2741, and copy files APL2741.TTF and APL2741.FOT to your Windows
+       directory. This enables printing of APL characters, if you have a
+       printer that supports TrueType.
+
+
+       4. Reference
+
+       4.1. APL font and keyboard
+
+       The default APL font is the file APLFIX.FON, which is a modified
+       fixed pitch EGA (system) font. For users with Windows 3.1, a
+       TrueType APL font is provided. It is APL2741.ttf designed and
+       submitted to free distribution by Adrian Smith, who has described it
+       in Vector Vol. 11 No 2 (October 1994). The QUADav used in both fonts
+       conforms to the proposed QUADav for Windows by Adrian and is
+       presented below.
+
+       The FreeAPL keyboard is a unified keyboard, where the Ascii characters
+       have their traditional positions. The APL characters have mostly their
+       traditional places, but they are keyed in using Control + alphanumeric
+       key or Control + Shift + alphanumeric key. The FreeAPL keyboard layout
+       is presented in the FreeAPL workspace keyboard.apl.
+
+
+
+
+       4.2. Primitives
+
+       The set of primitives of FreeAPL is a complete set of APL1, with
+       following exceptions (version 0.91):
+
+       Both monadic and dyadic format are governed by the system variable
+       QUADfc, which determines sign, decimal separator and format over-
+       flow fill symbol.
+
+       Dyadic format does not accept following special cases as a left
+       argument:
+       1) Zero width (and scalar right argument) should give column width
+       for the largest element, but returns an error message.
+       2) Negative right element in a pair of left argument should format
+       in exponential notation, but gives an error message.
+
+       DEL-editor is implemented using the Windows editors, which are
+       described in Ch. 4.6. Functions and character matrices are fixed
+       by pressing ALT-X. Numeric matrices are fixed by pressing ALT-X or
+       ALT-F4.
+
+       QUAD and QUOTEQUAD have been implemented "Windowish". Assignment to
+       QUAD is standard, but asking for result from QUAD invokes a small
+       input window. Input to is be treated as a normal QUAD input.
+       Assignment to QUOTEQUAD is treated as a prompt text for subsequent
+       QUOTEQUAD input window.
+
+       There may be other restrictions or deviations from the standard not
+       mentioned above.
+
+
+
+
+       4.3. System Commands
+
+       The following is a complete list of APL system commands. It has
+       been adapted from Mike Cain's Manual for UNIX APL\11, taking into
+       account the changes, additions and deletions made for FreeAPL.
+
+       Standard system commands:
+       )clear        This command is used to completely initialize
+                     an APL workspace.  Usually when APL is
+                     started, it will print: "clear ws".  This
+                     means that no internal variables or functions
+                     are defined.  Sometimes, it is desirable to
+                     completely erase everything, and this command
+                     serves that purpose.  To let you know that
+                     everything has been erased, APL will output
+                     the message "clear ws".
+
+       )erase list   This command is handy when it is desirable to
+                     get rid of parts of a workspace without using
+                     ")clear" to eliminate all of it.  A list of
+                     function and variable names (separated by
+                     spaces or tabs) may be specified.  The named
+                     functions and variables will be deleted from
+                     the internal workspace.  The remainder of the
+                     workspace will not be affected.
+
+       )save xxx     This command causes APL to write its internal
+                     workspace into a DOS file.  This allows the
+                     current session to be resumed at a later time.
+                     If the save is successful, APL will output the
+                     date and time.
+
+       )load xxx     This command is used to tell APL to load the
+                     DOS file "xxx" into APL as a workspace.
+                     After the file is loaded, APL's internal work-
+                     space will be the same as it was when the wor-
+                     kspace file was saved with ")save", and that
+                     previous APL session may be resumed.  If the
+                     workspace file exists and is successfully
+                     loaded, APL will print the time and date that
+                     the workspace was last saved.
+
+       )copy xxx     This command instructs APL to locate the DOS
+       )pcopy xxx    file "xxx" and load it into its internal work-
+                     space, similar to the ")load" command.  The
+                     difference between ")load" and ")copy" is that
+                     ")load" will replace the current internal wor-
+                     kspace with the one being read in, while
+                     ")copy" merges the current internal workspace
+                     with the one being read in.  Functions and
+                     variables which are loaded from the file take
+                     precedence over functions and variables of the
+                     same name existing already in the internal
+                     workspace.
+
+       )digits n     This command is used to specify to APL how
+                     many digits are to be displayed when a number
+                     is printed in floating-point or exponential
+                     format.  By default, APL will print 9 digits.
+                     You may specify any number between 1 and 19
+                     for the number of digits (n).  APL will answer
+                     with the number of digits it was using.
+
+       )origin n     This command is used to change the "origin".
+                     The acceptable values are integers 0 and 1.
+                     By default, the origin is 1.  The "origin" is
+                     the starting index for arrays.  For example,
+                     if the origin is 0, then the first element of
+                     a 3-element array A is A[0].
+
+       )width n      This command tells APL to print n characters
+                     per line.  This is useful to keep output from
+                     being printed outside of the physical terminal
+                     width.  Lines longer than this length will be
+                     "wrapped-around".  APL answers this command
+                     with the previous terminal width.
+
+       )off          This command is not implemented. Use Windows
+                     Alt-F4 instead.
+
+       )continue     This command is not implemented. Instead of it,
+                     )save workspace with a name, and end session
+                     with Alt-F4.
+
+       )fns          This command causes APL to list the names of
+                     all of the functions which are defined in its
+                     internal workspace.
+
+       )vars         This command causes APL to list the names of
+                     all of the variables which are defined in its
+                     internal workspace.
+
+       )lib          This command is shows the file listing of the
+                     current directory.
+
+       )drop list    This command performs the same function as
+                     DOS "del".  The names of the files to be
+                     deleted should be separated by spaces or tabs.
+                     The files may be APL workspaces, ASCII files,
+                     or any other type of file.
+
+       )si           This command is useful when something goes
+                     wrong.  When an error occurs, the function
+                     that was executing is "suspended".  The ")si"
+                     command causes APL to print a traceback of the
+                     suspended functions.  Each function is listed,
+                     in the reverse order that it was called.  The
+                     current line number for each function is also
+                     printed.  Functions followed by an asterisk
+                     ("*") were suspended due to an error; these
+                     were called by functions listed on the follow-
+                     ing lines whose names are not followed by an
+                     asterisk.
+
+       )reset        This command is used to reset the state
+                     indicator.  All suspended functions are reset;
+                     the state indicator will be cleared.  APL
+                     returns to the global level.
+
+       Nonstandard system commands:
+       )vsave xxx    (not implemented)
+
+       )editf xxx    This command is used to create and edit func-
+                     tions and character and numeric matrices.  If
+                     the function (or matrix) named "xxx" exists in
+                     the workspace, APL will write it into a tem-
+                     porary file and then will invoke the appropriate
+                     Windows editor. When you have
+                     finished editing the file, and you exit the
+                     editor, APL will come back and will read the
+                     function or matrix in from the temporary file.
+
+       )edit xxx     This command is similar to ")editf" except
+                     that "xxx" is a filename.  APL will exe-
+                     cute the editor to edit the file named "xxx",
+                     and when the editing is complete, APL will
+                     read that file into the workspace.  The dif-
+                     ference between ")edit" and ")editf" is that
+                     ")editf" essentially edits functions directly
+                     from the workspace, while ")edit" gets the
+                     functions from a named file. )edit does not
+                     work on numeric matrices.
+
+       )read xxx     At times it is desirable to read a function
+                     which is stored in an ASCII file into the
+                     internal workspace without editing it.  The
+                     ")read" command causes APL to read the file
+                     named "xxx" into the workspace as a function.
+                     Note that ")read" and ")load" are _not_ the same
+                     thing.  ")load" reads a complete new workspace
+                     into APL from a workspace-format file, while
+                     ")read" reads a function from an ASCII file
+                     and adds it to the current workspace.
+
+       )write xxx    This command is the complement of ")read".  It
+                     takes the function "xxx" from the current wor-
+                     kspace and writes it to an ASCII file named
+                     "xxx".  This is useful for writing functions
+                     which will be ")read" later into other work-
+                     spaces or which will be printed on the line-
+                     printer.  Note ")write" and ")vsave" are not
+                     the same thing, for ")write" is used to write
+                     a function into an ASCII file and ")vsave"
+                     saves a selected subset of the internal work-
+                     space in a workspace-format file.
+
+       )script xxx   This command is not implemented.
+
+       )trace        This command turns on APL's internal "trace"
+                     mode.  When tracing is turned on, APL will
+                     report the function name and line number of
+                     each line in every function executed.  Thus,
+                     the flow of execution from the start to the
+                     end of a run can be followed.
+
+       )untrace      This command turns off "trace" mode.
+
+       )shell        This command is not implemented.
+
+       )list xxx     This command causes APL to print out the func-
+                     tion named "xxxx".  This is very handy for
+                     looking at a function without having to use
+                     the editor -- especially when an error has
+                     occurred and you want to look at a function
+                     without disturbing the state indicator.
+
+       )prws         This command is not implemented.
+
+       )debug        This command invokes "debug mode."  In this
+                     mode, every action which APL takes is logged
+                     on the terminal.  This mode is excellent for
+                     generating reams of hopelessly cryptic output
+                     and exists only to facilitate APL development.
+                     It is not intended for general use.  Debug
+                     mode can be turned off by issuing the ")debug"
+                     system command a second time.
+
+       )code fn      This command causes APL to print the compiled
+                     internal code for the function "fn".  This is
+                     also intended for APL system development and
+                     not for general use.
+
+       )nlist        This command causes APL to print the internal
+                     symbol table of the workspace. This feature is
+                     also intended for APL system development and
+                     not for general use.
+
+       )stack        This command causes APL to print the internal
+                     APL stack of the workspace. This feature is
+                     also intended for APL system development and
+                     not for general use.
+
+
+       )memory       The result of this command is a report on cur-
+                     rent free memory available.
+
+
+
+       4.4. FreeAPL system functions
+
+       The following standard system functions are defined under FreeAPL:
+
+       QUADcr 'name'           The result of "QUADcr" is a character
+                               array containing the function whose
+                               name is passed as an argument.
+
+       QUADex 'arg'            This function can be used to expunge
+       QUADex charmx           APL objects from the workspace. The
+                               name of the APL object must be
+                               specified inside quote marks or as
+                               an APL character matrix as shown.
+                               The returned value is a vector, where
+                               0 -- object has not been found, or
+                                    not expunged.
+                               1 -- object has been expunged.
+
+       QUADfx newfn            The contents of the character array
+                               specified as an argument are fixed
+                               as an APL function.
+
+       QUADnc 'arg'            This function can be used to deter-
+       QUADnc charmx           mine what type of variable an APL
+                               symbol is.  The apl symbol must be
+                               specified inside quote marks or as
+                               an APL character matrix as shown.
+                               The returned value is a vector, where
+                               0 -- symbol is undefined
+                               2 -- symbol is a label or variable
+                               3 -- symbol is a function name
+                              -1 -- unknown type (should not occur)
+
+       QUADnl arg              The argument should be a scalar or
+                               vector with components 1, 2, or 3.
+                               This function returns a two-dimen-
+                               sional character array containing
+                               the names of all items whose types
+                               are specified in the vector (same
+                               type definitions as for "Lnc"
+                               above).  The ordering of names in
+                               the matrix is fortuitous.
+
+
+       Nonstandard system functions:
+
+       System functions for native file handling:
+
+
+       QUADchdir 'directory'   This quad function can be used to
+                               change APL to another directory.
+                               Normally, APL runs in the directory
+                               that you were in when it was started
+                               by the "apl" command.  This function
+                               changes APL to another directory.
+                               The argument is a character vector
+                               specifying the new directory (there
+                               is NO way to default this).  A 0 is
+                               returned if the "chdir" was suc-
+                               cessful; a -1 is returned if it
+                               failed.
+
+       mode QUADopen 'file'    This function is dyadic.  It opens a
+                               DOS file for use by an APL function
+                               with calls via "QUADread" and "QUADwrite".
+                               The first argument is the mode for
+                               the open (0=read, 1=write, 2=read/
+                               write).  The second argument is a
+                               character vector containing the file
+                               name.  The file descriptor of the
+                               opened file is returned (-1 for
+                               error).
+
+       QUADclose fd            This function complements "QUADopen".
+                               The argument is the file descriptor
+                               of a DOS file to be closed.  This
+                               function returns 0 for success or -1
+                               for failure.
+
+       mode QUADcreat 'file'   This function creates a DOS file.
+                               If the file already exists, it is
+                               truncated to zero length.  The crea-
+                               tion mode is specified as the first
+                               argument.   The filename is
+                               specified in a character vector as
+                               the second argument.  The file
+                               descriptor of the created file (or -
+                               1 for error) is returned.
+
+       fd QUADread nbytes      This function reads a specified
+                               number of bytes from a designated
+                               file.  The first argument is the
+                               file descriptor; the second is the
+                               number of bytes to be read.  The
+                               data which is read is returned.
+                               Note that the returned vector is
+                               always character data -- to convert
+                               to numeric format see the function
+                               "QUADfloat".
+
+       fd QUADwrite data       This function writes data to a
+                               specified file.  The first argument
+                               is the file descriptor; the second
+                               is the data to be written.  The
+                               number of bytes written is returned
+                               as the count.  Any type of data
+                               (character or numeric) may be writ-
+                               ten in this manner.
+
+       QUADseek (fd,pos,mode)  This function executes the "seek"
+                               system call on a DOS file.  The
+                               argument to "QUADseek" is a three-
+                               element vector containing the file
+                               descriptor, seek offset, and mode
+                               (see SEEK (II)).  A 0 is returned
+                               for a successful seek; -1 is
+                               returned if an error is detected.
+
+
+       QUADrd fd               This function reads one line from
+                               the file descriptor specified.  If
+                               the line is completely blank, a null
+                               string is returned.  An end-of-file
+                               will also return a null string.
+                               Otherwise, the returned value is the
+                               character string which was read.
+
+       QUADrm 'filename'       The specified file will be removed,
+                               equivalent to )drop filename.  A 0
+                               is returned for a successful remove;
+                               -1 is returned if the file could not
+                               be removed or does not exist.
+
+       QUADdup fd              This function executes the "dup"
+                               system call.  It returns an integer
+                               number which may be used as a file
+                               descriptor on later I/O calls.  The
+                               new file descriptor is a duplicate
+                               of the argument "fd".  If the argu-
+                               ment file descriptor could not be
+                               duplicated, -1 is returned.
+
+       fd QUADap 'string'      This quad function is used to append
+                               a character string onto the end of a
+                               DOS file.  The first argument
+                               specifies the file descriptor of the
+                               file (which should have been opened
+                               earlier).  The second argument is a
+                               character array which is to be
+                               appended.  A carriage return is
+                               automatically appended to the end of
+                               each row of the character array when
+                               it is appended to the end of the
+                               file.
+
+       QUADrline fd            This quad function is identical to
+                               "QUADrd", described above.
+
+       QUADfloat charvect      This quad function is useful in con-
+                               junction with "QUADwrite" and "QUADread".
+                               While any type of data may be writ-
+                               ten to a DOS file with "QUADwrite",
+                               when it is read with "QUADread" it will
+                               be interpreted as character data.
+                               This function will convert a
+                               character array into numeric form.
+                               The array must be a multiple of 4
+                               elements long for apl2 and 8 for
+                               apl.  The converted array is the
+                               returned value.
+
+
+       Windows-related system functions:
+
+       QUADchart namemx        This quad function opens a graphical
+                               window showing a standard chart based on
+                               data contained in variables listed in
+                               character matrix namemx. The variables in
+                               namemx should be as follows:
+
+                               1. parametres (a numeric vector with
+                               following elements):
+                               - type of chart
+                                 1 Curves, level
+                                 2 Column groups, level
+                                 3 Column+curves, level
+                                 4 Surface+curves, level
+                                 5 Curves, %-changes
+                                 6 Column groups, %-changes
+                                 7 Column+curves, %-changes
+                                 8 Surface+curves, %-changes
+                                 9 Curves, indices
+                                10 Column groups, indices
+                                11 Column+curves, indices
+                                12 Surface+curves, indices
+                                13 Columns, %-distr
+                                14 Surfaces, %-distr
+                                15 Pie, %-distr
+                                16 Columns, cumul
+                                17 Surfaces, cumul
+                               - forced user coordinate window = 1, else = 0
+                               - periodicity of data (1, 4, 12)
+                               - labels for x coordinate values = 1, else = 0
+                               - base period for indices=0...max no of
+                                 observations
+                               - force max window = 1, else = 0
+                               - user coordinate window (4 elements = left,
+                                 top, right, bottom)
+
+                               2. data values (numeric matrix, where first
+                               column is for x-values and other columns for
+                               y-values; max 10 columns/variables and 60
+                               rows/observations)
+
+                               3. header of chart (character vector)
+
+                               4. unit name of y-values (character vector)
+
+                               5. labels for variables (character matrix)
+
+                               6. labels for observations (character matrix)
+
+                               Examples of use are available in workspace
+                               chartex.apl.
+
+       fname QUADdll namemx    This quad function allows the user to call
+                               an external auxiliary function written in
+                               C or assembler and saved in a DLL library.
+                               The name of function is given as the left
+                               argument and the list of its argument names
+                               as the namelist in the right argument. The
+                               author of the external function is responsible
+                               for checking the type and dimensions of its
+                               arguments as well as of programming the
+                               appropriate result to be returned to APL.
+
+                               Examples of external functions are given in
+                               files auxfns.*. Name auxfns.dll is the default
+                               name for the external function library. It
+                               may be overridden by adding the followin line
+                               to aplwin.ini:
+                               dllname=newname.dll
+
+     descmx QUADdialog textmx  This quad function takes a numeric dialog
+                               description matrix as its left and a text
+                               matrix as its right argument. The function
+                               shows a Windows dialog, waits for the user
+                               action and returns a text matrix with the
+                               user response.
+
+                               The left argument is a (n+1)*9 numeric
+                               matrix, where n is the number of controls
+                               in the dialog. Its first row describes the
+                               dialog, and has following elements:
+
+                               1.  number of controls
+                               2.-3. upper left corner of dialog (2. left,
+                               3. upper)
+                               4. length of dialog
+                               5. height of dialog
+                               6. id of active control
+                               7.-9. = 0
+
+                               The following rows are control rows with
+                               following contents:
+
+                               1. type of control; available types are:
+                                  1. edit
+                                  2. default pushbutton
+                                  3. pushbutton
+                                  4. autoradiobutton
+                                  5. checkbox
+                                  6. groupbox for autoradiobuttons
+                                  7. groupbox for checkboxes
+                                  8. listbox
+                                  9. combobox
+                                  10. combobox
+                                  100. static
+                               2.-3. upper left corner of control (2=left,
+                               3=top)
+                               4. length of control
+                               5. height of control
+                               6. id of control
+                               7. start of return data
+                               8. length of return data (types 1 and 9 as
+                               characters, others as integers)
+                               9. return data flag; if 1, returned, if 0,
+                               not returned
+
+                               The right argument has an equal number of
+                               lines as the left argument. The first line
+                               contains the dialog caption text. The other
+                               lines contain either
+                               - the text written on the control (types 2 - 7,
+                               and 100), or
+                               - the name of the text matrix for the control
+                               (types 8 - 10), or
+                               - blanks (type 1).
+
+                               Examples for use of QUADdialog are found in
+                               workspace dialogex.apl.
+
+
+
+       4.5. System variables
+
+       The following standard system variables have been implemented
+       in FreeAPL:
+
+       QUADai       Accounting information
+                    Returns a four-element number vector, whose elements
+                    are:
+                    [1] account number (always 1001)
+                    [2] processing time since start of session
+                    [3] keying time since start of session
+                    [4] total time since start of session
+
+       QUADav       Atomic vector
+                    Returns a 256-element APL character vector
+
+       QUADct       Comparison tolerance
+                    Accepts and returns a numeric scalar, default
+                    value: 1.0 e-13
+
+       QUADfc       Format control
+                    Accepts and returns a six-element character vector,
+                    whose elements are:
+                    [1] decimal separator (default: .)
+                    [2] thousands separator (default: ,)[not in use]
+                    [3] fill for blanks (default: *)[not in use]
+                    [4] fill for overflow (default: *)
+                    [5] print as blank (default: _)[not in use]
+                    [6] negative indicator (default: APL negative)
+
+       QUADio       Index origin
+                    Accepts and returns numeric scalar, default value: 1
+                    Acceptable values: 0 and 1
+
+       QUADlc       Line counter
+                    Returns a number vector having the line numbers of
+                    suspended vectors.
+
+       QUADlx       Latent expression
+                    APL character vector to be executed when workspace
+                    is loaded.
+
+       QUADpp       Printing precision
+                    Accepts and returns a numeric scalar, default
+                    value 9; range 1---18.
+
+       QUADpw       Printing width
+                    Accepts and returns a numeric scalar, default
+                    value: 72
+
+       QUADts       Time stamp
+                    Returns a seven-element numeric vector (year, month,
+                    day, hour, minute, second, millisecond)
+
+       QUADwa       Workspace available
+                    Returns a numeric scalar
+
+       System variables do not accept indexed assignment.
+
+
+
+       4.6. Windows stuff
+
+       4.6.1. Menu
+
+       There are presently four menus in FreeAPL for Windows, namely the
+       Main menu, the Editor menu, the NumEdit menu and the Chart menu.
+
+       The main menu consists of following submenus:
+       - File
+       - Session
+       - Edit
+       - Output/hOld (toggle switch)
+       - oPtions
+       - Help (only About... implemented)
+
+       The File submenu has 6 lines for workspaces:
+           New Ws, which clears workspace,
+           Load Ws, which loads a workspace from the library,
+           Copy Ws, which copies a workspace from the library,
+           Save Ws, which saves a workspace to the library,
+           Save Ws As, which names and saves a workspace to the
+           library,
+           Print Ws, which prints the current workspace,
+
+       and the Exit line.
+
+       The Session submenu has the following items:
+           New, which clears the session log,
+           Open...,which loads a saved session log,
+           Save,which saves the session log,
+           Save As,which names and saves the session log,
+           Print, which prints the current session log,
+           Editor, which invokes the editor window,
+           Debug, which toggles between debug ON and debug OFF,
+           Trace, which toggles between function trace ON and trace OFF,
+
+
+       The Edit submenu has the following lines:
+       - Undo, which undoes previous edit operation,
+       - CopyLine, which copies the caret line to the last line,
+       - OutputBuf, which copies the output buffer to the window,
+       - Cut, which cuts the marked region on screen to clipboard,
+       - Copy, which copies the marked region on screen to clipboard,
+       - Paste, which pastes the clipboard to the caret position, and
+       - Delete, which deletes the marked region on screen.
+
+       The Output/hOld toggles between outputting APL results to screen
+       and holding them in the buffer.
+
+       The oPtions submenu has the following lines:
+           Fonts, which starts the screen font selection dialog, and
+           PrintFonts, which starts the printer font selection dialog.
+           Chart params
+           Palette
+           ReadPalette
+           SavePalette.
+
+       The Editor menu consists of following submenus:
+       - File
+       - FixFn
+       - Edit
+
+       The File submenu of Editor has the following items:
+       - New, which opens a new function file,
+       - Open, which opens an existing function file,
+       - Save, which saves a function file,
+       - SaveAs, which saves a function file with a new name,
+       - Print, which prints the file being edited, and
+       - Exit, which exits Editor (same as pressing Esc).
+
+       Item Fix (saves a function or a text matrix in file and
+       fixes it in the workspace)
+
+       The Edit submenu of Editor has following items:
+       - Undo, which undoes previous edit operation,
+       - CopyLine, which copies the caret line to the last line,
+       - AddLine, which adds a blank line before the caret line,
+       - DeleteLine, which deletes the caret line,
+       - OutputBuf, which copies the output buffer to the window,
+       - Cut, which cuts the marked region on screen to clipboard,
+       - Copy, which copies the marked region on screen to clipboard,
+       - Paste, which pastes the clipboard to the caret position,
+       - Find, which searches a text in the editor,
+       - Replace, which searches a text in the editor and replaces it
+         with another text, and
+       - Delete, which deletes the marked region on screen.
+
+    The NumEdit window has a menu with the following items:
+       - Fix fixes a numeric matrix as a variable in workspace,
+       - Append/Row/Column appends a row or column to the end of matrix,
+       - Insert/Row/Column inserts a row or column in front of the cursor
+       position,
+       - Delete/Row/Column deletes a row or column at the cursor position,
+       - Copy/Row/Column copies a row or column at the cursor position.
+
+	The Chart window (which is called from the system function QUadchart)
+	has a menu with the following items:
+	   - Exit
+	   - Print
+       - Types
+
+       4.6.2. Special keys
+
+       The special keys are shown in the submenu lines of the main manu.
+       Only two are specific to FreeAPL, F2, which copies the caret line
+       after the last line, and F3, which flushes the held output buffer
+       to the active window.
+
+       The special keys composed with Control do not work, because Control
+       is reserved for APL use.
+
+
+       Appendix A
+       The original APL\11 license
+
+       1. Definitions: "Licensor" is U S WEST Advanced Tech-
+          nologies, Inc., a Colorado corporation, whose principal
+          place of business is located at 4001 Discovery Drive,
+          Boulder, Colorado, 80303.  "Software" means the source
+          code computer programs known as APL\11 and all related
+          materials, documentation, and information received by
+          Licensee from Licensor.
+
+       2. Rights in Software: Licensor has obtained license
+          rights under a quit claim license from AT&T which
+          allows the free distribution of the Software to third
+          persons.
+
+       3. License Grant: In accordance with the terms herein,
+          Licensor grants to Licensee and Licensee accepts from
+          Licensor a royalty free, perpetual, non-exclusive and
+          non-transferable license to use, copy, modify and
+          sublicense the Software to third persons.
+
+       4. Warranty Disclaimer: THIS SOFTWARE IS LICENSED "AS IS,"
+          AND LICENSOR DISCLAIMS ANY AND ALL WARRANTIES, WHETHER
+          EXPRESS OR IMPLIED, INCLUDING (WITHOUT LIMITATION) ANY
+          IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A
+          PARTICULAR PURPOSE.
+
+       5. Indemnity: Licensee hereby indemnifies Licensor and
+          holds Licensor harmless from and against any and all
+          claims, including claims of infringement, which arise
+          out of Licensee's use or sublicense of the Software as
+          licensed hereunder.
+
+       6. Limitation of Liability: In no event shall Licensor be
+          liable for any indirect, incidental, consequential,
+          special, or exemplary damages or lost profits, even if
+          Licensor has been advised of the possibility of such
+          damages.  SOME STATES DO NOT ALLOW THE LIMITATION OR
+          EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL
+          DAMAGES, SO THE ABOVE LIMITATION OR EXCLUSION MAY NOT
+          APPLY TO YOU.
+
+       7. General Provisions:
+
+          A. This License shall be governed by the laws of the
+             State of Colorado.
+
+          B. Licensee also agrees not to use any trade name,
+             service mark, or trademark of Licensor or refer to
+             Licensor in any promotional activity or material
+             without first obtaining the prior written consent
+             of Licensor.
+
+          C. No action, regardless of form, arising  out of the
+             License may be brought by Licensee more than one
+             year after the cause of action has arisen.
+
+          D. If any provision of this License is invalid under
+             any applicable statute or rule of law, it is to
+             that extent to be deemed omitted.
+
+          E. The waiver or failure of Licensor to exercise in
+             any respect any right provided for herein shall
+             not be deemed a waiver of any further right
+             hereunder.
+
+          F. Each party acknowledges that it has read this
+             License, it understands it, and agrees to be bound
+             by its terms, and further agrees that this is the
+             complete and exclusive statement of the License
+             betweeen the two parties, which supersedes all
+             prior proposals, understandings, whether oral or
+             written, between the parties relating to this
+             License.  This License may not be modified or
+             amended except by written instrument duly executed
+             by both parties.
+
+
+        APPENDIX B
+
+        CORRECTED BUGS LOG
+
+        Version 0.7 27.11.1994
+
+        - QUAD and QUOTEQUAD accept APL characters from the keyboard.
+        - QUADct accepts assignment (form: .00000000001).
+        - QUADfx works correctly.
+        - )editf and )edit work again (a temporary mishap in ver. 0.6
+          corrected).
+        - QUAD is used in QUAD prompt.
+        - Blank input lines do not any more return "syntax error".
+        - Printing of workspace, session and function added.
+        - EPSILON and EXECUTE work again (a temporary bug in ver. 0.6
+          corrected).
+
+
+        Version 0.8 5.12.1994
+
+        - Bug causing erroneus QUADct when loading workspaces is
+          corrected.
+        - Default printer font defined, preventing crashes when printing
+          without defining the printer font.
+        - Default screen and printer fonts may be redefined in WIN.INI.
+        - Stringtable is linked to the Editor, showing advice text at the
+          bottom of the session window.
+        - e-format input is accepted as it should, likewise DELTA and
+          DELTA-UNDERBAR in names.
+        - Default formatting wraps the long output lines as it should.
+        - The DEL-editor is installed using the Windows editor, and
+          several minor bugs corrected in function editing.
+        - Comment lines do not any more return "syntax error".
+
+        Version 0.9 31.3.1995
+
+        - "Leakage" of result to screen when already assigned is corrected
+          for quad and execute.
+        - The "creep" to the right of a line when copied with F2 is
+          corrected.
+        - Changes in the keyboard, e.g. roll (?) in the APL keyboard.
+        - Several additions: NumEdit, QUADchart, QUADdll, QUADdialog.
+        - Several sample and transferred workspaces
+
+        Version 0.91 30.4.1995
+
+        - the adoption of a unified APL/ASCII keyboard with subsequent
+          internal changes and changes in the menu structure.
+        - other changes in the menu structure.
+        - some bugs of APL\11 corrected
+		- software renamed to FreeAPL for Windows (instead of APLWin) to
+		  reflect its status and aims as a freely distributable APL
+		  interpreter.

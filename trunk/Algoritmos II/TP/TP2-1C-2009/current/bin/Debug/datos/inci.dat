@@ -1,0 +1,37 @@
+1	1	1	1	1	2009-05-04 14:39:25	1	Este es el TP de algo2	El TP es imposible	-1	2009-05-04 14:39:25
+2009-05-04 14:39:25	1	0
+SEP_STAT_FIN
+2012-01-08 00:10:00	1	Probamos un comentario a otra incidencia
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sencomentario... batman
+2008-01-01 00:00:00	1	Hola sescomentario... batman
+2008-01-01 00:00:00	1	Hola seacomentario... batman
+SEP_COMM_FIN
+2	3	0	1	1	2009-05-04 14:41:29	1	Este es el segundo TP de algo2	El TP es casi imposible	-1	2009-05-04 14:41:29
+2009-05-04 14:41:29	1	0
+2011-01-02 15:19:00	1	1
+SEP_STAT_FIN
+SEP_COMM_FIN
+3	3	2	1	1	2010-05-04 14:41:29	1	Este es el tercer TP de algo2	El TP no lo conozco, pero debe ser casi imposible	-1	2010-05-04 14:41:29
+2010-05-04 14:41:29	1	0
+SEP_STAT_FIN
+2011-01-08 00:00:00	1	Probamos un nuevo comentario
+2011-01-08 00:10:00	1	Probamos un segundo comentario
+SEP_COMM_FIN

@@ -1,0 +1,219 @@
+
+--- funcion ---
+	Nombre: validarTipoIncidencia
+	Descripcion: Valida que el tipo de incidencia esté dentro de los posibles valores
+	Devuelve: int
+	Parametro: inci_type:int
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: validarPrioridad
+	Descripcion: Valida que la prioridad pasada por parámetro esté dentro de los posibles valores
+	Devuelve: int
+	Parametro: inci_priority:int
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: abrirCrear
+	Descripcion: Se fija si existen los archivos, si no existen los crea.
+	Devuelve: int
+	Parametro: archInci:char*
+	Parametro: archUsuarios:char*
+	Parametro: archProyectos:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: crearConfig
+	Descripcion: Crea el archivo de configuración que guardará las rutas de los archivos de datos
+	Devuelve: int
+	Parametro: archIncidencias:char*
+	Parametro: archUsuarios:char*
+	Parametro: archProyectos:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: cargarConfig
+	Descripcion: Lee el archivo de configuración y obtiene las rutas de los archivos de datos
+	Devuelve: int
+	Parametro: archIncidencias:char*
+	Parametro: archUsuarios:char*
+	Parametro: archProyectos:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: AUX_Rutas
+	Descripcion: Indica las rutas de los archivos de datos que se utilizaron por última vez al correr el programa.
+	Devuelve: void
+	Parametro: void
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: AUX_ArmarArchivos
+	Descripcion: Función auxiliar que imprime los mensajes de información o de error de TGI_ArmarArchivos
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: archProyectos:char*
+	Parametro: archUsuarios:char*
+	Parametro: archIncidencias:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: AUX_AgregarComentario
+	Descripcion: Función auxiliar que imprime los mensajes de información o de error de TGI_AgregarComentario
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: inci_id:int
+	Parametro: comm_user_id:int
+	Parametro: comm_date:char*
+	Parametro: comm_desc:char*
+	Parametro: archProyectos:char*
+	Parametro: archUsuarios:char*
+	Parametro: archIncidencias:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: AUX_CambiarEstadoIn
+	Descripcion: Función auxiliar que imprime los mensajes de información o de error de TGI_CambiarEstadoIn
+	Devuelve: int
+	Parametro: tgi:TGI*
+	Parametro: inci_id:int
+	Parametro: stat_user_id:int
+	Parametro: stat_date:char*
+	Parametro: stat_desc:char*
+	Parametro: archProyectos:char*
+	Parametro: archUsuarios:char*
+	Parametro: archIncidencias:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: nombreTipoInci
+	Descripcion: Dado un enumerado devuelve el nombre correspondiente
+	Devuelve: char*
+	Parametro: aux_inci_type:tipo_inci_t
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: nombrePrioridad
+	Descripcion: Dado un enumerado devuelve el nombre correspondiente
+	Devuelve: char*
+	Parametro: aux_inci_priority:prior_inci_t
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: nombreEstado
+	Descripcion: Dado un enumerado devuelve el nombre correspondiente
+	Devuelve: char*
+	Parametro: aux_stat_desc:stat_inci_t
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: AUX_GetIncidencia
+	Descripcion: Función auxiliar que imprime los mensajes de información o de error de TGI_GetIncidencia
+	Devuelve: void
+	Parametro: tgi:TGI*
+	Parametro: inci_id:int
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: AUX_GetHistorialEstadoIn
+	Descripcion: Función auxiliar que imprime los mensajes de información o de error de TGI_GetHistorialEstadosIn incluyendo la cola de estados
+	Devuelve: void
+	Parametro: tgi:TGI*
+	Parametro: inci_id:int
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: AUX_GetComentariosIn
+	Descripcion: Función auxiliar que imprime los mensajes de información o de error de TGI_GetComentariosIn, incluyendo la cola de comentarios
+	Devuelve: void
+	Parametro: tgi:TGI*
+	Parametro: inci_id:int
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: AUX_GetIncidenciasUsuario
+	Descripcion: Función auxiliar que imprime los mensajes de información o de error de TGI_GetIncidenciasUsuario
+	Devuelve: void
+	Parametro: tgi:TGI*
+	Parametro: inci_user:int
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: AUX_GetIncidenciasProyecto
+	Descripcion: Función auxiliar que imprime los mensajes de información o de error de TGI_GetIncidenciasProyecto
+	Devuelve: void
+	Parametro: tgi:TGI*
+	Parametro: inci_user:int
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: AUX_AgregarUsuario
+	Descripcion: Función auxiliar que imprime los mensajes de información o de error de TGI_AgregarUsuario
+	Devuelve: void
+	Parametro: tgi:TGI*
+	Parametro: user_name:char*
+	Parametro: archProyectos:char*
+	Parametro: archUsuarios:char*
+	Parametro: archIncidencias:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: AUX_AgregarProyecto
+	Descripcion: Función auxiliar que imprime los mensajes de información o de error de TGI_AgregarProyecto
+	Devuelve: void
+	Parametro: tgi:TGI*
+	Parametro: aux_project_name:char*
+	Parametro: archProyectos:char*
+	Parametro: archUsuarios:char*
+	Parametro: archIncidencias:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: AUX_AgregarIncidencia
+	Descripcion: Función auxiliar que imprime los mensajes de información o de error de TGI_AgregarIncidencia
+	Devuelve: void
+	Parametro: tgi:TGI*
+	Parametro: inci_type:tipo_inci_t
+	Parametro: inci_priority:prior_inci_t
+	Parametro: inci_user:int
+	Parametro: inci_assigned_user:int
+	Parametro: inci_date_created:char*
+	Parametro: inci_project_id:int
+	Parametro: inci_summary:char*
+	Parametro: inci_description:char*
+	Parametro: archProyectos:char*
+	Parametro: archUsuarios:char*
+	Parametro: archIncidencias:char*
+	author: Batman
+	see: -
+
+--- funcion ---
+	Nombre: opciones
+	Descripcion: A partir de la opción ingresada, llama a la función correspondiente.
+	Devuelve: int
+	Parametro: argv:char**
+	Parametro: i:int
+	Parametro: archProyectos:char*
+	Parametro: archUsuarios:char*
+	Parametro: archIncidencias:char*
+	author: Batman
+	see: -

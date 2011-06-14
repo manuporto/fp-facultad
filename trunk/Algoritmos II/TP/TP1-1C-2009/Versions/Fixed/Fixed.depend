@@ -1,0 +1,38 @@
+# depslib dependency file v1.0
+1238956029 c:\documents and settings\fepe55\desktop\fixed\getstring.c
+	"getString.h"
+
+1219842168 c:\documents and settings\fepe55\desktop\fixed\getstring.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1238972575 c:\documents and settings\fepe55\desktop\fixed\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"TDA_DocumentoDeCodigo.h"
+
+1238954158 c:\documents and settings\fepe55\desktop\fixed\tda_documentodecodigo.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"var_array.h"
+	"getString.h"
+
+1238867287 c:\documents and settings\fepe55\desktop\fixed\var_array.h
+	<string.h>
+	<stdlib.h>
+
+1238963317 c:\documents and settings\fepe55\desktop\fixed\memdbg.c
+	<stdlib.h>
+	<stdio.h>
+	<malloc.h>
+
+1238980620 c:\documents and settings\fepe55\desktop\fixed\var_array.c
+	"var_array.h"
+	"memdbg.h"
+
+1238975238 c:\documents and settings\fepe55\desktop\fixed\memdbg.h
+	<stdlib.h>
+

@@ -1,0 +1,490 @@
+<HTML>
+<HEAD>
+<TITLE>mic1 Release Notes</TITLE>
+</HEAD>
+<BODY BGCOLOR="white">
+<H1>mic1 Release Notes</H1>
+<P>
+2000/2/29
+<P>
+
+<H3>Version 1.0a</H3>
+<P>
+Initial internal release for review.
+<P>
+
+<H3>Version 1.0b</H3>
+<P>
+The following corrections have been made to previously 
+released software and are available in this release.
+<P>
+
+<OL>
+<LI>
+Display current and next microinstruction in mic1sim. 
+<I>
+-- Fixed.
+</I>
+<P>
+
+<LI>
+Reset doesn't properly clear the text for the current microinstruction
+in mic1sim.  
+<I>
+-- Fixed.
+</I>
+<P>
+
+<LI>
+Clicking the X in the upper right corner has no effect. 
+<I>
+-- Fixed.
+</I>
+<P>
+
+<LI>
+Add "magic number" check to mic1sim for both micro- and 
+macro-programs. 
+<I>
+-- Fixed.
+</I>
+<P>
+
+<LI>
+Add "magic number" to output file from mic1asm.  
+<I>
+-- Fixed.
+</I>
+<P>
+
+<LI>
+Allow case-insensitive interpretation of .jas files. 
+<I>
+-- Fixed.
+Added this to the assembler, ran some tests, worked fine in those tests.
+</I>
+<P>
+
+<LI>
+Allow a main program to have local variables. 
+<I>
+-- Fixed.
+</I>
+<P>
+
+<LI>
+Invalid goto label message in ijvmasm should name the label.
+<I>
+-- Fixed.
+</I>
+<P>
+
+<LI>
+Document language accepted by ijvmasm.
+<I>
+-- Done.
+See <A HREF="jas.html">IJVM Assembler 
+Language Specification</A>
+</I> (<A HREF="jas.html"><TT>jas.html</TT></A>).
+<P>
+
+<LI>
+Omit unix "man" files from unix distribution. 
+<I>
+-- Done.
+</I>
+<P>
+
+<LI>
+Provide a self-extracting archive for Win95/98/NT so that people don't 
+need a separate extraction program.  
+<I>
+-- Done.
+</I>
+<P>
+
+<LI>
+Document language accepted by mic1asm.
+<I>
+-- Done.  
+See <A HREF="mal.html">Micro-Assembly Language (MAL) Specification</A>
+</I>
+(<A HREF="mal.html"><TT>mal.html</TT></A>).
+<P>
+
+<LI>
+Explain why PC starts at 0xFFFFFFFF in mic1sim.
+<I>
+-- Done.  Added to FAQ.
+</I>
+<P>
+
+<LI>
+Explain why nop1 is first microinstruction, not Main1.
+<I>
+-- Done.  Added to FAQ
+</I>
+<P>
+
+<LI>
+Eliminate the need for DOS-level involvement of casual Win95/98/NT users.
+<I>
+-- Done.
+Created a gui front-ends for ijvmasm and mic1asm, gijvmasm, gmic1asm.
+</I>
+<P>
+
+<LI>
+Improve install for Win95/98/NT to simplify autoexec/classpath issues.
+<I>
+-- Done.
+The new install for Win95/98/NT only requires that the users 
+modify a single text file (using NOTEPAD, for example) to indicate
+where the java executable is, and where the classes.zip file is 
+for mic1.   We no longer touch any autoexec.bat file, or modify
+CLASSPATH environment variables which may be used by other java
+programs.
+</I>
+<P>
+
+<LI>
+Change to monospaced font for mic1sim output area "Standard out".
+<I>
+-- Fixed.
+</I>
+<P>
+
+<LI>
+Test install and functionality on SPARC, Linux/intel, Win98, WinNT.
+<I>
+Our development environement includes tests for 
+Linux/Intel, Win95, Win98, and WinNT using various 
+versions of the JDK.  We rely on "beta" testors
+to validate use on Solaris, HP/UX, and other platforms.
+</I>
+<P>
+
+<LI>
+Explain why backspace shouldn't erase in echo.jas.
+<I>
+-- Done.  Added to FAQ.
+</I>
+<P>
+
+<LI>
+Explain that mic1sim, gijvmasm, gmic1asm, require a GUI environment, 
+while the other programs do not. 
+<I>
+-- Done.  Added to FAQ.
+</I>
+<P>
+
+<LI>
+Explain why keyboard input read by the IN instruction doesn't
+show up in "Standard Out".
+<I>
+-- Done.  Added to FAQ.
+</I>
+<P>
+
+<LI>
+Display all hex values in uppercase in mic1sim.
+<I>
+-- Fixed.
+</I>
+<P>
+
+<LI>
+Change the IJVM directive ".varnum" to ".var", and make corresponding
+changes in the documentation and sample programs.
+<I>
+-- Done.
+</I>
+<P>
+
+<LI>
+Default output file type in gijvmasm is incorrect.
+<I>
+-- Fixed.  1999/3/27
+</I>
+<P>
+
+<LI>
+ijvmasm.class seems to be missing from classes.zip.
+<I>
+-- Fixed.  1999/3/27
+</I>
+<P>
+
+</OL>
+
+<H3>Version 1.0c</H3>
+<P>
+The following corrections have been made to previously 
+released software and are available in this release.
+<P>
+
+<OL>
+<LI>
+Add tests for method calls, local variables and constants to ijvmtest.jas.
+<I>
+-- Fixed. 1999/4/11
+</I>
+<P>
+
+<LI>
+Add numbers to sections in user guide.
+<I>
+-- Done. 1999/4/11.
+Also added table of contents to user guide, and MAL spec, and cleaned
+up some formatting in IJVM spec as well.
+</I>
+<P>
+
+<LI>
+Document method calls in IJVM. --
+<I>
+-- Done. 1999/4/11.
+This is described in the IJVM lang spec.  An extended example appears
+in the FAQ.</I>
+<P>
+
+<LI>
+Document constant declarations in IJVM. --
+<I>
+-- Done. 1999/4/11.
+This is in the IJVM lang spec.</I>
+<P>
+
+<LI>
+Document new IJVM instructions IN, OUT, ERR, and HLT. --
+<I>
+-- Done. 1999/4/11.
+These are described in the IJVM language spec.  Examples are 
+given for IN and OUT.
+</I>
+<P>
+
+<LI>
+Document mechanism which allows ijvmasm to declare local variables 
+in the main program.
+<I>
+-- Done. 1999/4/11.
+This is documented in the lang spec, including an example.
+</I>
+<P>
+
+</OL>
+
+<H3>Version 1.0d</H3>
+<P>
+The following corrections have been made to previously 
+released software and are available in this release.
+<P>
+
+<ol>
+<li><tt>ijvmasm</tt>: If a method is declared without any parameters, 
+a nameless parameter is created.  When the method is invoked, a 
+word is popped off the stack to fill this "invisible" parameter.
+<i>
+-- Fixed. 1999/5/17.  Thanks to Luke Dunstan for reporting this bug and 
+providing information that helped quickly track down and fix it.
+</i>
+<P>
+
+<LI><TT>ijvmasm</tt>: Added support for Tom Rothamel's ijvm debugger.
+<I>
+-- 2000/2/29.
+</I>
+<P>
+
+</ol>
+
+<H3>Version 1.0e</H3>
+<P>
+The following corrections have been made to previously 
+released software and are available in this release.
+<P>
+
+<ol>
+<LI>fixed mic1dasm to check for magic number 0x12345678 at
+beginning of input mic1 microcode file.  2000/3/1/.
+<P>
+
+</OL>
+
+<H3>To Do (proposed for the <EM>next</EM> version release)</H3>
+<P>
+Note: A number of the following have been completed in some form
+or another.  We're still in the process of reviewing each
+item before we check them off this list.
+<P>
+
+<OL>
+<LI>
+Document the various file types: *.mic1, *.ijvm, etc.
+<I>
+In the works.
+</I>
+<P>
+
+<LI>
+Change ijvmasm to allow numeric arguments to ILOAD and ISTORE,
+not just variable names declared between ".var" and ".end-var".
+This would require some significant changes to the assembler, 
+but would be more in keeping with Jasmine.  The ".var" directive
+of Jasmine allows you to associate a name with a variable number,
+but all IINC, ILOAD and ISTORE instructions would still reference the
+number (not the name).  
+<P>
+Another complication is that the 
+assembler would need to scan for the maximum variable number of
+all IINC, ILOAD, and ISTORE instructions and consider the number
+of parameters passed, rather than simply count the number of 
+parameters and variables given.  The current approach requires
+that all local variables and parameters get symbolic names.
+<P>
+
+<LI>
+Eliminate "spasticness" in the startup of the simulator.
+<P>
+
+<LI>
+Fix mic1dasm to account for the "magic number" at the beginning
+of the input file.
+<P>
+
+<LI>
+Fix echo.jas to correct non-print-characters being echoed as space.
+<P>
+
+<LI>
+Document add.jas in the user guide to explain how it works.
+<P>
+
+<LI>
+Document echo.jas in the user guide to explain how it works.
+<P>
+
+<LI>
+Modify add.jas to give a message each time through the loop, 
+like  "Please type two numbers, each terminated by ENTER."
+Also, output a blank line before that message again.
+<P>
+
+<LI>
+Eliminate manual page files by combining this information into 
+primary documentation.
+<P>
+
+<LI>
+Explain how to set CLASSPATH on various platforms, and what to
+do if you already have one.
+<P>
+
+<LI>
+The IJVM Assembly Language Specification is perhaps misnamed.
+This includes some specific information about the assembler
+(e.g., ijvm.conf).   We should consider renaming this and the
+MAL Micro-assemply Language Specification.
+<P>
+
+<LI>
+Allow a BELL character to be sent to standard output
+<P>
+
+<LI>
+Create mailing list.
+<!--
+rayo@ontko.com (Ray Ontko),
+dans@ontko.com (Dan Stone),
+ast@cs.vu.nl (Andy Tanenbaum),
+Ana_Terry@prenhall.com (Ana Terry),
+Alan_Apt@prenhall.com (Alan Apt),
+ladrian@cs.sunysb.edu (Adrian Llahana), 
+jmiller@silos.cs.csbsju.edu (John Miller),
+-->
+<P>
+
+</OL>
+
+<H3>To Do (proposed for some future release)</H3>
+<P>
+
+<OL>
+<LI>
+Modify mic1sim to allow memory in the neighborhood of SP, PC, MAR, LV, CPP 
+(or elsewhere) to be displayed, or even modified.
+<I>
+This is mostly just a matter of deciding how to make this intuitive and
+attractive, and then writing the code.  
+</I>
+<B>
+If you have suggestions about
+what it should look like on the screen, or what buttons/menu items/etc
+should be used, send a note to 
+</B>
+Dan Stone (<A HREF="mailto:dans@ontko.com">dans@ontko.com</A>).
+<P>
+
+<LI>
+Rework the Windows install to use an appropriate Windows-style 
+install program.  
+<I>
+Casual users may be better served by having a 
+familiar interface to find the java executable, set up the class
+path, etc.  
+</I>
+<B>
+We will gladly accept help from anyone who is familiar
+with Windows install tools and setting up Java applications under
+Windows 95/98/NT.
+</B>
+<P>
+
+<LI>
+Create a distribution for Macintosh.  
+<I>
+Now that Apple has a stable
+version of the JDK available, it should be reasonable to provide
+a distribution.  Now all we have to do is figure out how to do 
+binhex or whatever to do an install there.  
+</I>
+<B>
+We will gladly
+accept help from anyone who knows the Mac environment well
+and understands the issues of installing and running Java 
+software on a the Mac.
+</B>
+<P>
+
+<LI>
+Support multiple documentation file formats: html, ps, ascii, etc.
+<I>
+Our plan here is to convert the existing files to SGML, and then
+generate an appropriate collection of printable, browsable, viewable
+documents from a single source.  
+</I>
+<B>
+We will gladly accept help
+from anyone who knows SGML to get us started down this path.
+</B>
+<P>
+
+<LI>
+Set up bug tracking system: gnats vs. debian bug reporting system.
+<B>
+If you have experience with either of these systems (or any other
+free bug tracking system) and have an opinion about its suitability
+for the mic1 project, please send a note to 
+</B>
+Ray Ontko (<A HREF="mailto:rayo@ontko.com">rayo@ontko.com</A>).
+<P>
+
+</OL>
+<P>
+This page maintained by <A HREF="http://www.ontko.com/~rayo/">Ray Ontko</A>
+(<A HREF="mailto:rayo@ontko.com"><I>rayo@ontko.com</I></A>).
+</BODY>
+</HTML>
+

@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1238790779 source:c:\documents and settings\bright eyes\escritorio\nueva carpeta (2)\tests\gstring\gstringtest\getstring.c
+	"getString.h"
+
+1219842168 c:\documents and settings\bright eyes\escritorio\nueva carpeta (2)\tests\gstring\gstringtest\getstring.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1238808722 source:c:\documents and settings\bright eyes\escritorio\nueva carpeta (2)\tests\gstring\gstringtest\main.c
+	<stdio.h>
+	<stdlib.h>
+	"getString.h"
+

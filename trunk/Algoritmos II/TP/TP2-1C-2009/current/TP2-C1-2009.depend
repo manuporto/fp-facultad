@@ -1,0 +1,229 @@
+# depslib dependency file v1.0
+1240671339 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.01\listasimple.c
+	"LISTASIMPLE.h"
+	<malloc.h>
+	<memory.h>
+
+1240670799 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.01\listasimple.h
+
+1240687867 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.01\tin_incidencia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"TIN_Incidencia.h"
+	"LISTASIMPLE.h"
+	"COLA.h"
+
+1240687843 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.01\tin_incidencia.h
+	<stdio.h>
+	<stdlib.h>
+	"COLA.h"
+
+1240670328 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.01\cola.h
+
+1240670624 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.01\cola.c
+	"COLA.h"
+	<malloc.h>
+	<memory.h>
+
+1240698117 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.01\main.c
+	<stdio.h>
+	<stdlib.h>
+	"TGI_GestorIncidencias.h"
+
+1240693192 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.01\tgi_gestorincidencias.h
+	<stdio.h>
+	<stdlib.h>
+	"TIN_Incidencia.h"
+	"LISTASIMPLE.h"
+
+1240698194 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.01\tgi_gestorincidencias.c
+	"TGI_GestorIncidencias.h"
+
+1240671339 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\listasimple.c
+	"LISTASIMPLE.h"
+	<malloc.h>
+	<memory.h>
+
+1240670799 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\listasimple.h
+
+1240670624 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\cola.c
+	"COLA.h"
+	<malloc.h>
+	<memory.h>
+
+1240670328 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\cola.h
+
+1241129047 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\tgi_gestorincidencias.c
+	"TGI_GestorIncidencias.h"
+
+1241130103 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\tgi_gestorincidencias.h
+	<stdio.h>
+	<stdlib.h>
+	"TIN_Incidencia.h"
+	"LISTASIMPLE.h"
+
+1241124126 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\tin_incidencia.h
+	<stdio.h>
+	<stdlib.h>
+	"COLA.h"
+	"PILA.h"
+
+1241126890 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\tin_incidencia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"TIN_Incidencia.h"
+	"LISTASIMPLE.h"
+	"COLA.h"
+	"PILA.h"
+
+1241129084 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"TGI_GestorIncidencias.h"
+
+1241116543 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\pila.c
+	"Pila.h"
+	<malloc.h>
+	<memory.h>
+
+1241124097 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\pila.h
+
+1241126434 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\auxiliar.c
+	"auxiliar.h"
+
+1241126463 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\v0.1\auxiliar.h
+
+1241378965 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\listasimple.c
+	"LISTASIMPLE.h"
+	<malloc.h>
+	<memory.h>
+
+1241389869 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\listasimple.h
+	"cmemdbg.h"
+
+1241116543 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\pila.c
+	"Pila.h"
+	<malloc.h>
+	<memory.h>
+
+1241389869 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\pila.h
+	"cmemdbg.h"
+
+1241390885 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\tgi_gestorincidencias.c
+	"TGI_GestorIncidencias.h"
+	<io.h>
+	<conio.h>
+
+1241389869 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\tgi_gestorincidencias.h
+	<stdio.h>
+	<stdlib.h>
+	"TIN_Incidencia.h"
+	"LISTASIMPLE.h"
+	"constantes.h"
+	"cmemdbg.h"
+
+1241390409 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\tin_incidencia.h
+	<stdio.h>
+	<stdlib.h>
+	"COLA.h"
+	"PILA.h"
+	<string.h>
+	"LISTASIMPLE.h"
+	"constantes.h"
+	"cmemdbg.h"
+
+1241389869 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\cola.h
+	"cmemdbg.h"
+
+1241382409 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\constantes.h
+
+1241382325 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\auxiliar.c
+	"auxiliar.h"
+
+1241389869 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\auxiliar.h
+	"TGI_GestorIncidencias.h"
+	"TIN_Incidencia.h"
+	"constantes.h"
+	"cmemdbg.h"
+
+1240670624 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\cola.c
+	"COLA.h"
+	<malloc.h>
+	<memory.h>
+
+1241389756 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\main.c
+	<stdio.h>
+	<stdlib.h>
+	"auxiliar.h"
+	"constantes.h"
+	"cmemdbg.h"
+
+1241391037 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\tin_incidencia.c
+	"TIN_Incidencia.h"
+
+1240671339 source:c:\documents and settings\bright eyes\escritorio\v0.4\current\listasimple.c
+	"LISTASIMPLE.h"
+	<malloc.h>
+	<memory.h>
+
+1241198833 c:\documents and settings\bright eyes\escritorio\v0.4\current\listasimple.h
+
+1241116543 source:c:\documents and settings\bright eyes\escritorio\v0.4\current\pila.c
+	"Pila.h"
+	<malloc.h>
+	<memory.h>
+
+1241124097 c:\documents and settings\bright eyes\escritorio\v0.4\current\pila.h
+
+1241308656 source:c:\documents and settings\bright eyes\escritorio\v0.4\current\tin_incidencia.c
+	"TIN_Incidencia.h"
+
+1241202057 c:\documents and settings\bright eyes\escritorio\v0.4\current\tin_incidencia.h
+	<stdio.h>
+	<stdlib.h>
+	"COLA.h"
+	"PILA.h"
+	<string.h>
+	"LISTASIMPLE.h"
+	"constantes.h"
+
+1240670328 c:\documents and settings\bright eyes\escritorio\v0.4\current\cola.h
+
+1241293730 c:\documents and settings\bright eyes\escritorio\v0.4\current\constantes.h
+
+1241309968 source:c:\documents and settings\bright eyes\escritorio\v0.4\current\auxiliar.c
+	"auxiliar.h"
+
+1241217843 c:\documents and settings\bright eyes\escritorio\v0.4\current\auxiliar.h
+	"TGI_GestorIncidencias.h"
+	"TIN_Incidencia.h"
+	"constantes.h"
+
+1241284967 c:\documents and settings\bright eyes\escritorio\v0.4\current\tgi_gestorincidencias.h
+	<stdio.h>
+	<stdlib.h>
+	"TIN_Incidencia.h"
+	"LISTASIMPLE.h"
+	"constantes.h"
+
+1241217806 source:c:\documents and settings\bright eyes\escritorio\v0.4\current\main.c
+	<stdio.h>
+	<stdlib.h>
+	"auxiliar.h"
+	"constantes.h"
+
+1240670624 source:c:\documents and settings\bright eyes\escritorio\v0.4\current\cola.c
+	"COLA.h"
+	<malloc.h>
+	<memory.h>
+
+1241389770 c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\cmemdbg.h
+	<stdlib.h>
+
+1241389739 source:c:\fepe\facultad\algoritmos ii\tp\tp2-1c-2009\current\cmemdbg.c
+	<stdlib.h>
+	<stdio.h>
+	<malloc.h>
+

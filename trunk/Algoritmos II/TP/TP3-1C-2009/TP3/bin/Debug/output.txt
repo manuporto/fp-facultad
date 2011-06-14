@@ -1,0 +1,12 @@
+Linea 1:  x>(cosx)
+Linea 2:  x>(-1*(sinx))
+Linea 3:   >(cosx)
+Linea 4:  x>(-1*(sinx))
+Linea 5:  >(cosx)
+Linea 6:  x>(-1*(sinx))
+Linea 7:  x>(cosx)
+Linea 8:  x>(-1*(sinx))
+Linea 9:  x>2
+Linea 10:  1
+Linea 11:  2
+Linea 12:  1

@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="es">
+<head>
+ <title>Ayuda de OrdWin 1.0</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+ <link rel="stylesheet" href="ord_win.css" media="screen" type="text/css">
+</head>
+
+<body>
+ <h1>Ayuda de OrdWin 1.0</h1>
+ <h2>Contenidos:</h2>
+ <ol>
+  <li><a href="#quees">¿Qué es OrdWin?</a></li>
+  <li><a href="#utilizacion">Utilizaci&oacute;n</a></li>
+  <li><a href="#codigo">Sobre el c&oacute;digo</a></li>
+ </ol>
+ 
+ <div>
+  <a id="quees"></a>
+  <h2>1. ¿Qué es OrdWin?</h2>
+  <p>OrdWin es un programa de demostraci&oacute;n de algoritmos de ordenamiento. 
+    En él puedes ver en acción distintas técnicas, el tiempo que demoran, cómo trabajan
+    y además realizar pruebas de rendimiento con listas del tamaño que quieras.</p>
+ </div>
+ 
+ <div>
+  <a id="utilizacion"></a>
+  <h2>2. Utilización</h2>
+  <p>La ventana principal del programa luce así:</p>
+  <div class="imagen">
+   <img alt="La ventana principal" src="general.jpg" height="460" width="600">
+  </div>
+  <p>Hay tres partes importantes: el menú, donde puedes acceder a las distintas funciones
+    del programa, el área de dibujo, donde se muestran las barras y se ejecutan las
+    demostraciones gráficas, y la barra de estado, donde se muestra información importante
+    y estadísticas durante la ejecución de cada demostración.</p>
+  
+  <p>Para iniciar una demostración elígela desde el menú Algoritmo:</p> 
+  <div class="imagen">
+   <img alt="El menú de algoritmos: selecciona uno para ver el correspondiente demo"
+        src="menu_alg.jpg" height="125" width="210">
+  </div>
+  
+  <p>En el menú de opciones se encuentra el ítem Desordenar, que, como indica su nombre,
+    desordena las barras y las dibuja nuevamente en la ventana. Puede ser útil si quieres
+    ver repetidamente alguna demostración.  
+  <div class="imagen">
+   <img alt="El menú de opciones" src="opciones.jpg" height="105" width="159">
+  </div>
+  
+  <p>Para cambiar el intervalo de pausa (el tiempo que espera el programa entre un
+    movimiento de las barras y otro) selecciona el ítem correspondiente en el menú de
+    opciones. Si la demostración corre muy rápido o deseas que lo haga más lento aumenta
+    el intervalo, y si quieres que vaya más deprisa disminúyelo:</p>
+  <div class="imagen">
+   <img alt="Aquí puedes cambiar el intervalo de pausa"
+        src="pausa.jpg" height="139" width="265">
+  </div>
+  
+  <p>Para ver las estadísticas (tiempo, comparaciones e intercambios) de los algoritmos
+    utilizados hasta el momento selecciona el ítem Estadísticas. Verás el siguiente
+    cuadro:</p>
+  <div class="imagen">
+   <img alt="Las estadísticas de los algoritmos probados"
+        src="estadist.jpg" height="253" width="455">
+  </div>
+  <p>Las estadísticas se borran si, al haber probado todos los algoritmos, se ejecuta
+    alguno otra vez.</p>
+  
+  <p>Para realizar una prueba de rendimiento ve a Rendimiento y selecciona el ítem Prueba
+    de Rendimiento:</p>
+  <div class="imagen">
+   <img alt="Selecciona este menú para realizar la prueba de rendimiento"
+        src="menu_prend.jpg" height="78" width="218">
+  </div>
+  
+  <p>Al hacerlo verás el siguiente diálogo:</p>
+  <div class="imagen">
+   <img alt="En este cuadro se realiza la prueba de rendimiento"
+        src="prend.jpg" height="347" width="500">
+  </div>
+  <p>Al presionar Comenzar se inicia la prueba. A medida que se completa cada algoritmo el
+    nombre va apareciendo en la lista, además del tiempo que se demoró, las comparaciones
+    y los intercambios que hizo.</p>
+  <p>Para generar nuevamente los elementos de la lista (con el mismo tamaño) presiona
+    Generar.</p>
+  <p>Para cerrar el diálogo presiona Cerrar.</p>
+  <p>Si quieres aumentar o disminuir la cantidad de elementos de la lista a ordenar,
+    ingresa la cantidad en el espacio indicado, y luego presiona Cambiar. Si no presionas
+    Cambiar la lista seguirá teniendo el mismo tamaño. Ten cuidado al elegir una cantidad
+    muy grande, porque si tu computador es lento el proceso podría tardar un tiempo
+    considerable. El máximo tamaño permitido es 32000 elementos.</p>
+  
+  <p>Para ver la descripción de algún algoritmo ve a Ayuda/Algoritmos de Ordenamiento y
+    elige el que quieras:</p>
+  <div class="imagen">
+   <img alt="El menú de ayuda" src="ayuda.jpg" height="145" width="403">
+  </div>
+ </div>
+ 
+ <div>
+  <a id="codigo"></a>
+  <h2>3. Sobre el código</h2>
+  <p>El directorio recomendado para descomprimir el fichero es C:\DevProgs\Ord_Win\, porque
+    de esa manera se puede compilar sin cambios el proyecto.</p>
+  <p>Si utilizas otro directorio deberás configurar el fichero OrdWin.dev y el fichero
+    de recursos, reemplazando los paths donde corresponda. Los pasos son:</p>    
+  <ul>
+   <li>Abrir OrdWin.dev con un editor de texto plano (como el Notepad de Windows). Entre
+     otras cosas verás esto:
+   <pre>
+  [Project]
+  FileName=C:\DevProgs\Ord_Win\Codigo\OrdWin.dev
+  ResFiles=C:\DevProgs\Ord_Win\Codigo\ord_winres.rc
+  Icon=C:\DEV-C++\Bin\Mainicon.ico
+
+  [Unit1]
+  FileName=C:\DevProgs\Ord_Win\Codigo\Ord_Win.c
+
+  [Unit2]
+  FileName=C:\DevProgs\Ord_Win\Codigo\Demo.c
+
+  [Unit3]
+  FileName=C:\DevProgs\Ord_Win\Codigo\p_rend.c</pre></li>
+
+   <li>Reemplazar cada referencia a C:\DevProgs\Ord_Win\Codigo\ por el nombre del
+    directorio donde pusiste el proyecto.</li>
+   <li>Reemplazar cada referencia a C:\DEV-C++\Bin\ por el nombre del directorio en que
+    instalaste el compilador.</li> 
+   <li><p>Abrir ord_winres.rc. En la línea:</p>
+     <p>IDICONOPRINC ICON "C:/DevProgs/Ord_Win/Codigo/ord_win.ico"</p>
+     <p>cambiar C:/DevProgs/Ord_Win por el nombre del directorio en que descomprimiste el
+     archivo.</p></li>
+  </ul>
+  <p>Para más información mira léeme.txt. </p>
+ </div>
+ 
+ <hr>
+ <div><p>Página: <a href="http://www.conclase.net">C con Clase</a> - 
+   Contacto: <a href="mailto:jhida003@pinhue.ufro.cl">jhida003@pinhue.ufro.cl</a></p>
+ </div>
+</body>
+</html>

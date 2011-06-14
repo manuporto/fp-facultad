@@ -1,0 +1,81 @@
+---------------------------------------------------------------------
+Mon Apr 19 17:35:52 2010
+
+Exception code: C0000005
+Exception addr: 00419A3A
+Access violation (read access) at 00000030
+EAX:00000018	EBX:831DB54F	ECX:04FC04DC	EDX:04FB9C10
+ESI:00000008	EDI:00521860	EBP:00521860	ESP:000CF93C
+EIP:00419A3A	EFL:00010206
+FP Control: 0000027F
+FP Status:  00004020
+FP Tag:     0000FFFF
+
+
+Hardware information: 
+	Manufacturer: Unknown
+	Model: Unknown
+	Number of processors: 4
+	Page size: 4096
+
+Memory Information (upon launch):
+	Physical Memory Size: 4193336 kbytes
+	Physical Memory Free: 1092640 kbytes
+	Page File Size: 4194303 kbytes
+	Page File Free: 4194303 kbytes
+	Virtual Memory Size: 2097024 kbytes
+	Virtual Memory Free: 2030244 kbytes
+	Memory Load: 73 percent
+
+Processor 0: Intel(R) Core(TM)2 Quad  CPU   Q8200  @ 2.33GHz
+	Identifier: Intel64 Family 6 Model 23 Stepping 7
+	~MHZ: 2333
+
+Processor 1: Intel(R) Core(TM)2 Quad  CPU   Q8200  @ 2.33GHz
+	Identifier: Intel64 Family 6 Model 23 Stepping 7
+	~MHZ: 2333
+
+Processor 2: Intel(R) Core(TM)2 Quad  CPU   Q8200  @ 2.33GHz
+	Identifier: Intel64 Family 6 Model 23 Stepping 7
+	~MHZ: 2333
+
+Processor 3: Intel(R) Core(TM)2 Quad  CPU   Q8200  @ 2.33GHz
+	Identifier: Intel64 Family 6 Model 23 Stepping 7
+	~MHZ: 2333
+
+Operating System: Windows 7 Ultimate (Build 7600 )
+	Registered Owner: Microsoft
+	Registered Company: Microsoft
+	SP major version: 0
+	SP minor version: 0
+	Suite mask: 100
+	Product type: 1
+
+Display Information: 
+	Graphics adapter name: NVIDIA GeForce 9800 GTX/9800 GTX+ (Microsoft Corporation - WDDM v1.1)
+	Primary monitor resolution: 1920 x 1080
+
+Device: RDPDD Chained DD
+	Adapter String: ???
+	Bios String: ???
+	Chip Type: ???
+	DAC Type: ???
+	Memory Size: 0xFFFFFFFF
+
+Driver Versions:
+	RDPDD: 
+
+VM Version: Pharo3.11.8 (release) from Mar 11 2010
+
+Current byte code: 209
+Primitive index: 70
+
+Loaded plugins:
+	SocketPlugin 10 March 2010 (i)
+	LargeIntegers v1.5 10 March 2010 (i)
+	FT2Plugin 10 March 2010 (e)
+	B2DPlugin 10 March 2010 (i)
+	BitBltPlugin 10 March 2010 (i)
+	SecurityPlugin 10 March 2010 (i)
+	FilePlugin 10 March 2010 (i)
+	MiscPrimitivePlugin 10 March 2010 (i)
