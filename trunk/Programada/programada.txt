@@ -1,0 +1,55 @@
+![ENTRADA]:	(MSB)...RESET,HAY_AGUA,N_MAX,N_MIN (LSB)
+![SALIDA]:	(MSB)...MOTOR,LUZ_ROJA,LUZ_AMARILLA (LSB)
+
+					.begin
+					.org 2048
+
+LECTURA:			ld		[ENTRADA],%r1	! Guardo en %r1 lo que leo de la entrada
+					andcc	%r1,8,%r2		! %r2 <- (%r1 AND 8), enmascaro el bit del nivel mínimo. Si da 1, es porque está apretado el botón de reset
+					be		COMPARO_N_MIN	! Si no está apretado el RESET, sigo viendo los demás bits de la entrada.
+					ba		RESET
+
+COMPARO_N_MIN:		andcc	%r1,1,%r2		! Enmascaro el bit del nivel mínimo. Si da 1, es porque el agua se encuentra por debajo del nivel mínimo.
+					be		COMPARO_N_MAX	! Si el agua no está por debajo del nivel mínimo, comparo el nivel máximo
+					ba		N_MIN			! sino, apago el motor
+
+COMPARO_N_MAX:		andcc	%r1,2,%r2		! Enmascaro el bit del nivel máximo. Si da 1, es porque se superó el nivel máximo.
+					bne		APAGO_MOTOR		! Se superó el nivel máximo, entonces apago el motor
+					ba		LECTURA			! Si no se superó, vuelvo a leer esperando cambios.
+
+RESET:				st		%r0,[SALIDA]	! Apago el motor y todas las luces
+					ba		LECTURA
+
+N_MIN:				andcc	%r1,4,%r2		! Enmascaro el bit de HAY_AGUA. Si da 1, es porque no se pasó el límite inferior del agua en el reservorio
+					be		PRENDO_LUZ_ROJA	! Si no hay agua, prendo la luz roja.
+					ba		PRENDO_MOTOR	! Si hay agua, y se alcanzó el nivel mínimo, prendo el motor
+
+PRENDO_MOTOR:		or		%r0,4,%r3		! Prendo el motor
+					st		%r3,[SALIDA]	! Y luego lo mando a la salida
+					and		%r4,%r0,%r4		! Inicializo el registro que voy a utilizar como contador
+CONTADOR:			subcc	%r4,8_MIN,%r0	! Comparo el estado del contador, con el número equivalente a 8 minutos					
+					be		PRENDO_LUZ_AMARILLA ! Se cumplieron los 8 minutos, prendo la luz amarilla
+					ld		[ENTRADA],%r1	! Cargo la entrada
+					andcc	%r1,8,%r2		! Enmascaro el bit de reseteo
+					bne		RESET			! Si se apretó el reset, reseteo
+					andcc	%r1,2,%r2		! Enmascaro el bit del nivel máximo
+					bne		APAGO_MOTOR		! Si se alcanzó el nivel máximo, apago el motor
+					add		%r4,1,%r4		! Si no pasó ninguna de esas cosas, sumo uno al contador
+					ba		CONTADOR		! Y vuelvo a comenzar el ciclo
+
+APAGO_MOTOR:		st		%r0,[SALIDA]	! Apago el motor
+					ba		LECTURA
+
+PRENDO_LUZ_ROJA:	add		%r0,2,%r3		! Prendo la luz roja.
+					st		%r3,[SALIDA]	! Y luego lo mando por la salida
+					ba		LECTURA
+
+PRENDO_LUZ_AMARILLA:add		%r0,1,%r3		! Prendo la luz amarilla (y apago el motor).
+					st		%r3,[SALIDA]	! Y luego lo mando por la salida
+					ba		LECTURA
+
+ENTRADA:			0x05000000
+SALIDA:				0x06000000
+8_MIN				.equ 0x1FCA0555			! Micro de 20 MHz, se realizan 8 operaciones y 1 acceso a memoria (18 ciclos).
+
+					.end
