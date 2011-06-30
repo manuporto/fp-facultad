@@ -1,0 +1,98 @@
+(ARCTools Version 2.1.2)
+ HexLoc     DecLoc    MachWord   Label        Instruction                Comment
+                                                                         
+                                                                         
+                                              .org 2048                  
+                                                                         
+                                              .equ 0x05000000            
+                                              .equ 0x06000000            
+                                              .equ 0x4F790BE0            
+                                                                         ! Micro de 50 MHz, se realizan 8 operaciones y 1 acceso a memoria (18 ciclos).
+                                                                         ! 1 operación se hace en 1/50 * 10^6 segundos.
+                                                                         ! Un ciclo del contador, en 18/50 * 10^6 segundos.
+                                                                         ! Entonces, 8 min = 480 segundos equivalen a (480*50 / 18) * 10^6 ciclos
+                                                                         
+00000800  0000002048  10800029                ba 41                      
+                                                                         
+00000804  0000002052  c201c000  LECTURA:      ld %r7, %r1                ! Guardo en %r1 lo que leo de la entrada.
+00000808  0000002056  84886008                andcc %r1, 8, %r2          ! %r2 <- (%r1 AND 8), enmascaro el bit del botón RESET. Si da 1, es porque está apretado.
+0000080c  0000002060  02800002                be 2                       ! Si no está apretado el RESET, sigo viendo los demás bits de la entrada.
+00000810  0000002064  10800007                ba 7                       ! Si está apretado, reseteo.
+                                                                         
+00000814  0000002068  84886001  COMPARO_N_MIN:  andcc %r1, 1, %r2          ! Enmascaro el bit del nivel mínimo. Si da 1, es porque el agua se encuentra por debajo del nivel mínimo.
+00000818  0000002072  02800002                be 2                       ! Si el agua no está por debajo del nivel mínimo, comparo el nivel máximo,
+0000081c  0000002076  10800006                ba 6                       ! sino, actúo de acuerdo a este evento.
+                                                                         
+00000820  0000002080  84886002  COMPARO_N_MAX:  andcc %r1, 2, %r2          ! Enmascaro el bit del nivel máximo. Si da 1, es porque se superó el nivel máximo.
+00000824  0000002084  12800015                bne 21                     ! Se superó el nivel máximo, entonces apago el motor.
+00000828  0000002088  10bffff7                ba -9                      ! Si no se superó, vuelvo a leer esperando cambios.
+                                                                         
+0000082c  0000002092  c0220000  RESET:        st %r0, %r8                ! Apago el motor y todas las luces.
+00000830  0000002096  10bffff5                ba -11                     ! Vuelvo a comenzar.
+                                                                         
+00000834  0000002100  84886004  N_MIN:        andcc %r1, 4, %r2          ! Enmascaro el bit de HAY_AGUA. Si da 1, es porque no se pasó el límite inferior del agua en el reservorio.
+00000838  0000002104  02800012                be 18                      ! Si no hay agua, prendo la luz roja.
+0000083c  0000002108  10800001                ba 1                       ! Si hay agua, y se alcanzó el nivel mínimo, prendo el motor.
+                                                                         
+00000840  0000002112  8888e004  PRENDO_MOTOR:  andcc %r3, 4, %r4          ! Enmascaro el bit correspondiente al motor.
+00000844  0000002116  12800004                bne 4                      ! Si ya estaba prendido, salto al contador para evitar reiniciar %r5.
+00000848  0000002120  86102004                or %r0, 4, %r3             ! Sino, armo %r3,
+0000084c  0000002124  c6220000                st %r3, %r8                ! y luego lo mando a la salida, prendiendo el motor.
+00000850  0000002128  8a094000                and %r5, %r0, %r5          ! Inicializo el registro que voy a utilizar como contador.
+00000854  0000002132  80a18005  CONTADOR:     subcc %r6, %r5, %r0        ! Comparo el estado del contador, con el número equivalente a 8 minutos.
+00000858  0000002136  0280000d                be 13                      ! Si se cumplieron los 8 minutos, prendo la luz amarilla.
+0000085c  0000002140  c201c000                ld %r7, %r1                ! Sino, cargo la entrada,
+00000860  0000002144  84886008                andcc %r1, 8, %r2          ! y enmascaro el bit de RESET.
+00000864  0000002148  12bffff2                bne -14                    ! Si se apretó el RESET, reseteo.
+00000868  0000002152  84886002                andcc %r1, 2, %r2          ! Sino, enmascaro el bit del nivel máximo.
+0000086c  0000002156  12800003                bne 3                      ! Si se alcanzó el nivel máximo, apago el motor.
+00000870  0000002160  8a016001                add %r5, 1, %r5            ! Si no pasó ninguna de esas cosas, incremento el contador,
+00000874  0000002164  10bffff8                ba -8                      ! y vuelvo a comenzar el ciclo.
+                                                                         
+00000878  0000002168  c0220000  APAGO_MOTOR:  st %r0, %r8                ! Apago el motor.
+0000087c  0000002172  10bfffe2                ba -30                     
+                                                                         
+00000880  0000002176  86002002  PRENDO_LUZ_ROJA:  add %r0, 2, %r3            ! Prendo la luz roja.
+00000884  0000002180  c6220000                st %r3, %r8                ! Y luego lo mando por la salida.
+00000888  0000002184  10bfffdf                ba -33                     
+                                                                         
+0000088c  0000002188  86002001  PRENDO_LUZ_AMARILLA:  add %r0, 1, %r3            ! Prendo la luz amarilla (y apago el motor).
+00000890  0000002192  c6220000                st %r3, %r8                ! Y luego lo mando por la salida.
+00000894  0000002196  c201c000  ESPERO_RESET:  ld %r7, %r1                ! Cargo la entrada,
+00000898  0000002200  84886008                andcc %r1, 8, %r2          ! y enmascaro el bit de RESET.
+0000089c  0000002204  02bfffe4                be -28                     ! Si se apretó, reseteo todo.
+000008a0  0000002208  10bffffd                ba -3                      ! Sino, espero. Ya que de esta situación sólo se sale al apretar RESET.
+                                                                         
+000008a4  0000002212  82080001  INICIALIZACION:  and %r0, %r1, %r1          ! Inicializo en 0 el registro %r1.
+000008a8  0000002216  84080002                and %r0, %r2, %r2          ! Inicializo en 0 el registro %r2.
+000008ac  0000002220  86080003                and %r0, %r3, %r3          ! Inicializo en 0 el registro %r3.
+000008b0  0000002224  88080004                and %r0, %r4, %r4          ! Inicializo en 0 el registro %r4.
+000008b4  0000002228  8a080005                and %r0, %r5, %r5          ! Inicializo en 0 el registro %r5.
+000008b8  0000002232                          save_32 1333332960, %r6    
+000008b8  0000002232  0d13de42                sethi 1302082, %r6         
+000008bc  0000002236  8c11a3e0                or %r6, -62496, %r6        
+000008c0  0000002240                          save_32 83886080, %r7      
+000008c0  0000002240  0f014000                sethi 81920, %r7           
+000008c4  0000002244  8e11e000                or %r7, -16777216, %r7     
+000008c8  0000002248                          save_32 100663296, %r8     
+000008c8  0000002248  11018000                sethi 98304, %r8           
+000008cc  0000002252  90122000                or %r8, -33554432, %r8     
+000008d0  0000002256  10bfffcd                ba -51                     
+                                                                         
+
+--- Symbol Table ---
+COMPARO_N_MIN: 2068
+PRENDO_LUZ_ROJA: 2176
+PRENDO_MOTOR: 2112
+APAGO_MOTOR: 2168
+ENTRADA: 83886080
+RESET: 2092
+CONTADOR: 2132
+8_MIN: 1333332960
+N_MIN: 2100
+COMPARO_N_MAX: 2080
+SALIDA: 100663296
+ESPERO_RESET: 2196
+PRENDO_LUZ_AMARILLA: 2188
+LECTURA: 2052
+INICIALIZACION: 2212
