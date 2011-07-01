@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jnlp codebase="http://neuroph.sourceforge.net/webstart" href="launch.jnlp" spec="1.0+">
+    <information>
+        <title>easyNeurons</title>
+        <vendor>Neuroph Project</vendor>
+        <homepage href="http://neuroph.sourceforge.net"/>
+        <description>Java Neural Network Editor</description>
+        <description kind="short">easyNeurons</description>
+
+
+    <offline-allowed/>
+</information>
+<security>
+<all-permissions/>
+</security>
+    <resources>
+<j2se version="1.6+"/>
+<jar eager="true" href="easyNeurons.jar" main="true"/>
+
+
+    <jar href="lib/neuroph.jar"/>
+<jar href="lib/commons-io-1.3.2.jar"/>
+<jar href="lib/jh.jar"/>
+<jar href="lib/xstream-1.3.1.jar"/>
+<jar href="lib/org-netbeans-modules-java-j2seproject-copylibstask.jar"/>
+<jar href="lib/colt-1.2.0.jar"/>
+<jar href="lib/collections-generic-4.01.jar"/>
+<jar href="lib/jung-algorithms-2.0.jar"/>
+<jar href="lib/jung-api-2.0.jar"/>
+<jar href="lib/jung-graph-impl-2.0.jar"/>
+<jar href="lib/jung-visualization-2.0.jar"/>
+<jar href="lib/appframework-1.0.3.jar"/>
+<jar href="lib/swing-worker-1.1.jar"/>
+<jar href="lib/AbsoluteLayout.jar"/>
+</resources>
+    <application-desc main-class="org.neuroph.easyneurons.EasyNeuronsApplication">
+
+    </application-desc>
+</jnlp>
