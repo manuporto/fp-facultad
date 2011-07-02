@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ListaDeEnteros" default="test" basedir="." >
+
+	<property name="src" location="src" />
+	<property name="bin" location="bin" />
+
+	<target name="clean">
+		<delete quiet="true" dir="${bin}" />
+	</target>
+
+	<target name="makedir" depends="clean">
+		<mkdir dir="${bin}" />
+	</target>
+
+
+	<target name="build" description="--> compila" depends="makedir">
+		<javac srcdir="${src}" destdir="${bin}" target="1.4" source="1.4" >
+			<classpath path="${src}/junit.jar" />
+			<compilerarg value="-Xlint"/>
+		</javac>
+	</target>
+
+	<target name="test" description="--> pruebas" depends="build">
+		<junit>
+			<test name="ListaDeEnterosTests" />
+			<classpath>
+				<path location="${src}/junit.jar" />  
+				<path location="${bin}" />  
+			</classpath>
+			<formatter type="brief"	usefile="false" /> 
+		</junit>
+	</target>
+</project>
