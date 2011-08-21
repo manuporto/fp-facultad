@@ -1,0 +1,17 @@
+Materias
+¯¯¯¯¯¯¯¯
+(66.20) Organización de Computadoras - Curso 2
+(75.06) Organización de Datos - Curso 2
+(75.26) Simulación - Curso 1
+
+
+Horarios
+¯¯¯¯¯¯¯¯
+Lunes 16 a 19 - Computadoras. Teórica
+Lunes 19 a 22 - Datos. Teórico-práctica
+Martes 19 a 21 - Simulación. Desarrollo y consulta
+Miércoles 19 a 22 - Datos. Teórico-práctica
+Miércoles 19 a 23 - Simulación. Teórico-práctica
+Jueves 19 a 22 - Computadoras. Teórico-Práctica
+
+Fallback: (71.14) Modelos y Optimización I

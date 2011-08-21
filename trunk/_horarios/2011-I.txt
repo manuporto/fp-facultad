@@ -1,0 +1,10 @@
+75.23 Curso 1 - Inteligencia Artificial. Viernes 7 a 9. Viernes 19 a 23.
+66.70 Curso 1 - Estructura del Computador. Martes 16 a 19. Miércoles 19 a 22.
+66.02 Curso 1 - Labo. Lunes 19 a 22. Jueves 19 a 22.
+
+Lunes 19 a 22		L6	Laboratorio [Práctica]
+Martes 16 a 19		313	Estructura [Teórica]
+Miércoles 19 a 22	211-C	Estructura [Práctica]
+Jueves 19 a 22		418	Laboratorio [Teórica]
+Viernes 7 a 9		414	Inteligencia [DC]
+Viernes 19 a 23		411	Inteligencia [Teórico-Práctica]
